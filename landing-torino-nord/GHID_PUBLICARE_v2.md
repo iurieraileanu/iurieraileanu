@@ -18,8 +18,9 @@
 Galeria celor 250 mp de spații, cu lightbox · modulul de închiriere a sălilor · secțiunea YouTube cu
 ambele canale ale școlii și șase playlisturi · trimiteri video în fișele Balet, Dans de caracter și
 Dansuri internaționale · palmaresul Ansamblului Vatra și al Grupului Elle · portretele reale ale celor
-șase instructori, în locul monogramelor · Pilates cu instructor numit · schema extinsă cu dotarea
-sălilor și cele două oferte de serviciu.
+șase instructori, în locul monogramelor · Pilates cu instructor numit · data primei lecții pe fiecare
+grupă și mesajul „înscrieri deschise tot anul" · schema extinsă cu dotarea sălilor și cele două oferte
+de serviciu.
 
 ---
 
@@ -165,8 +166,27 @@ Padului și Bujorii de la Prut nu au playlist propriu. Responsabil: Ioan Unguria
 
 ## Ce rămâne de decis
 
-1. **Datele primei lecții** pentru fiecare grupă. Pagina trimite corect pe WhatsApp, dar o dată fermă crește conversia.
-2. **Grupele de căluș pe vârste** — tabelul de abonamente are o singură linie, miercuri 19:30–20:30.
+1. **Grupele de căluș pe vârste** — tabelul de abonamente are o singură linie, miercuri 19:30–20:30.
+
+## Datele primei lecții, confirmate
+
+Condiția din DEC-012 este îndeplinită: datele sunt confirmate, deci apar pe pagină. Orarul are o
+coloană nouă, **Prima lecție**, iar grupele care încep în octombrie sunt marcate cu roșu.
+
+| Grupă | Prima lecție |
+| --- | --- |
+| Toate ansamblurile — Vatra, Strămoșeasca, Veselia, Mugurel, Bujorii, Hora Padului, Ceata de Călușari, jocul femeiesc Elle | **4 septembrie** |
+| Adulți începători, sâmbătă | **5 septembrie** |
+| Adulți începători, luni — grupă nouă | **5 octombrie** |
+| Copii începători, luni — grupă nouă | **5 octombrie** |
+| Toată secția Scuola di Danza e Arte: baby dance, propedeutică, clasic și modern, caracter, dans clasic adulți, teatru-dans, Pilates, dansurile lumii | **Prima săptămână din octombrie** |
+
+Cursurile secției Sofia au pornit pe 14 septembrie, dar grupele nu sunt complete, așa că public se
+comunică **prima săptămână din octombrie**.
+
+**Înscrierile sunt deschise tot anul**, la toate cursurile, grupurile și ansamblurile. Mesajul apare
+în trei locuri: eticheta din hero, introducerea secțiunii de cursuri și apelul final. Caseta de sub
+cardurile de curs spune explicit „Nu ai ratat nimic".
 
 ## Puncte închise
 
