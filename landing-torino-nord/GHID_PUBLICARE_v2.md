@@ -166,12 +166,16 @@ Padului și Bujorii de la Prut nu au playlist propriu. Responsabil: Ioan Unguria
 ## Ce rămâne de decis
 
 1. **Datele primei lecții** pentru fiecare grupă. Pagina trimite corect pe WhatsApp, dar o dată fermă crește conversia.
-2. **Acordurile de imagine** pentru fotografiile cu minori de pe cardurile de copii și adolescenți. Registrul cerut prin DEC-017 nu există. Responsabil: Andreea Mititiuc.
-3. **Grupele de căluș pe vârste** — tabelul de abonamente are o singură linie, miercuri 19:30–20:30.
-4. **Grafiile Diculescu și Doboș**, folosite în blocul consiliului director.
-5. **Ziua și ora pentru grupa de dansuri internaționale** — încă nu sunt în tabelul de abonamente.
-6. **Eticheta de pe grafica lui Cristian Costin** spune „asistent instructor · Milano", dar tabelul de abonamente 2026–2027 îl pune la Torino Nord. Pagina folosește rolul din tabel; grafica socială ar trebui refăcută.
-7. **Fotografia lui Ioan Ungurianu** apare în Drive și sub numele „Ionut Ungurianu". Grafia corectă este Ioan.
+2. **Grupele de căluș pe vârste** — tabelul de abonamente are o singură linie, miercuri 19:30–20:30.
+3. **Grafia numelui secretarei consiliului** — documentele din Drive o scriu „Luiza Diculescu", dar apar și variantele „Disculescu" și „Dinica". Pagina folosește grafia din documentul instituțional, „Diculescu". De confirmat înainte de publicare.
+
+## Puncte închise
+
+- **Acordurile de imagine pentru minori există pentru toți copiii.** Fotografiile cu copii de pe cardurile de curs se pot publica.
+- **Luiza Diculescu (secretar) și Sabin Doboș (trezorier)** fac amândoi parte din consiliul director. Pagina îi prezintă corect, în blocul consiliului.
+- **Dansurile internaționale** nu sunt o grupă nouă de sine stătătoare. Se studiază în mixt cu repertoriul românesc, în timpul antrenamentelor Ansamblului Mugurel (miercuri, 18:00–19:30) și ale Ansamblului Vatra, iar Grupul Elle are antrenament separat (luni, 20:30–22:00). Pagina a fost corectată în consecință.
+- **Cristian Costin** este instructor și la Milano, și la Torino Nord. Eticheta de pe grafica lui socială nu este greșită, ci incompletă.
+- **Ioan Ungurianu** — grafia de referință este „Ioan", chiar dacă în arhivă apar fișiere denumite „Ionut". Pagina folosește „Ioan" peste tot.
 
 ## Decizii aplicate în această versiune
 
