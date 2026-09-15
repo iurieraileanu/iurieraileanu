@@ -1,0 +1,187 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "DanceSchool",
+        "LocalBusiness"
+      ],
+      "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord",
+      "name": "Grupul Vatra – Filiala Torino Nord",
+      "alternateName": "Școala de Dansuri Populare Românești Grupul Vatra",
+      "description": "Sediul principal al Școlii de Dansuri Populare Românești „Grupul Vatra”, în Via Gressoney 29/B, Torino: dans popular, balet, dans modern și dans de caracter pentru copii, adolescenți și adulți. Prima lecție de probă este gratuită.",
+      "url": "https://grupulvatra.com/grupulvatratorinonord/",
+      "foundingDate": "2011-09-25",
+      "inLanguage": "ro",
+      "telephone": "+393921897050",
+      "email": "info@grupulvatra.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Gressoney 29/B",
+        "postalCode": "10155",
+        "addressLocality": "Torino",
+        "addressRegion": "TO",
+        "addressCountry": "IT"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Iurie Răileanu",
+        "jobTitle": "Fondator, director și coregraf general",
+        "url": "https://grupulvatra.com/iurie-raileanu-coreograf-grupul-vatra/"
+      },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "APS ASD Primo Passo",
+        "taxID": "97814410011",
+        "url": "https://www.primopasso.org/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Barbaresco 8",
+          "postalCode": "10127",
+          "addressLocality": "Torino",
+          "addressCountry": "IT"
+        }
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Torino"
+        },
+        {
+          "@type": "City",
+          "name": "Chivasso"
+        },
+        {
+          "@type": "City",
+          "name": "Venaria Reale"
+        },
+        {
+          "@type": "City",
+          "name": "Settimo Torinese"
+        },
+        {
+          "@type": "City",
+          "name": "Borgaro Torinese"
+        },
+        {
+          "@type": "City",
+          "name": "Druento"
+        },
+        {
+          "@type": "City",
+          "name": "San Mauro Torinese"
+        },
+        {
+          "@type": "Place",
+          "name": "Valli di Lanzo"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "14:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "18:00"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cursurile Filialei Torino Nord, stagiunea 2026–2027",
+        "itemListElement": [
+          {
+            "@type": "Course",
+            "name": "Dans popular pentru copii",
+            "description": "Joc, ritm, cântec și primele coregrafii, pe grupe de vârstă, pentru copii de 4–12 ani.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Dans popular pentru adolescenți",
+            "description": "Coregrafii complexe și tehnică scenică pentru adolescenți și tineri.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Dans popular pentru adulți începători",
+            "description": "Hore, sârbe, brâie și bătute pentru adulți, fără experiență și fără pereche.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Balet, dans modern și dans de caracter",
+            "description": "Danza classica pe grupe de vârstă, inclusiv pentru adulți, dans modern și dans de caracter.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Baby dance și teatru-dans",
+            "description": "Mișcare, joc și poveste pentru cei mai mici dansatori ai școlii.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Dansuri populare internaționale",
+            "description": "Dansuri din Italia, Grecia, Spania, Armenia și din alte culturi, pentru tineri și adulți.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Grupul Feminin Elle",
+            "description": "Dans de caracter și dansuri internaționale pentru fete și femei, pe două niveluri.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Ceata de Călușari",
+            "description": "Dans călușăresc pentru băieți și bărbați: joc, forță, ritm, precizie și rezistență.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          }
+        ]
+      }
+    }
+  ]
+}
