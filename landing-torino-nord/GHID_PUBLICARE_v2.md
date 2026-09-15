@@ -167,10 +167,10 @@ Padului și Bujorii de la Prut nu au playlist propriu. Responsabil: Ioan Unguria
 
 1. **Datele primei lecții** pentru fiecare grupă. Pagina trimite corect pe WhatsApp, dar o dată fermă crește conversia.
 2. **Grupele de căluș pe vârste** — tabelul de abonamente are o singură linie, miercuri 19:30–20:30.
-3. **Grafia numelui secretarei consiliului** — documentele din Drive o scriu „Luiza Diculescu", dar apar și variantele „Disculescu" și „Dinica". Pagina folosește grafia din documentul instituțional, „Diculescu". De confirmat înainte de publicare.
 
 ## Puncte închise
 
+- **Numele secretarei consiliului este Luiza Diculescu.** „Dinica" este numele de familie anterior; acolo unde apare în arhivă, este o referință istorică, nu o eroare de corectat. Pagina folosește „Diculescu".
 - **Acordurile de imagine pentru minori există pentru toți copiii.** Fotografiile cu copii de pe cardurile de curs se pot publica.
 - **Luiza Diculescu (secretar) și Sabin Doboș (trezorier)** fac amândoi parte din consiliul director. Pagina îi prezintă corect, în blocul consiliului.
 - **Dansurile internaționale** nu sunt o grupă nouă de sine stătătoare. Se studiază în mixt cu repertoriul românesc, în timpul antrenamentelor Ansamblului Mugurel (miercuri, 18:00–19:30) și ale Ansamblului Vatra, iar Grupul Elle are antrenament separat (luni, 20:30–22:00). Pagina a fost corectată în consecință.
