@@ -140,20 +140,23 @@ Programarea postărilor se face prin Postiz.
 
 ## Ce se corectează în jurul paginii
 
-**P0 — tarife publice.** Pagina `/intrebari-frecvente/` afișează taxa anuală și intervalul lunar, iar
-butonul „Scopri i nostri prezzi" de pe primopasso.org duce la un magazin SumUp. Ambele contrazic regula
-„tarifele nu se publică online".
+**P0 — tarife publice.** Pagina `/intrebari-frecvente/` afișează taxa anuală și intervalul lunar, ceea ce
+contrazice regula „tarifele nu se publică online". *(Magazinul SumUp nu se mai folosește și iese din
+discuție.)*
 
 **P0 — Cristian Munteanu.** Numele apare pe circa opt pagini de curs și pe pagina *Danze folcloristiche*
-de pe primopasso.org. Persoana nu mai face parte din echipă; numele se elimină din toate sursele.
-Instructorii reali pentru 2026–2027 sunt cei din orarul acestei pagini.
+de pe primopasso.org. Persoana nu mai face parte din echipă. **Decizie luată: numele se elimină de pe
+toate sursele site-ului.** Instructorii reali pentru 2026–2027 sunt cei din orarul acestei pagini.
 
 **P1 — Nichelino** apare încă pe pagina principală, pe „Despre noi" și pe „Contact". Structura este
 închisă din 27 august 2026.
 
 **P1 — cifrele.** Pagina principală afișează 1.600 / 530 / 5 milioane. Setul unic este 1.700+ / 560+ / 6 milioane.
 
-**P1 — `/filiale-grupul-vatra/`** este goală și indexată, iar meta-descrierea ei numește o filială închisă.
+**Planificat — `/filiale-grupul-vatra/`.** Pagina este goală și indexată, iar meta-descrierea ei numește
+o filială închisă. Se rezolvă după ce sunt gata subpaginile fiecărei filiale: atunci se face o pagină
+unică despre filiale în general, care va explica și cum se poate deschide una nouă. Până atunci, pagina
+Torino Nord funcționează independent de ea.
 
 **P1 — două pagini de curs dau 404** și sunt încă în sitemap: `/cursuri/torino-curs-copii-4-7-ani/` și
 `/cursuri/calus-copii-4-7-torino/`. Pagina nu le linkează.
