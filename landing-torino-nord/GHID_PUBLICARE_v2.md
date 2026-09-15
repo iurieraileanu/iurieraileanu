@@ -158,6 +158,10 @@ Instructorii reali pentru 2026–2027 sunt cei din orarul acestei pagini.
 **P1 — două pagini de curs dau 404** și sunt încă în sitemap: `/cursuri/torino-curs-copii-4-7-ani/` și
 `/cursuri/calus-copii-4-7-torino/`. Pagina nu le linkează.
 
+**P1 — `/cursuri/calus-incepatori-torino/` descrie o grupă care nu mai există.** În 2026–2027 călușul are
+o singură grupă. Pagina nouă nu o mai linkează, dar pagina veche rămâne publicată și indexată: de
+actualizat sau de redirecționat către pagina Cetei de Călușari.
+
 **P2 — pe YouTube**, descrierea videoclipului cu suita din Căluș conține cuvântul „UNESCO", iar clipul de
 recrutare din 2024 afișează cifre vechi.
 
@@ -166,7 +170,7 @@ Padului și Bujorii de la Prut nu au playlist propriu. Responsabil: Ioan Unguria
 
 ## Ce rămâne de decis
 
-1. **Grupele de căluș pe vârste** — tabelul de abonamente are o singură linie, miercuri 19:30–20:30.
+Nimic. Toate punctele deschise au fost confirmate; pagina poate fi publicată.
 
 ## Datele primei lecții, confirmate
 
@@ -191,6 +195,7 @@ cardurile de curs spune explicit „Nu ai ratat nimic".
 ## Puncte închise
 
 - **Numele secretarei consiliului este Luiza Diculescu.** „Dinica" este numele de familie anterior; acolo unde apare în arhivă, este o referință istorică, nu o eroare de corectat. Pagina folosește „Diculescu".
+- **Călușul are o singură grupă** în stagiunea 2026–2027: miercuri, 19:30–20:30, cu Cristian Costin. Pagina nu mai vorbește despre niveluri și nu mai linkează „Căluș începători".
 - **Acordurile de imagine pentru minori există pentru toți copiii.** Fotografiile cu copii de pe cardurile de curs se pot publica.
 - **Luiza Diculescu (secretar) și Sabin Doboș (trezorier)** fac amândoi parte din consiliul director. Pagina îi prezintă corect, în blocul consiliului.
 - **Dansurile internaționale** nu sunt o grupă nouă de sine stătătoare. Se studiază în mixt cu repertoriul românesc, în timpul antrenamentelor Ansamblului Mugurel (miercuri, 18:00–19:30) și ale Ansamblului Vatra, iar Grupul Elle are antrenament separat (luni, 20:30–22:00). Pagina a fost corectată în consecință.
