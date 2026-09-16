@@ -1,0 +1,175 @@
+
+/* ========================================================================== */
+/* ===== v4.0 · MODUL GRAFIC ȘI EFECTE ====================================== */
+/* Tot ce urmează este adăugat peste sistemul v3 și rămâne închis în          */
+/* .vtn-page. Nimic nu depinde de tema WordPress sau de Elementor.            */
+/* ========================================================================== */
+
+.vtn-page{
+  /* motive decorative, derivate din brandbook: panglica tricoloră și altița */
+  --motif-altita:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'><g fill='none' stroke='%23001042' stroke-width='1.1' opacity='.13'><path d='M24 6 L30 12 L24 18 L18 12 Z'/><path d='M6 24 L12 30 L6 36 L0 30 Z'/><path d='M42 24 L48 30 L42 36 L36 30 Z'/><path d='M24 30 L30 36 L24 42 L18 36 Z'/><path d='M12 12 L16 16 M36 12 L32 16 M12 36 L16 32 M36 36 L32 32'/></g></svg>");
+  --shadow-1:0 1px 2px rgba(0,16,66,.06),0 4px 14px rgba(0,16,66,.06);
+  --shadow-2:0 10px 20px rgba(0,16,66,.10),0 22px 48px rgba(0,16,66,.12);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* --- textură discretă pe fundalurile porțelan ---------------------------- */
+.vtn-sec--porcelain{position:relative;isolation:isolate;}
+.vtn-sec--porcelain::before{content:"";position:absolute;inset:0;z-index:-1;
+  background-image:var(--motif-altita);background-size:96px 96px;opacity:.55;pointer-events:none;}
+
+/* --- panglica tricoloră, folosită ca separator între secțiuni ------------ */
+.vtn-ribbon{height:7px;border:0;margin:0;padding:0;display:block;width:100%;
+  background:linear-gradient(90deg,
+    var(--catalina) 0 33.34%,
+    var(--lemon) 33.34% 66.67%,
+    var(--ruby) 66.67% 100%);}
+
+/* --- valul tricolor din grafica socială, în hero ------------------------- */
+.vtn-hero-wave{position:absolute;inset:auto 0 -1px 0;z-index:1;pointer-events:none;
+  line-height:0;opacity:.95;}
+.vtn-hero-wave svg{display:block;width:100%;height:clamp(54px,7vw,96px);}
+.vtn-hero>.vtn-wrap{z-index:2;}
+
+/* --- bară de progres la derulare ----------------------------------------- */
+.vtn-progress{position:fixed;left:0;top:0;height:3px;width:100%;z-index:60;
+  background:transparent;pointer-events:none;}
+.vtn-progress i{display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--ruby),var(--lemon));
+  transition:width .08s linear;}
+
+/* ===== NAVIGAȚIE LIPICIOASĂ ============================================== */
+.vtn-nav{position:sticky;top:0;z-index:40;
+  background:rgba(255,255,255,.93);backdrop-filter:saturate(1.4) blur(10px);
+  border-bottom:1px solid var(--line);}
+.vtn-nav__in{max-width:var(--maxw);margin:0 auto;padding:0 20px;
+  display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.vtn-nav__in::-webkit-scrollbar{display:none;}
+.vtn-nav a{flex:0 0 auto;position:relative;padding:15px 13px;font-size:13.5px;font-weight:700;
+  color:var(--deep);text-decoration:none;white-space:nowrap;
+  transition:color .18s var(--ease);}
+.vtn-nav a::after{content:"";position:absolute;left:13px;right:13px;bottom:8px;height:2.5px;
+  background:var(--ruby);border-radius:2px;transform:scaleX(0);transform-origin:left;
+  transition:transform .26s var(--ease);}
+.vtn-nav a:hover{color:var(--ruby);}
+.vtn-nav a:hover::after,.vtn-nav a.vtn-on::after{transform:scaleX(1);}
+.vtn-nav a.vtn-on{color:var(--ruby);}
+
+/* ===== APARIȚIE LA DERULARE ============================================== */
+/* Conținutul este vizibil implicit. Clasa .vtn-anim se pune din JavaScript,  */
+/* deci fără JS pagina rămâne întreagă și lizibilă.                           */
+.vtn-anim .vtn-rv{opacity:0;transform:translateY(18px);
+  transition:opacity .6s var(--ease),transform .6s var(--ease);}
+.vtn-anim .vtn-rv.vtn-in{opacity:1;transform:none;}
+.vtn-anim .vtn-rv.vtn-d1{transition-delay:.07s;}
+.vtn-anim .vtn-rv.vtn-d2{transition-delay:.14s;}
+.vtn-anim .vtn-rv.vtn-d3{transition-delay:.21s;}
+
+/* ===== CARDURI: RIDICARE ȘI ZOOM PE IMAGINE ============================== */
+.vtn-course,.vtn-ens,.vtn-person,.vtn-repcard,.vtn-quote,.vtn-ytcard,.vtn-gal figure,.vtn-room{
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease),border-color .2s var(--ease);}
+.vtn-course:hover,.vtn-ens:hover,.vtn-person:hover,.vtn-repcard:hover,
+.vtn-ytcard:hover,.vtn-gal figure:hover,.vtn-room:hover{
+  transform:translateY(-4px);box-shadow:var(--shadow-2);border-color:rgba(0,16,66,.2);}
+.vtn-course-media img,.vtn-ens-media img,.vtn-person-media img,.vtn-gal img,.vtn-ytthumb img{
+  transition:transform .6s var(--ease);}
+.vtn-course:hover .vtn-course-media img,
+.vtn-ens:hover .vtn-ens-media img,
+.vtn-person:hover .vtn-person-media img,
+.vtn-gal figure:hover img,
+.vtn-ytcard:hover .vtn-ytthumb img{transform:scale(1.045);}
+.vtn-ytcard:hover .vtn-ytplay span{transform:scale(1.1);}
+.vtn-ytplay span{transition:transform .28s var(--ease);}
+
+/* ===== FILTRE (cursuri și orar) ========================================== */
+.vtn-filters{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0 4px;}
+.vtn-filter{background:#fff;border:1.5px solid var(--line);border-radius:999px;
+  padding:9px 17px;font-size:14.5px;font-weight:700;color:var(--deep);cursor:pointer;
+  font-family:inherit;transition:all .18s var(--ease);}
+.vtn-filter:hover{border-color:var(--ruby);color:var(--ruby);}
+.vtn-filter.vtn-on{background:var(--deep);border-color:var(--deep);color:#fff;}
+.vtn-count{font-size:14px;color:var(--muted);margin:12px 0 0;}
+.vtn-course[hidden],.vtn-table tr[hidden]{display:none;}
+
+/* ===== ORAR: coloana „prima lecție" ====================================== */
+.vtn-table td:nth-child(2){white-space:nowrap;}
+.vtn-table .vtn-start{color:var(--ruby);font-weight:700;white-space:nowrap;}
+.vtn-table .vtn-start--soon{color:var(--catalina);}
+.vtn-table tbody tr{transition:background-color .18s var(--ease);}
+.vtn-table tbody tr:hover:not(.vtn-row-head){background:#FFF8D9;}
+
+/* ===== GALERIE CU LUPĂ =================================================== */
+.vtn-gal figure{position:relative;}
+.vtn-lbbtn{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;margin:0;
+  background:transparent;cursor:zoom-in;z-index:2;}
+.vtn-lbbtn::after{content:"";position:absolute;right:12px;top:12px;width:34px;height:34px;
+  border-radius:50%;background:rgba(0,16,66,.72) var(--icon-zoom) center/18px no-repeat;
+  opacity:0;transform:scale(.8);transition:all .24s var(--ease);
+  --icon-zoom:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'><circle cx='10.5' cy='10.5' r='6.5'/><path d='M15.5 15.5 L21 21'/><path d='M10.5 7.5v6M7.5 10.5h6'/></svg>");}
+.vtn-gal figure:hover .vtn-lbbtn::after{opacity:1;transform:scale(1);}
+.vtn-lb{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;
+  background:rgba(0,16,66,.94);padding:24px;}
+.vtn-lb[open],.vtn-lb.vtn-open{display:flex;}
+.vtn-lb img{max-width:min(1100px,94vw);max-height:82vh;width:auto;border-radius:10px;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);}
+.vtn-lb figcaption{color:#E8EDF9;text-align:center;font-size:15px;margin-top:16px;max-width:64ch;}
+.vtn-lb__close{position:absolute;top:18px;right:20px;width:46px;height:46px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-size:26px;
+  line-height:1;cursor:pointer;transition:all .2s var(--ease);}
+.vtn-lb__close:hover{background:var(--ruby);border-color:var(--ruby);}
+.vtn-lb__nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;
+  border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:#fff;
+  font-size:24px;line-height:1;cursor:pointer;transition:all .2s var(--ease);}
+.vtn-lb__nav:hover{background:var(--ruby);border-color:var(--ruby);}
+.vtn-lb__prev{left:18px;} .vtn-lb__next{right:18px;}
+@media(max-width:680px){.vtn-lb__nav{display:none;}}
+
+/* ===== BUTON „SUS" ======================================================= */
+.vtn-top{position:fixed;right:20px;bottom:20px;z-index:50;width:50px;height:50px;border-radius:50%;
+  border:0;background:var(--deep);color:#fff;font-size:20px;cursor:pointer;box-shadow:var(--shadow-2);
+  opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:all .28s var(--ease);}
+.vtn-top.vtn-show{opacity:1;visibility:visible;transform:none;}
+.vtn-top:hover{background:var(--ruby);}
+
+/* ===== ACCESIBILITATE ==================================================== */
+.vtn-page a:focus-visible,.vtn-page button:focus-visible,.vtn-page summary:focus-visible{
+  outline:3px solid var(--ruby);outline-offset:3px;border-radius:4px;}
+.vtn-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+
+/* ===== MIȘCARE REDUSĂ ==================================================== */
+@media (prefers-reduced-motion:reduce){
+  .vtn-page *,.vtn-page *::before,.vtn-page *::after{
+    animation-duration:.001ms!important;transition-duration:.001ms!important;}
+  .vtn-anim .vtn-rv{opacity:1!important;transform:none!important;}
+}
+
+/* ===== TIPĂRIRE ========================================================== */
+@media print{
+  .vtn-nav,.vtn-top,.vtn-progress,.vtn-lb,.vtn-filters,.vtn-hero-wave{display:none!important;}
+  .vtn-page{font-size:11pt;color:#000;}
+  .vtn-sec{padding-block:14px;break-inside:avoid;}
+  .vtn-sec--deep{background:#fff!important;color:#000!important;}
+  .vtn-sec--deep h2,.vtn-sec--deep h3,.vtn-sec--deep p{color:#000!important;}
+  .vtn-table{min-width:0;font-size:9pt;}
+}
+
+/* ===== CORECTURĂ DE SPECIFICITATE (defecte moștenite din v3) ==============
+   În v3, regulile generale pentru legături — .vtn-page a şi .vtn-sec--deep a —
+   au specificitate mai mare decât clasele butoanelor, aşa că:
+     · „Vezi cursurile" din hero se colora albastru pe fundal bleumarin;
+     · „Cere disponibilitatea" se colora galben pe fundal alb;
+     · sloganul de final pierdea galbenul și devenea gri-albastru.
+   Selectorii de mai jos adaugă elementul (a, p) ca să întoarcă cascada,
+   fără !important și fără să atingă tema.                                    */
+.vtn-page a.vtn-btn--primary,.vtn-page a.vtn-btn--primary:hover{color:#fff;}
+.vtn-page a.vtn-btn--light{color:var(--deep);}
+.vtn-page a.vtn-btn--light:hover{color:var(--deep);}
+.vtn-page a.vtn-btn--outline-light{color:#fff;}
+.vtn-page a.vtn-btn--outline-light:hover{color:var(--deep);}
+.vtn-page a.vtn-btn--ghost{color:var(--deep);}
+.vtn-page a.vtn-btn--ghost:hover{color:#fff;}
+.vtn-page p.vtn-slogan{color:var(--lemon);}
+.vtn-page a.vtn-ytcard{color:inherit;}
+.vtn-page a.vtn-ytcard .vtn-ytbody b{color:var(--deep);}
