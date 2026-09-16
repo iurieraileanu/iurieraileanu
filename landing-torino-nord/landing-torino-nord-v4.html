@@ -1,0 +1,2387 @@
+<!--
+  ============================================================================
+  GRUPUL VATRA · FILIALA TORINO NORD — LANDING PAGE v4.0 — versiune finală, consolidată
+  Pentru: grupulvatra.com/grupulvatratorinonord/
+  16 septembrie 2026
+  Consolidează v1, v2 și v3 într-un singur fișier: conținutul complet al v3,
+  interacțiunile v2 (navigație lipicioasă, filtre, galerie cu lupă, date
+  structurate) și un modul nou de grafică și efecte. Fără informații dublate.
+  Se lipește într-un widget "HTML" Elementor, pe toată lățimea paginii.
+  Tot CSS-ul este limitat la .vtn-page — nu atinge restul temei.
+  IMPORTANT: fotografiile noi se încarcă în Media Library ÎNAINTE de publicare.
+  Dacă le încarci în altă lună decât septembrie 2026, înlocuiește în tot
+  fișierul "/wp-content/uploads/2026/09/" cu luna corectă.
+  ============================================================================
+-->
+
+<div class="vtn-page">
+
+<style>
+/* ===== TOKENS ============================================================ */
+.vtn-page{
+  --deep:#001042; --catalina:#091C7A; --ruby:#F72C25; --lemon:#F9D523;
+  --ink:#181717; --porcelain:#F2F2F2; --white:#FFFFFF;
+  --line:rgba(0,16,66,.12); --line-light:rgba(255,255,255,.18);
+  --muted:#4A5568;
+  --sans:"Aileron","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --display:"Namu","Aileron","Helvetica Neue",Arial,sans-serif;
+  --r:14px; --maxw:1200px;
+  font-family:var(--sans); color:var(--ink); font-size:17px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.vtn-page *,.vtn-page *::before,.vtn-page *::after{box-sizing:border-box;}
+.vtn-page p{margin:0 0 1em;max-width:68ch;}
+.vtn-page h2,.vtn-page h3,.vtn-page h4{margin:0 0 .5em;line-height:1.16;color:var(--deep);font-weight:800;letter-spacing:-.012em;}
+.vtn-page h2{font-size:clamp(27px,3.3vw,42px);}
+.vtn-page h3{font-size:clamp(19px,1.9vw,24px);}
+.vtn-page h4{font-size:17px;letter-spacing:0;}
+.vtn-page ul{margin:0 0 1em;padding-left:1.15em;}
+.vtn-page li{margin-bottom:.35em;}
+.vtn-page img{max-width:100%;height:auto;display:block;}
+.vtn-page a{color:var(--catalina);}
+.vtn-page figure{margin:0;}
+.vtn-wrap{max-width:var(--maxw);margin:0 auto;padding-inline:20px;}
+.vtn-sec{padding-block:clamp(46px,5.6vw,80px);}
+.vtn-sec--white{background:var(--white);}
+.vtn-sec--porcelain{background:var(--porcelain);}
+.vtn-sec--deep{background:var(--deep);color:#E8EDF9;}
+.vtn-sec--deep h2,.vtn-sec--deep h3,.vtn-sec--deep h4{color:var(--white);}
+.vtn-sec--deep a{color:var(--lemon);}
+.vtn-sec--deep p{color:#D9E1F3;}
+
+.vtn-eyebrow{display:block;font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ruby);margin-bottom:12px;}
+.vtn-sec--deep .vtn-eyebrow{color:var(--lemon);}
+.vtn-lead{font-size:clamp(17px,1.4vw,19px);max-width:66ch;}
+.vtn-orn{margin:0 0 22px;}
+.vtn-orn svg{display:block;}
+.vtn-band{height:20px;background-repeat:repeat-x;background-position:center;opacity:.9;}
+
+/* ===== BUTOANE =========================================================== */
+.vtn-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  padding:14px 24px;border-radius:999px;text-decoration:none;font-weight:700;
+  font-size:16px;line-height:1.15;border:2px solid transparent;text-align:center;
+  transition:transform .12s ease,background-color .12s ease,color .12s ease;}
+.vtn-btn:hover{transform:translateY(-1px);}
+.vtn-btn--primary{background:var(--ruby);color:#fff;}
+.vtn-btn--primary:hover{background:#d81f19;color:#fff;}
+.vtn-btn--ghost{background:transparent;color:var(--deep);border-color:var(--deep);}
+.vtn-btn--ghost:hover{background:var(--deep);color:#fff;}
+.vtn-btn--light{background:#fff;color:var(--deep);}
+.vtn-btn--light:hover{background:var(--porcelain);color:var(--deep);}
+.vtn-btn--outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.6);}
+.vtn-btn--outline-light:hover{background:#fff;color:var(--deep);}
+.vtn-btn--sm{padding:11px 18px;font-size:15px;}
+.vtn-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+
+/* ===== 1 · HERO ========================================================== */
+.vtn-hero{position:relative;background:var(--deep);
+  background-image:url("https://grupulvatra.com/wp-content/uploads/2026/09/ansamblul-vatra-joc-barbatesc-saritura-torino.jpg");
+  background-size:cover;background-position:center 35%;}
+.vtn-hero::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,16,66,.93) 0%,rgba(0,16,66,.80) 45%,rgba(0,16,66,.94) 100%);}
+.vtn-hero>.vtn-wrap{position:relative;padding-block:clamp(54px,6.6vw,92px);}
+.vtn-hero-logo{width:176px;margin-bottom:24px;}
+.vtn-hero h1{color:#fff;font-size:clamp(31px,4.4vw,54px);line-height:1.08;font-weight:800;
+  letter-spacing:-.02em;margin:0 0 18px;max-width:17ch;}
+.vtn-hero p{color:#E7ECF7;max-width:62ch;}
+.vtn-hero .vtn-eyebrow{color:var(--lemon);}
+.vtn-hero-meta{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.22);color:#fff;font-size:15px;}
+.vtn-hero-meta strong{color:var(--lemon);font-weight:700;}
+.vtn-stats{display:flex;flex-wrap:wrap;gap:32px;margin-top:24px;}
+.vtn-stat b{display:block;font-size:clamp(25px,2.9vw,33px);color:#fff;font-weight:800;line-height:1;}
+.vtn-stat span{display:block;font-size:13.5px;color:#C2CFEA;margin-top:6px;max-width:21ch;}
+.vtn-credit{margin-top:24px;font-size:12px;color:#8FA1C8;letter-spacing:.04em;}
+
+/* ===== 2 · ACCES ========================================================= */
+.vtn-access{display:grid;grid-template-columns:1.25fr .95fr;gap:36px;align-items:start;}
+.vtn-access-items{display:grid;gap:12px;margin:22px 0 26px;}
+.vtn-access-item{background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:15px 18px;display:grid;grid-template-columns:104px 1fr;gap:14px;align-items:baseline;}
+.vtn-access-item b{color:var(--deep);font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;}
+.vtn-access-item span{font-size:15.5px;}
+.vtn-localities{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.vtn-chip{background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:7px 14px;font-size:14px;color:var(--deep);font-weight:600;}
+.vtn-sec--deep .vtn-chip{background:rgba(255,255,255,.1);border-color:var(--line-light);color:#fff;}
+.vtn-card-contact{background:var(--deep);color:#fff;border-radius:var(--r);padding:28px;position:sticky;top:24px;}
+.vtn-card-contact h3{color:#fff;font-size:20px;margin-bottom:14px;}
+.vtn-card-contact dl{margin:0 0 18px;display:grid;gap:12px;}
+.vtn-card-contact dt{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--lemon);font-weight:700;}
+.vtn-card-contact dd{margin:3px 0 0;font-size:16px;color:#fff;}
+.vtn-card-contact dd a{color:#fff;text-decoration:underline;text-underline-offset:3px;}
+.vtn-card-contact .vtn-note{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.2);
+  font-size:14.5px;color:#C2CFEA;}
+
+/* ===== GRILE ============================================================= */
+.vtn-grid{display:grid;gap:22px;}
+.vtn-grid--2{grid-template-columns:repeat(2,1fr);}
+.vtn-grid--3{grid-template-columns:repeat(3,1fr);}
+.vtn-grid--4{grid-template-columns:repeat(4,1fr);}
+
+/* ===== 3 · CURSURI ======================================================= */
+.vtn-course{background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;display:flex;flex-direction:column;}
+.vtn-course-media{aspect-ratio:16/10;background:var(--porcelain);overflow:hidden;}
+.vtn-course-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+.vtn-course-body{padding:22px;display:flex;flex-direction:column;flex:1;}
+.vtn-tag{display:inline-block;background:var(--lemon);color:var(--ink);font-size:11.5px;
+  font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:5px;
+  margin-bottom:12px;align-self:flex-start;}
+.vtn-course h3{font-size:21px;margin-bottom:10px;}
+.vtn-course p{font-size:15.5px;margin-bottom:14px;}
+.vtn-facts{list-style:none;margin:0 0 14px;padding:0;border-top:1px solid var(--line);}
+.vtn-facts li{display:grid;grid-template-columns:104px 1fr;gap:10px;padding:9px 0;
+  border-bottom:1px solid var(--line);margin:0;font-size:14.5px;}
+.vtn-facts b{color:var(--deep);font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;}
+.vtn-detail{border-top:1px solid var(--line);padding-top:14px;margin-bottom:14px;}
+.vtn-detail h4{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ruby);margin-bottom:6px;}
+.vtn-detail p{font-size:14.5px;color:var(--muted);margin-bottom:10px;}
+.vtn-detail .vtn-ul{list-style:none;margin:0 0 10px;padding:0;}
+.vtn-detail .vtn-ul li{position:relative;padding-left:16px;font-size:14.5px;color:var(--muted);
+  line-height:1.55;margin-bottom:4px;}
+.vtn-detail .vtn-ul li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;
+  background:var(--ruby);border-radius:50%;}
+.vtn-links{font-size:14.5px;margin-bottom:16px;}
+.vtn-links a{color:var(--catalina);text-decoration:underline;text-underline-offset:2px;}
+.vtn-course .vtn-btn{margin-top:auto;align-self:flex-start;}
+
+.vtn-tablewrap{overflow-x:auto;margin-top:34px;border:1px solid var(--line);border-radius:var(--r);background:#fff;
+  -webkit-overflow-scrolling:touch;}
+.vtn-table{width:100%;border-collapse:collapse;min-width:760px;font-size:15px;}
+.vtn-table caption{text-align:left;padding:20px 22px 4px;color:var(--deep);font-weight:800;font-size:19px;}
+.vtn-table th,.vtn-table td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+.vtn-table thead th{background:var(--deep);color:#fff;font-size:12px;letter-spacing:.12em;
+  text-transform:uppercase;font-weight:700;border-bottom:none;position:sticky;top:0;}
+.vtn-table tbody tr:nth-child(even){background:#FAFBFD;}
+.vtn-table td:first-child{font-weight:700;color:var(--deep);white-space:nowrap;}
+.vtn-table .vtn-row-head td{background:var(--porcelain);font-weight:800;color:var(--deep);
+  font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;}
+.vtn-scroll-hint{font-size:13px;color:var(--muted);margin-top:8px;}
+.vtn-callout{margin-top:26px;background:var(--porcelain);border-left:4px solid var(--ruby);
+  border-radius:8px;padding:18px 22px;font-size:15.5px;}
+.vtn-sec--white .vtn-callout{background:var(--porcelain);}
+.vtn-callout p:last-child{margin-bottom:0;}
+
+/* ===== 4 · GALERIE SPAȚII ================================================ */
+.vtn-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;}
+.vtn-gal figure{border-radius:var(--r);overflow:hidden;background:var(--porcelain);border:1px solid var(--line);}
+.vtn-gal img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+.vtn-gal figcaption{padding:12px 16px;font-size:14px;color:var(--muted);background:#fff;}
+.vtn-gal figcaption b{display:block;color:var(--deep);font-size:15px;margin-bottom:2px;}
+.vtn-rooms{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:30px;}
+.vtn-room{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;}
+.vtn-room h3{font-size:20px;}
+.vtn-room ul{font-size:15px;color:var(--muted);margin-bottom:0;}
+
+/* ===== 5 · ÎNCHIRIERE ==================================================== */
+.vtn-rent{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;}
+.vtn-rent img{border-radius:var(--r);}
+.vtn-rent-list{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:10px;}
+.vtn-rent-list li{background:rgba(255,255,255,.08);border:1px solid var(--line-light);
+  border-radius:10px;padding:12px 15px;font-size:15px;margin:0;color:#E8EDF9;}
+
+/* ===== 6 · ANSAMBLURI ==================================================== */
+.vtn-ens{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  display:flex;flex-direction:column;}
+.vtn-ens-media{aspect-ratio:3/2;overflow:hidden;background:var(--porcelain);}
+.vtn-ens-media img{width:100%;height:100%;object-fit:cover;object-position:center 28%;}
+.vtn-ens-body{padding:20px;display:flex;flex-direction:column;flex:1;}
+.vtn-ens h3{font-size:19px;margin-bottom:6px;}
+.vtn-ens-meta{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ruby);
+  font-weight:700;margin-bottom:10px;}
+.vtn-ens p{font-size:15px;margin-bottom:10px;}
+.vtn-ens-when{font-size:14px;color:var(--muted);margin-bottom:10px;}
+.vtn-prize{font-size:14px;background:#FFF8D9;border-left:3px solid var(--lemon);
+  padding:9px 12px;border-radius:6px;margin-bottom:12px;color:var(--ink);}
+.vtn-ens-links{margin-top:auto;display:flex;flex-wrap:wrap;gap:12px;font-size:14.5px;font-weight:700;}
+.vtn-ens-links a{text-decoration:none;}
+.vtn-ens-links a:hover{text-decoration:underline;}
+
+/* ===== 7 · PARTICIPĂRI =================================================== */
+.vtn-time{margin-top:30px;display:grid;gap:14px;}
+.vtn-time-row{display:grid;grid-template-columns:110px 1fr;gap:20px;background:#fff;
+  border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;}
+.vtn-time-row b{color:var(--ruby);font-size:22px;font-weight:800;line-height:1;}
+.vtn-time-row ul{margin:0;padding-left:1.1em;font-size:15px;color:var(--ink);}
+
+/* ===== 8 · ECHIPA ======================================================== */
+.vtn-person{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;}
+.vtn-person-media{aspect-ratio:16/9;overflow:hidden;background:var(--porcelain);}
+.vtn-person-media img{width:100%;height:100%;object-fit:cover;object-position:center 22%;}
+.vtn-person-body{padding:18px 20px 22px;}
+.vtn-person h3{font-size:18px;margin-bottom:4px;}
+.vtn-person span{display:block;font-size:14.5px;color:var(--muted);margin-bottom:12px;}
+.vtn-person a{font-size:14.5px;font-weight:700;text-decoration:none;}
+.vtn-person a:hover{text-decoration:underline;}
+.vtn-team-extra{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px;}
+.vtn-box{background:var(--porcelain);border-radius:var(--r);padding:24px;}
+.vtn-box h3{font-size:19px;}
+.vtn-box p:last-child{margin-bottom:0;}
+
+/* ===== 9 · MEDIA ========================================================= */
+.vtn-split{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start;}
+.vtn-services{list-style:none;padding:0;margin:0;display:grid;gap:10px;}
+.vtn-services li{background:rgba(255,255,255,.08);border:1px solid var(--line-light);
+  border-radius:10px;padding:13px 15px;font-size:15px;margin:0;color:#E8EDF9;}
+.vtn-services li b{display:block;color:#fff;font-size:15.5px;margin-bottom:3px;}
+
+/* ===== 10 · YOUTUBE ====================================================== */
+.vtn-yt{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px;}
+.vtn-ytcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  text-decoration:none;color:inherit;display:flex;flex-direction:column;}
+.vtn-ytcard:hover{border-color:var(--ruby);}
+.vtn-ytthumb{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden;}
+.vtn-ytthumb img{width:100%;height:100%;object-fit:cover;}
+.vtn-ytplay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.vtn-ytplay span{width:54px;height:54px;border-radius:50%;background:rgba(247,44,37,.92);
+  display:flex;align-items:center;justify-content:center;}
+.vtn-ytplay span::after{content:"";border-left:16px solid #fff;border-top:10px solid transparent;
+  border-bottom:10px solid transparent;margin-left:4px;}
+.vtn-ytbody{padding:16px 18px 20px;}
+.vtn-ytbody b{display:block;color:var(--deep);font-size:16px;line-height:1.3;margin-bottom:6px;}
+.vtn-ytbody span{font-size:14px;color:var(--muted);}
+.vtn-playlists{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+.vtn-playlists a{background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:9px 16px;font-size:14.5px;font-weight:600;text-decoration:none;color:var(--deep);}
+.vtn-playlists a:hover{border-color:var(--ruby);color:var(--ruby);}
+
+/* ===== BLOCURI NOI v3.0 ================================================== */
+.vtn-valori{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start;}
+.vtn-valori figure img{aspect-ratio:4/5;object-fit:cover;object-position:center 30%;border-radius:var(--r);}
+.vtn-acrostih{display:flex;flex-direction:column;gap:2px;}
+.vtn-acrostih div{display:flex;align-items:baseline;gap:12px;padding:7px 0;
+  border-bottom:1px solid var(--line);}
+.vtn-acrostih b{font-size:26px;font-weight:800;color:var(--ruby);width:26px;flex-shrink:0;line-height:1;}
+.vtn-acrostih span{font-size:17px;font-weight:600;color:var(--deep);letter-spacing:.02em;}
+.vtn-acrostih em{font-style:normal;font-size:14.5px;color:var(--muted);margin-left:auto;text-align:right;}
+
+.vtn-rep{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:30px;}
+.vtn-repcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;}
+.vtn-repcard h3{font-size:19px;margin-bottom:6px;}
+.vtn-repcard p{font-size:14.5px;color:var(--muted);margin:0;}
+.vtn-repcard .vtn-jocuri{font-size:14px;color:var(--ink);margin-top:10px;line-height:1.6;}
+
+.vtn-quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:30px;}
+.vtn-quote{background:#fff;border-left:4px solid var(--ruby);border-radius:0 var(--r) var(--r) 0;
+  padding:24px 26px;box-shadow:0 1px 3px rgba(0,16,66,.06);}
+.vtn-quote blockquote{margin:0 0 14px;font-size:17px;line-height:1.55;color:var(--ink);}
+.vtn-quote cite{font-style:normal;font-size:14.5px;font-weight:700;color:var(--deep);display:block;}
+.vtn-quote cite span{display:block;font-weight:400;color:var(--muted);font-size:13.5px;margin-top:2px;}
+
+.vtn-offer{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px;}
+.vtn-offer li{list-style:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+  border-radius:10px;padding:16px 18px;font-size:15px;color:#E8EDF9;margin:0;}
+.vtn-offer li b{display:block;color:#fff;font-size:16px;margin-bottom:4px;}
+
+.vtn-faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 34px;margin-top:30px;}
+.vtn-faq h3{font-size:17.5px;margin-bottom:5px;}
+.vtn-faq p{font-size:15px;color:var(--muted);margin:0;}
+
+@media(max-width:900px){
+  .vtn-valori{grid-template-columns:1fr;gap:28px;}
+  .vtn-rep,.vtn-quotes,.vtn-offer,.vtn-faq{grid-template-columns:1fr;}
+}
+.vtn-ytsub{margin-top:52px;padding-top:34px;border-top:1px solid var(--line);}
+.vtn-ytsub h3{font-size:24px;color:var(--deep);margin-bottom:8px;}
+.vtn-ytsub .vtn-lead{margin-bottom:0;}
+
+/* ===== 11-12 ============================================================= */
+.vtn-solidale{display:grid;grid-template-columns:1.12fr .88fr;gap:36px;align-items:center;}
+.vtn-solidale img{border-radius:var(--r);border:1px solid var(--line);}
+.vtn-final{text-align:center;position:relative;overflow:hidden;
+  background-image:url("https://grupulvatra.com/wp-content/uploads/2026/09/dans-popular-grup-bucurie-scena-torino.jpg");
+  background-size:cover;background-position:center 40%;}
+.vtn-final::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,16,66,.93) 0%,rgba(0,16,66,.88) 100%);}
+.vtn-final>.vtn-wrap{position:relative;}
+.vtn-final h2{max-width:22ch;margin-inline:auto;font-size:clamp(27px,3.6vw,44px);}
+.vtn-final p{margin-inline:auto;}
+.vtn-final .vtn-btns{justify-content:center;}
+.vtn-final .vtn-orn{display:flex;justify-content:center;}
+.vtn-slogan{font-family:var(--display);font-size:clamp(22px,2.5vw,30px);color:var(--lemon);
+  margin:38px auto 0;max-width:24ch;line-height:1.25;font-weight:700;}
+.vtn-legal{margin:32px auto 0;padding-top:22px;max-width:76ch;border-top:1px solid rgba(255,255,255,.18);
+  font-size:13.5px;color:#A3B2D4;}
+.vtn-legal a{color:#D7E0F5;}
+
+/* ===== RESPONSIVE ======================================================== */
+/* laptop mic */
+@media (max-width:1200px){
+  .vtn-grid--4{grid-template-columns:repeat(3,1fr);}
+}
+/* tabletă orizontală */
+@media (max-width:1024px){
+  .vtn-page{font-size:16.5px;}
+  .vtn-grid--4,.vtn-grid--3{grid-template-columns:repeat(2,1fr);}
+  .vtn-yt{grid-template-columns:repeat(2,1fr);}
+  .vtn-gal{grid-template-columns:repeat(2,1fr);}
+  .vtn-access{grid-template-columns:1fr;}
+  .vtn-card-contact{position:static;}
+  .vtn-split,.vtn-solidale,.vtn-rent{grid-template-columns:1fr;gap:28px;}
+}
+/* tabletă verticală */
+@media (max-width:820px){
+  .vtn-rooms,.vtn-team-extra{grid-template-columns:1fr;}
+  .vtn-grid--2{grid-template-columns:1fr;}
+}
+/* telefon */
+@media (max-width:680px){
+  .vtn-page{font-size:16px;}
+  .vtn-sec{padding-block:42px;}
+  .vtn-grid--4,.vtn-grid--3,.vtn-yt,.vtn-gal{grid-template-columns:1fr;}
+  .vtn-stats{gap:20px;}
+  .vtn-stat{flex:1 1 44%;}
+  .vtn-access-item{grid-template-columns:1fr;gap:4px;}
+  .vtn-facts li{grid-template-columns:1fr;gap:2px;}
+  .vtn-time-row{grid-template-columns:1fr;gap:8px;}
+  .vtn-btn{width:100%;}
+  .vtn-course .vtn-btn{align-self:stretch;}
+  .vtn-hero-logo{width:150px;}
+}
+
+/* ========================================================================== */
+/* ===== v4.0 · MODUL GRAFIC ȘI EFECTE ====================================== */
+/* Tot ce urmează este adăugat peste sistemul v3 și rămâne închis în          */
+/* .vtn-page. Nimic nu depinde de tema WordPress sau de Elementor.            */
+/* ========================================================================== */
+
+.vtn-page{
+  /* motive decorative, derivate din brandbook: panglica tricoloră și altița */
+  --motif-altita:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'><g fill='none' stroke='%23001042' stroke-width='1.1' opacity='.13'><path d='M24 6 L30 12 L24 18 L18 12 Z'/><path d='M6 24 L12 30 L6 36 L0 30 Z'/><path d='M42 24 L48 30 L42 36 L36 30 Z'/><path d='M24 30 L30 36 L24 42 L18 36 Z'/><path d='M12 12 L16 16 M36 12 L32 16 M12 36 L16 32 M36 36 L32 32'/></g></svg>");
+  --shadow-1:0 1px 2px rgba(0,16,66,.06),0 4px 14px rgba(0,16,66,.06);
+  --shadow-2:0 10px 20px rgba(0,16,66,.10),0 22px 48px rgba(0,16,66,.12);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* --- textură discretă pe fundalurile porțelan ---------------------------- */
+.vtn-sec--porcelain{position:relative;isolation:isolate;}
+.vtn-sec--porcelain::before{content:"";position:absolute;inset:0;z-index:-1;
+  background-image:var(--motif-altita);background-size:96px 96px;opacity:.55;pointer-events:none;}
+
+/* --- panglica tricoloră, folosită ca separator între secțiuni ------------ */
+.vtn-ribbon{height:7px;border:0;margin:0;padding:0;display:block;width:100%;
+  background:linear-gradient(90deg,
+    var(--catalina) 0 33.34%,
+    var(--lemon) 33.34% 66.67%,
+    var(--ruby) 66.67% 100%);}
+
+/* --- valul tricolor din grafica socială, în hero ------------------------- */
+.vtn-hero-wave{position:absolute;inset:auto 0 -1px 0;z-index:1;pointer-events:none;
+  line-height:0;opacity:.95;}
+.vtn-hero-wave svg{display:block;width:100%;height:clamp(54px,7vw,96px);}
+.vtn-hero>.vtn-wrap{z-index:2;}
+
+/* --- bară de progres la derulare ----------------------------------------- */
+.vtn-progress{position:fixed;left:0;top:0;height:3px;width:100%;z-index:60;
+  background:transparent;pointer-events:none;}
+.vtn-progress i{display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--ruby),var(--lemon));
+  transition:width .08s linear;}
+
+/* ===== NAVIGAȚIE LIPICIOASĂ ============================================== */
+.vtn-nav{position:sticky;top:0;z-index:40;
+  background:rgba(255,255,255,.93);backdrop-filter:saturate(1.4) blur(10px);
+  border-bottom:1px solid var(--line);}
+.vtn-nav__in{max-width:var(--maxw);margin:0 auto;padding:0 20px;
+  display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.vtn-nav__in::-webkit-scrollbar{display:none;}
+.vtn-nav a{flex:0 0 auto;position:relative;padding:15px 13px;font-size:13.5px;font-weight:700;
+  color:var(--deep);text-decoration:none;white-space:nowrap;
+  transition:color .18s var(--ease);}
+.vtn-nav a::after{content:"";position:absolute;left:13px;right:13px;bottom:8px;height:2.5px;
+  background:var(--ruby);border-radius:2px;transform:scaleX(0);transform-origin:left;
+  transition:transform .26s var(--ease);}
+.vtn-nav a:hover{color:var(--ruby);}
+.vtn-nav a:hover::after,.vtn-nav a.vtn-on::after{transform:scaleX(1);}
+.vtn-nav a.vtn-on{color:var(--ruby);}
+
+/* ===== APARIȚIE LA DERULARE ============================================== */
+/* Conținutul este vizibil implicit. Clasa .vtn-anim se pune din JavaScript,  */
+/* deci fără JS pagina rămâne întreagă și lizibilă.                           */
+.vtn-anim .vtn-rv{opacity:0;transform:translateY(18px);
+  transition:opacity .6s var(--ease),transform .6s var(--ease);}
+.vtn-anim .vtn-rv.vtn-in{opacity:1;transform:none;}
+.vtn-anim .vtn-rv.vtn-d1{transition-delay:.07s;}
+.vtn-anim .vtn-rv.vtn-d2{transition-delay:.14s;}
+.vtn-anim .vtn-rv.vtn-d3{transition-delay:.21s;}
+
+/* ===== CARDURI: RIDICARE ȘI ZOOM PE IMAGINE ============================== */
+.vtn-course,.vtn-ens,.vtn-person,.vtn-repcard,.vtn-quote,.vtn-ytcard,.vtn-gal figure,.vtn-room{
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease),border-color .2s var(--ease);}
+.vtn-course:hover,.vtn-ens:hover,.vtn-person:hover,.vtn-repcard:hover,
+.vtn-ytcard:hover,.vtn-gal figure:hover,.vtn-room:hover{
+  transform:translateY(-4px);box-shadow:var(--shadow-2);border-color:rgba(0,16,66,.2);}
+.vtn-course-media img,.vtn-ens-media img,.vtn-person-media img,.vtn-gal img,.vtn-ytthumb img{
+  transition:transform .6s var(--ease);}
+.vtn-course:hover .vtn-course-media img,
+.vtn-ens:hover .vtn-ens-media img,
+.vtn-person:hover .vtn-person-media img,
+.vtn-gal figure:hover img,
+.vtn-ytcard:hover .vtn-ytthumb img{transform:scale(1.045);}
+.vtn-ytcard:hover .vtn-ytplay span{transform:scale(1.1);}
+.vtn-ytplay span{transition:transform .28s var(--ease);}
+
+/* ===== FILTRE (cursuri și orar) ========================================== */
+.vtn-filters{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0 4px;}
+.vtn-filter{background:#fff;border:1.5px solid var(--line);border-radius:999px;
+  padding:9px 17px;font-size:14.5px;font-weight:700;color:var(--deep);cursor:pointer;
+  font-family:inherit;transition:all .18s var(--ease);}
+.vtn-filter:hover{border-color:var(--ruby);color:var(--ruby);}
+.vtn-filter.vtn-on{background:var(--deep);border-color:var(--deep);color:#fff;}
+.vtn-count{font-size:14px;color:var(--muted);margin:12px 0 0;}
+.vtn-course[hidden],.vtn-table tr[hidden]{display:none;}
+
+/* ===== ORAR: coloana „prima lecție" ====================================== */
+.vtn-table td:nth-child(2){white-space:nowrap;}
+.vtn-table .vtn-start{color:var(--ruby);font-weight:700;white-space:nowrap;}
+.vtn-table .vtn-start--soon{color:var(--catalina);}
+.vtn-table tbody tr{transition:background-color .18s var(--ease);}
+.vtn-table tbody tr:hover:not(.vtn-row-head){background:#FFF8D9;}
+
+/* ===== GALERIE CU LUPĂ =================================================== */
+.vtn-gal figure{position:relative;}
+.vtn-lbbtn{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;margin:0;
+  background:transparent;cursor:zoom-in;z-index:2;}
+.vtn-lbbtn::after{content:"";position:absolute;right:12px;top:12px;width:34px;height:34px;
+  border-radius:50%;background:rgba(0,16,66,.72) var(--icon-zoom) center/18px no-repeat;
+  opacity:0;transform:scale(.8);transition:all .24s var(--ease);
+  --icon-zoom:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'><circle cx='10.5' cy='10.5' r='6.5'/><path d='M15.5 15.5 L21 21'/><path d='M10.5 7.5v6M7.5 10.5h6'/></svg>");}
+.vtn-gal figure:hover .vtn-lbbtn::after{opacity:1;transform:scale(1);}
+.vtn-lb{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;
+  background:rgba(0,16,66,.94);padding:24px;}
+.vtn-lb[open],.vtn-lb.vtn-open{display:flex;}
+.vtn-lb img{max-width:min(1100px,94vw);max-height:82vh;width:auto;border-radius:10px;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);}
+.vtn-lb figcaption{color:#E8EDF9;text-align:center;font-size:15px;margin-top:16px;max-width:64ch;}
+.vtn-lb__close{position:absolute;top:18px;right:20px;width:46px;height:46px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-size:26px;
+  line-height:1;cursor:pointer;transition:all .2s var(--ease);}
+.vtn-lb__close:hover{background:var(--ruby);border-color:var(--ruby);}
+.vtn-lb__nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;
+  border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:#fff;
+  font-size:24px;line-height:1;cursor:pointer;transition:all .2s var(--ease);}
+.vtn-lb__nav:hover{background:var(--ruby);border-color:var(--ruby);}
+.vtn-lb__prev{left:18px;} .vtn-lb__next{right:18px;}
+@media(max-width:680px){.vtn-lb__nav{display:none;}}
+
+/* ===== BUTON „SUS" ======================================================= */
+.vtn-top{position:fixed;right:20px;bottom:20px;z-index:50;width:50px;height:50px;border-radius:50%;
+  border:0;background:var(--deep);color:#fff;font-size:20px;cursor:pointer;box-shadow:var(--shadow-2);
+  opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:all .28s var(--ease);}
+.vtn-top.vtn-show{opacity:1;visibility:visible;transform:none;}
+.vtn-top:hover{background:var(--ruby);}
+
+/* ===== ACCESIBILITATE ==================================================== */
+.vtn-page a:focus-visible,.vtn-page button:focus-visible,.vtn-page summary:focus-visible{
+  outline:3px solid var(--ruby);outline-offset:3px;border-radius:4px;}
+.vtn-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+
+/* ===== MIȘCARE REDUSĂ ==================================================== */
+@media (prefers-reduced-motion:reduce){
+  .vtn-page *,.vtn-page *::before,.vtn-page *::after{
+    animation-duration:.001ms!important;transition-duration:.001ms!important;}
+  .vtn-anim .vtn-rv{opacity:1!important;transform:none!important;}
+}
+
+/* ===== TIPĂRIRE ========================================================== */
+@media print{
+  .vtn-nav,.vtn-top,.vtn-progress,.vtn-lb,.vtn-filters,.vtn-hero-wave{display:none!important;}
+  .vtn-page{font-size:11pt;color:#000;}
+  .vtn-sec{padding-block:14px;break-inside:avoid;}
+  .vtn-sec--deep{background:#fff!important;color:#000!important;}
+  .vtn-sec--deep h2,.vtn-sec--deep h3,.vtn-sec--deep p{color:#000!important;}
+  .vtn-table{min-width:0;font-size:9pt;}
+}
+
+/* ===== CORECTURĂ DE SPECIFICITATE (defecte moștenite din v3) ==============
+   În v3, regulile generale pentru legături — .vtn-page a şi .vtn-sec--deep a —
+   au specificitate mai mare decât clasele butoanelor, aşa că:
+     · „Vezi cursurile" din hero se colora albastru pe fundal bleumarin;
+     · „Cere disponibilitatea" se colora galben pe fundal alb;
+     · sloganul de final pierdea galbenul și devenea gri-albastru.
+   Selectorii de mai jos adaugă elementul (a, p) ca să întoarcă cascada,
+   fără !important și fără să atingă tema.                                    */
+.vtn-page a.vtn-btn--primary,.vtn-page a.vtn-btn--primary:hover{color:#fff;}
+.vtn-page a.vtn-btn--light{color:var(--deep);}
+.vtn-page a.vtn-btn--light:hover{color:var(--deep);}
+.vtn-page a.vtn-btn--outline-light{color:#fff;}
+.vtn-page a.vtn-btn--outline-light:hover{color:var(--deep);}
+.vtn-page a.vtn-btn--ghost{color:var(--deep);}
+.vtn-page a.vtn-btn--ghost:hover{color:#fff;}
+.vtn-page p.vtn-slogan{color:var(--lemon);}
+.vtn-page a.vtn-ytcard{color:inherit;}
+.vtn-page a.vtn-ytcard .vtn-ytbody b{color:var(--deep);}
+</style>
+
+
+<!-- ========== 1 · HERO ========== -->
+<header class="vtn-sec vtn-hero">
+  <div class="vtn-wrap">
+    <img class="vtn-hero-logo" src="https://grupulvatra.com/wp-content/uploads/2026/08/logo-grupul-vatra-alb.png" alt="Grupul Vatra — Școala de Dansuri Populare Românești">
+    <span class="vtn-eyebrow">Filiala Torino Nord · sediul principal al școlii</span>
+    <h1>Aici s-a născut Vatra. Din 2011, în Via Gressoney.</h1>
+    <p>Cincisprezece ani de dans popular românesc la Torino. În sălile din Via Gressoney 29/B repetă ansamblurile cele mai avansate și cu cea mai lungă activitate ale școlii, iar copiii, adolescenții și adulții care abia încep învață, pas cu pas, drumul de la prima lecție până pe scenă.</p>
+    <div class="vtn-btns">
+      <a class="vtn-btn vtn-btn--primary" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20Am%20v%C4%83zut%20pagina%20Torino%20Nord%20%C8%99i%20a%C8%99%20vrea%20informa%C8%9Bii%20despre%20cursuri." target="_blank" rel="noopener">Scrie-ne pe WhatsApp</a>
+      <a class="vtn-btn vtn-btn--outline-light" href="#vtn-cursuri">Vezi cursurile</a>
+    </div>
+    <p class="vtn-hero-meta">Via Gressoney 29/B, 10155 Torino · <strong>Prima lecție de probă este gratuită.</strong></p>
+    <div class="vtn-stats">
+      <div class="vtn-stat"><b data-vtn-count="1700" data-vtn-suffix="+">1.700+</b><span>elevi formați din 2011</span></div>
+      <div class="vtn-stat"><b data-vtn-count="560" data-vtn-suffix="+">560+</b><span>spectacole susținute</span></div>
+      <div class="vtn-stat"><b>6 milioane</b><span>de vizualizări online pe an</span></div>
+      <div class="vtn-stat"><b data-vtn-count="8" data-vtn-suffix="">8</b><span>ansambluri la Torino Nord</span></div>
+    </div>
+    <p class="vtn-credit">Fotografie: Grupul Vatra Torino</p>
+  </div>
+  <div class="vtn-hero-wave" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0 74 C 190 18, 370 112, 560 66 C 750 20, 930 104, 1120 60 C 1260 28, 1350 52, 1440 40 L1440 120 L0 120 Z" fill="#091C7A" opacity=".55"/>
+      <path d="M0 92 C 200 44, 380 126, 580 84 C 780 42, 950 118, 1140 80 C 1280 52, 1360 70, 1440 62 L1440 120 L0 120 Z" fill="#F9D523" opacity=".5"/>
+      <path d="M0 104 C 210 66, 400 134, 600 100 C 800 66, 980 130, 1180 98 C 1300 78, 1370 88, 1440 84 L1440 120 L0 120 Z" fill="#F72C25" opacity=".55"/>
+      <path d="M0 116 C 240 88, 430 140, 640 114 C 860 88, 1020 142, 1220 114 C 1330 98, 1380 104, 1440 100 L1440 120 L0 120 Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+</header>
+
+<div class="vtn-band" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%2220%22 viewBox=%220 0 160 20%22 fill=%22none%22><path d=%22M8 10 L10.4 5 L14.5 3.2 L23.5 3 L68 9.6 L68 10.4 L23.5 17 L14.5 16.8 L10.4 15 Z%22 fill=%22%23f72c25%22/><path d=%22M76 2.6 L82.6 10 L76 17.4 L69.4 10 Z%22 fill=%22%23f9d523%22/><path d=%22M152 10 L149.6 5 L145.5 3.2 L136.5 3 L92 9.6 L92 10.4 L136.5 17 L145.5 16.8 L149.6 15 Z%22 fill=%22%23091c7a%22/></svg>');"></div>
+
+<!-- ========== NAVIGAȚIA PAGINII (lipicioasă) ========== -->
+<nav class="vtn-nav" aria-label="Secțiunile paginii">
+  <div class="vtn-nav__in">
+    <a href="#vtn-acces">Cum ajungi</a>
+    <a href="#vtn-valori">Valori</a>
+    <a href="#vtn-cursuri">Cursuri</a>
+    <a href="#vtn-orar">Orar</a>
+    <a href="#vtn-spatii">Săli</a>
+    <a href="#vtn-inchiriere">Închiriere</a>
+    <a href="#vtn-ansambluri">Ansambluri</a>
+    <a href="#vtn-repertoriu">Repertoriu</a>
+    <a href="#vtn-echipa">Echipa</a>
+    <a href="#vtn-media">Media</a>
+    <a href="#vtn-intrebari">Întrebări</a>
+    <a href="#vtn-inscrieri">Înscriere</a>
+  </div>
+</nav>
+
+<!-- ========== 2 · ACCES ========== -->
+<section class="vtn-sec vtn-sec--porcelain" id="vtn-acces">
+  <div class="vtn-wrap">
+    <div class="vtn-access">
+      <div>
+        <span class="vtn-eyebrow">Acces</span>
+        <h2 class="vtn-rv">La 15 minute de tine, din tot nordul Torinului</h2>
+        <div class="vtn-orn"><svg xmlns="http://www.w3.org/2000/svg" width="240" height="34" viewBox="0 0 240 34" fill="none" aria-hidden="true"><path d="M2 17 L6 8.5 L13 5.5 L28 5 L104 16.2 L104 17.8 L28 29 L13 28.5 L6 25.5 Z" fill="#f72c25"/><path d="M120 4.4 Q121.6 4.4 122.6 5.6 L131.4 15.6 Q132.4 17 131.4 18.4 L122.6 28.4 Q121.6 29.6 120 29.6 Q118.4 29.6 117.4 28.4 L108.6 18.4 Q107.6 17 108.6 15.6 L117.4 5.6 Q118.4 4.4 120 4.4 Z" fill="#091c7a"/><path d="M238 17 L234 8.5 L227 5.5 L212 5 L136 16.2 L136 17.8 L212 29 L227 28.5 L234 25.5 Z" fill="#f72c25"/></svg></div>
+        <p>Sediul se află în zona de nord a orașului, la cinci minute de intrarea pe autostrada A4 și la un sfert de oră de aeroport. Ajungi ușor și cu mașina, și cu transportul public.</p>
+        <div class="vtn-access-items">
+          <div class="vtn-access-item"><b>Autobuz</b><span>Liniile 10, 11, 46, 49 și 77 opresc în apropiere.</span></div>
+          <div class="vtn-access-item"><b>Tren</b><span>Gara Torino Rebaudengo este la câțiva pași de sală; gara FS Dora și Docks Dora sunt în vecinătate.</span></div>
+          <div class="vtn-access-item"><b>Mașină</b><span>5 minute de la intrarea pe autostrada A4; 15 minute de la aeroportul Torino Caselle.</span></div>
+        </div>
+        <h3>Locuiești în afara orașului?</h3>
+        <p>Ești la 15–30 de minute de sală dacă vii din:</p>
+        <div class="vtn-localities">
+          <span class="vtn-chip">Chivasso</span><span class="vtn-chip">Venaria Reale</span>
+          <span class="vtn-chip">Settimo Torinese</span><span class="vtn-chip">Borgaro Torinese</span>
+          <span class="vtn-chip">Druento</span><span class="vtn-chip">San Mauro Torinese</span>
+          <span class="vtn-chip">Valli di Lanzo</span><span class="vtn-chip">și localitățile limitrofe</span>
+        </div>
+      </div>
+      <aside class="vtn-card-contact">
+        <h3>Grupul Vatra – Filiala Torino Nord</h3>
+        <dl>
+          <div><dt>Adresă</dt><dd>Via Gressoney 29/B, 10155 Torino</dd></div>
+          <div><dt>WhatsApp și telefon</dt><dd><a href="tel:+393921897050">+39 392 189 7050</a></dd></div>
+          <div><dt>E-mail</dt><dd><a href="mailto:info@grupulvatra.com">info@grupulvatra.com</a></dd></div>
+          <div><dt>Secretariat</dt><dd>Luni–vineri 14:00–21:00 · Sâmbătă 10:00–18:00</dd></div>
+        </dl>
+        <a class="vtn-btn vtn-btn--light vtn-btn--sm" href="https://maps.app.goo.gl/ih9CVqP6gFwGeYEc8" target="_blank" rel="noopener">Deschide harta</a>
+        <p class="vtn-note">Două săli de dans cu parchet, oglinzi pe tot peretele și bare de balet, sală multimedia, vestiar și zonă de așteptare pentru părinți.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 3 · VALORILE ȘCOLII ========== -->
+<section class="vtn-sec vtn-sec--white" id="vtn-valori">
+  <div class="vtn-wrap">
+    <span class="vtn-eyebrow">Cine suntem</span>
+    <h2 class="vtn-rv">Unsprezece cuvinte, scrise pe lemn, la intrare</h2>
+    <div class="vtn-orn"><svg xmlns="http://www.w3.org/2000/svg" width="240" height="34" viewBox="0 0 240 34" fill="none" aria-hidden="true"><path d="M2 17 L6 8.5 L13 5.5 L28 5 L104 16.2 L104 17.8 L28 29 L13 28.5 L6 25.5 Z" fill="#f72c25"/><path d="M120 4.4 Q121.6 4.4 122.6 5.6 L131.4 15.6 Q132.4 17 131.4 18.4 L122.6 28.4 Q121.6 29.6 120 29.6 Q118.4 29.6 117.4 28.4 L108.6 18.4 Q107.6 17 108.6 15.6 L117.4 5.6 Q118.4 4.4 120 4.4 Z" fill="#091c7a"/><path d="M238 17 L234 8.5 L227 5.5 L212 5 L136 16.2 L136 17.8 L212 29 L227 28.5 L234 25.5 Z" fill="#f72c25"/></svg></div>
+    <p class="vtn-lead">La intrarea în sală, pe un stâlp de lemn, sunt bătute unsprezece săgeți. Citite pe verticală, literele lor scriu numele școlii. Sunt valorile după care lucrăm, puse acolo ca să le vadă fiecare copil care intră pe ușă.</p>
+    <div class="vtn-valori">
+      <div>
+        <div class="vtn-acrostih">
+          <div><b>G</b><span>Grai</span><em>Limba în care se strigă și se cântă</em></div>
+          <div><b>R</b><span>Respect</span><em>Pentru maeștri, pentru costum, pentru scenă</em></div>
+          <div><b>U</b><span>Unitate</span><em>Opt ansambluri, o singură școală</em></div>
+          <div><b>P</b><span>Pasiune</span><em>Motivul pentru care se vine și iarna, și pe ploaie</em></div>
+          <div><b>U</b><span>Umanitate</span><em>Fiecare elev este cunoscut pe nume</em></div>
+          <div><b>L</b><span>Libertate</span><em>Fiecare își găsește locul, la orice vârstă</em></div>
+          <div><b>V</b><span>Vibrație</span><em>Ce simți când toată sala bate din picior odată</em></div>
+          <div><b>A</b><span>Acasă</span><em>Sala din Via Gressoney, pentru cei plecați de acasă</em></div>
+          <div><b>T</b><span>Tradiție</span><em>Jocuri învățate de la cei care le-au trăit</em></div>
+          <div><b>R</b><span>Rădăcini</span><em>Copii născuți în Italia care știu de unde vin</em></div>
+          <div><b>A</b><span>Autentic</span><em>Costum real, joc real, fără decor de scenă</em></div>
+        </div>
+      </div>
+      <figure>
+        <img src="https://grupulvatra.com/wp-content/uploads/2026/09/valori-grupul-vatra-intrare-via-gressoney.jpg" alt="Indicatorul cu valorile Școlii Grupul Vatra, la intrarea din Via Gressoney 29/B, Torino" loading="lazy" style="border-radius:var(--r);">
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 4 · CURSURI ========== -->
+<section class="vtn-sec vtn-sec--white" id="vtn-cursuri">
+  <div class="vtn-wrap">
+    <span class="vtn-eyebrow">Stagiunea 2026–2027</span>
+    <h2 class="vtn-rv">Un curs pentru fiecare vârstă și fiecare nivel</h2>
+    <div class="vtn-orn"><svg xmlns="http://www.w3.org/2000/svg" width="240" height="34" viewBox="0 0 240 34" fill="none" aria-hidden="true"><path d="M2 17 L6 8.5 L13 5.5 L28 5 L104 16.2 L104 17.8 L28 29 L13 28.5 L6 25.5 Z" fill="#f72c25"/><path d="M120 4.4 Q121.6 4.4 122.6 5.6 L131.4 15.6 Q132.4 17 131.4 18.4 L122.6 28.4 Q121.6 29.6 120 29.6 Q118.4 29.6 117.4 28.4 L108.6 18.4 Q107.6 17 108.6 15.6 L117.4 5.6 Q118.4 4.4 120 4.4 Z" fill="#091c7a"/><path d="M238 17 L234 8.5 L227 5.5 L212 5 L136 16.2 L136 17.8 L212 29 L227 28.5 L234 25.5 Z" fill="#f72c25"/></svg></div>
+    <p class="vtn-lead">Cursurile sunt organizate pe vârste și pe nivel: copii, adolescenți și adulți; începători, intermediari și avansați. Fiecare lecție are aceeași structură — încălzire, tehnică, repertoriu, repetiție pentru scenă — și fiecare grupă are un orizont clar: ansamblurile școlii. Prima lecție de probă este gratuită.</p>
+
+    <div class="vtn-filters vtn-rv" data-vtn-coursefilters role="group" aria-label="Filtrează cursurile după vârstă">
+      <button type="button" class="vtn-filter vtn-on" data-vtn-for="toate" aria-pressed="true">Toate cursurile</button>
+      <button type="button" class="vtn-filter" data-vtn-for="copii" aria-pressed="false">Copii</button>
+      <button type="button" class="vtn-filter" data-vtn-for="adolescenti" aria-pressed="false">Adolescenți</button>
+      <button type="button" class="vtn-filter" data-vtn-for="adulti" aria-pressed="false">Adulți</button>
+    </div>
+    <p class="vtn-count" data-vtn-coursecount aria-live="polite">10 cursuri afișate.</p>
+
+    <div class="vtn-grid vtn-grid--3" style="margin-top:28px;">
+
+      <!-- copii -->
+      <article class="vtn-course vtn-rv" data-vtn-audience="copii">
+        <div class="vtn-course-media"><img src="https://grupulvatra.com/wp-content/uploads/2024/11/copii-dans-folclor-8-12-vatra.jpg" alt="Copii la cursul de dans popular al Școlii Grupul Vatra din Torino" loading="lazy"></div>
+        <div class="vtn-course-body">
+          <h3>Dans popular pentru copii</h3>
+          <p>Joc, ritm, cântec și primele coregrafii, pe grupe de vârstă. Copiii cresc cu rădăcini și ajung, la timpul lor, în Bujorii de la Prut și în Mugurel.</p>
+          <ul class="vtn-facts">
+            <li><b>Vârstă</b><span>4–11 ani</span></li>
+            <li><b>Zi și oră</b><span>Luni, 17:30–19:00</span></li>
+            <li><b>Instructor</b><span>Gessica Ecaterina Sfabu</span></li>
+            <li><b>Durată</b><span>90 de minute</span></li>
+            <li><b>Prima lecție</b><span>5 octombrie · grupă nouă</span></li>
+          </ul>
+          <div class="vtn-detail">
+            <h4>Cum arată o lecție, minut cu minut</h4>
+            <ul class="vtn-ul">
+              <li><b>10 minute</b> încălzire și pregătire corporală</li>
+              <li><b>25 de minute</b> tehnică de bază și dansuri tradiționale: sârba, hora, bătuta, în stil moldovenesc, muntenesc și ardelenesc</li>
+              <li><b>15 minute</b> jocuri populare adaptate vârstei — „Țara, țara, vrem ostași", „Vânătorul și iepurașii"</li>
+              <li><b>10 minute</b> cântece și strigături folclorice</li>
+              <li><b>20 de minute</b> coregrafii pentru spectacole</li>
+              <li><b>8 minute</b> elemente de balet și de dans de caracter</li>
+              <li><b>2 minute</b> recapitulare și joc final</li>
+            </ul>
+            <h4>Pentru părinți</h4>
+            <p>Lecții deschise în fiecare lună, spectacole trimestriale chiar în sediul școlii și întâlniri despre progresul fiecărui copil. Copiii participă la 1 Decembrie, la sărbătorile de iarnă, de Paște, de 1 Iunie și la carnavalurile și festivalurile internaționale din Torino.</p>
+            <h4>Ce aduci</h4>
+            <p>Pantaloni elastici, tricou și pantofi de sport sau de dans. Costumul popular se discută mai târziu, când copilul intră pe scenă.</p>
+          </div>
+          <p class="vtn-links">Vezi și: <a href="https://grupulvatra.com/cursuri/dansuri-populare-copii-8-12-ani-torino/">Copii 8–12 ani</a></p>
+          <a class="vtn-btn vtn-btn--primary vtn-btn--sm" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20informa%C8%9Bii%20despre%20cursul%20de%20dans%20popular%20pentru%20copii%20la%20Torino%20Nord%3A%20v%C3%A2rste%2C%20orar%20%C8%99i%20prima%20lec%C8%9Bie." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+        </div>
+      </article>
+
+      <!-- adolescenti -->
+      <article class="vtn-course vtn-rv" data-vtn-audience="adolescenti">
+        <div class="vtn-course-media"><img src="https://grupulvatra.com/wp-content/uploads/2025/08/Ansamblul-Folcloric-Hora-Padului.webp" alt="Adolescenți din Ansamblul Folcloric Hora Padului, Grupul Vatra Torino" loading="lazy"></div>
+        <div class="vtn-course-body">
+          <h3>Dans popular pentru adolescenți</h3>
+          <p>Coregrafii mai complexe, tehnică scenică și o echipă în care te regăsești. Grupa este și baza Ansamblului Hora Padului; de aici se ajunge în Ansamblul Artistic Vatra.</p>
+          <ul class="vtn-facts">
+            <li><b>Vârstă</b><span>14–25 de ani</span></li>
+            <li><b>Zi și oră</b><span>Luni și joi, 19:00–20:30</span></li>
+            <li><b>Instructor</b><span>Gessica Ecaterina Sfabu</span></li>
+            <li><b>Repertoriu</b><span>Moldova, Bucovina, Basarabia</span></li>
+            <li><b>Prima lecție</b><span>4 septembrie</span></li>
+          </ul>
+          <div class="vtn-detail">
+            <h4>Ce se învață</h4>
+            <p>Ax postural și ținută scenică, pași de bază și de legătură, coordonare în formații — cerc, semicerc, linie, diagonală — lucru cu partenerul, interpretare muzicală și expresivitate. Se poate dansa, cânta sau juca teatru folcloric.</p>
+          </div>
+          <p class="vtn-links">Vezi și: <a href="https://grupulvatra.com/cursuri/cursuri-dansuri-populare-adolescenti-torino/">Adolescenți</a> · <a href="https://grupulvatra.com/cursuri/ansamblul-hora-padului-torino/">Hora Padului</a></p>
+          <a class="vtn-btn vtn-btn--primary vtn-btn--sm" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20informa%C8%9Bii%20despre%20cursul%20de%20dans%20popular%20pentru%20adolescen%C8%9Bi%20la%20Torino%20Nord%3A%20orar%20%C8%99i%20prima%20lec%C8%9Bie." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+        </div>
+      </article>
+
+      <!-- adulti -->
+      <article class="vtn-course vtn-rv" data-vtn-audience="adulti">
+        <div class="vtn-course-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/curs-dans-popular-adulti-incepatori-torino.jpg" alt="Șase adulți în costum popular, ținându-se de mână la cursul de dans popular din Torino" loading="lazy"></div>
+        <div class="vtn-course-body">
+          <h3>Dans popular pentru adulți începători</h3>
+          <p>Fără experiență și fără pereche: hore, sârbe, brâie și bătute, ca la nunta de acasă. Schimbăm partenerii ca la horele din sat, așa că vii și singur.</p>
+          <ul class="vtn-facts">
+            <li><b>Public</b><span>Adulți, de la zero</span></li>
+            <li><b>Zi și oră</b><span>Luni, 20:30–22:30 · Sâmbătă, 17:00–19:00</span></li>
+            <li><b>Instructori</b><span>Cristian Costin (luni) · Gessica Ecaterina Sfabu (sâmbătă)</span></li>
+            <li><b>Durată</b><span>120 de minute</span></li>
+            <li><b>Prima lecție</b><span>Luni: 5 octombrie · Sâmbătă: 5 septembrie</span></li>
+          </ul>
+          <div class="vtn-detail">
+            <h4>Ce se învață</h4>
+            <p>Pași fundamentali și tehnică, jocuri de perechi — ardeleana, învârtita, sârba de perechi, hora fetelor și a băieților — și diferențele de stil dintre Moldova, Basarabia, Muntenia, Oltenia, Ardeal, Maramureș, Bucovina și Dobrogea.</p>
+            <h4>Cum arată cele două ore</h4>
+            <ul class="vtn-ul">
+              <li><b>10–15 minute</b> încălzire și atmosferă</li>
+              <li><b>30 de minute</b> pași fundamentali și tehnică, cu schimbarea partenerilor</li>
+              <li><b>40 de minute</b> jocuri populare aplicate</li>
+              <li><b>20 de minute</b> perfecționare și improvizație: bătutul din palme, strigături, legănatul specific fiecărei zone</li>
+              <li><b>15 minute</b> hora finală</li>
+            </ul>
+            <h4>Unde ajungi</h4>
+            <p>Cei care vor mai mult continuă în Ansamblul Veselia sau în Strămoșeasca. Obiectivul declarat al cursului: să nu mai stai pe margine la nicio nuntă. În plus, grupa are petreceri lunare pentru elevi și prietenii școlii.</p>
+          </div>
+          <p class="vtn-links">Vezi și: <a href="https://grupulvatra.com/cursuri/cursuri-dans-popular-adulti-incepatori-torino/">Adulți începători</a></p>
+          <a class="vtn-btn vtn-btn--primary vtn-btn--sm" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20informa%C8%9Bii%20despre%20cursul%20de%20dans%20popular%20pentru%20adul%C8%9Bi%20%C3%AEncep%C4%83tori%20la%20Torino%20Nord." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+        </div>
+      </article>
+
+      <!-- balet -->
+      <article class="vtn-course vtn-rv" data-vtn-audience="copii adolescenti adulti">
+        <div class="vtn-course-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/balet-adulti-danza-classica-torino-nord.jpg" alt="Cursantă adultă la balet, pe scena Școlii de Dans și Artă Primo Passo din Torino" loading="lazy"></div>
+        <div class="vtn-course-body">
+          <span class="vtn-tag">Nou din 2026–2027</span>
+          <h3>Balet — danza classica</h3>
+          <p>Balet clasic pe grupe de vârstă, inclusiv pentru adulți, cu Sofia Zaynetdinova, formată la Universitatea de Stat de Cultură și Arte din Sankt Petersburg. Se predă după metoda Vaganova.</p>
+          <ul class="vtn-facts">
+            <li><b>7–10 ani</b><span>Propedeutică · luni și vineri, 17:00–18:00</span></li>
+            <li><b>11–14 ani</b><span>Marți și joi, 18:00–19:00</span></li>
+            <li><b>15 ani +</b><span>Luni și vineri, 18:00–20:30</span></li>
+            <li><b>Adulți</b><span>Marți și joi, 20:00–21:00</span></li>
+            <li><b>Sală</b><span>Cu bare de balet și oglinzi pe tot peretele</span></li>
+            <li><b>Prima lecție</b><span>Prima săptămână din octombrie</span></li>
+          </ul>
+          <div class="vtn-detail">
+            <h4>Ce se învață</h4>
+            <p>Postura și alinierea corpului la bară, pozițiile brațelor și ale picioarelor, pliés, tendus, dégagés, primele combinații la centru, muzicalitate și coordonare. La grupele avansate, repertoriu și pregătire pentru scenă. Discipline complementare: sbarra a terra, Progressing Ballet Technique, dans istoric și solfegiu pentru dans.</p>
+            <h4>Programul complet, în italiană</h4>
+            <p>Parcursul de formare, nivelurile și metoda sunt descrise pe site-ul în limba italiană al școlii: <a href="https://primopasso.org/corsi-di-danza/danza-classica/" target="_blank" rel="noopener">primopasso.org — Danza Classica</a>.</p>
+            <h4>Și pentru adulți</h4>
+            <p>Grupa de adulți începători lucrează la bară de două ori pe săptămână, în Sala Arte. Nu este nevoie de experiență și nici de o anumită vârstă: se începe de la postură, respirație și aliniere.</p>
+            <figure style="margin:14px 0;border-radius:10px;overflow:hidden;">
+              <img src="https://grupulvatra.com/wp-content/uploads/2026/09/lectie-balet-adulti-bara-via-gressoney.jpg" alt="Grupa de adulți la bara de balet, în sala Școlii Grupul Vatra din Via Gressoney" loading="lazy">
+            </figure>
+            <h4>Vezi cursul la lucru</h4>
+            <p>Înregistrări de la spectacolele de balet ale școlii: <a href="https://www.youtube.com/playlist?list=PLaYoUKKnjBYkRWHAcX6YgxXZicGVLwsF1" target="_blank" rel="noopener">playlistul Danza Classica</a> · <a href="https://www.youtube.com/watch?v=z49ucWVR3PI" target="_blank" rel="noopener">Trupa de balet</a> · <a href="https://www.youtube.com/watch?v=tz86xdvA0OY" target="_blank" rel="noopener">Bosco incantato, grupa de adulți începători</a> · <a href="https://www.youtube.com/watch?v=U6_xoKhdaR0" target="_blank" rel="noopener">Farfalla e Fiorellini, cei mici</a>. Sofia Zaynetdinova povestește cum lucrează cu elevii, <a href="https://www.youtube.com/watch?v=4H4DE3PaaDo" target="_blank" rel="noopener">în interviul de pe canalul italian al școlii</a>.</p>
+          </div>
+          <a class="vtn-btn vtn-btn--primary vtn-btn--sm" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20informa%C8%9Bii%20despre%20cursurile%20de%20balet%2C%20dans%20modern%20%C8%99i%20dans%20de%20caracter%20la%20Torino%20Nord%3A%20v%C3%A2rste%20%C8%99i%20orar." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+        </div>
+      </article>
+
+      <!-- caracter + modern -->
+      <article class="vtn-course vtn-rv" data-vtn-audience="copii adolescenti">
+        <div class="vtn-course-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/dans-de-caracter-adolescenti-torino-nord.jpg" alt="Adolescente în costume de caracter, pe scenă, la Școala Grupul Vatra din Torino" loading="lazy"></div>
+        <div class="vtn-course-body">
+          <span class="vtn-tag">Nou din 2026–2027</span>
+          <h3>Dans de caracter și dans modern</h3>
+          <p>Dansul de caracter este puntea dintre balet și dansul popular: tehnica clasică aplicată dansurilor tradiționale ale lumii, cu pantof cu toc. Dansul modern lucrează expresia, podeaua, greutatea și respirația.</p>
+          <ul class="vtn-facts">
+            <li><b>Caracter</b><span>11–14 ani și 15 ani +</span></li>
+            <li><b>Modern</b><span>11–14 ani și adolescenți intermediari</span></li>
+            <li><b>Zi și oră</b><span>Marți și joi 18:00–19:00 · luni și vineri 18:00–20:30</span></li>
+            <li><b>Instructor</b><span>Sofia Zaynetdinova</span></li>
+            <li><b>Prima lecție</b><span>Prima săptămână din octombrie</span></li>
+          </ul>
+          <div class="vtn-detail">
+            <h4>Repertoriu de caracter</h4>
+            <p>Italia, Ucraina, România, Moldova, Ungaria, Germania, Spania, Finlanda, Bielorusia, Rusia și Armenia. Dansul de caracter a fost codificat de Aleksandr Șiriaev, asistentul lui Petipa, și face parte din programa oricărui liceu coregrafic.</p>
+            <h4>Vezi cursul la lucru</h4>
+            <p>Paisprezece coregrafii de caracter filmate la spectacolele școlii, în <a href="https://www.youtube.com/playlist?list=PLaYoUKKnjBYlsB1LRN2OkU597fhl2mp6a" target="_blank" rel="noopener">playlistul Danza di carattere</a>: <a href="https://www.youtube.com/watch?v=3902dEYnqhc" target="_blank" rel="noopener">dans românesc</a>, <a href="https://www.youtube.com/watch?v=Z0iouGqgYZ8" target="_blank" rel="noopener">finlandez</a>, <a href="https://www.youtube.com/watch?v=hymqljfgc_o" target="_blank" rel="noopener">spaniol</a>, <a href="https://www.youtube.com/watch?v=W_H7UH2JHc0" target="_blank" rel="noopener">tarantella</a>, <a href="https://www.youtube.com/watch?v=oTlU2Ejlwtg" target="_blank" rel="noopener">rus</a>, <a href="https://www.youtube.com/watch?v=RYVO8cZVp-Y" target="_blank" rel="noopener">armean</a> și <a href="https://www.youtube.com/watch?v=6687rLpKsDw" target="_blank" rel="noopener">slav</a>.</p>
+            <h4>Pagini în italiană</h4>
+            <p><a href="https://primopasso.org/corsi-di-danza/danza-di-carattere/" target="_blank" rel="noopener">Danza di carattere</a> · <a href="https://primopasso.org/corsi-di-danza/danza-moderna-e-contemporanea/" target="_blank" rel="noopener">Danza moderna e contemporanea</a></p>
+          </div>
+          <a class="vtn-btn vtn-btn--primary vtn-btn--sm" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20informa%C8%9Bii%20despre%20cursurile%20de%20balet%2C%20dans%20modern%20%C8%99i%20dans%20de%20caracter%20la%20Torino%20Nord%3A%20v%C3%A2rste%20%C8%99i%20orar." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+        </div>
+      </article>
+
+      <!-- baby dance -->
+      <article class="vtn-course vtn-rv" data-vtn-audience="copii">
+        <div class="vtn-course-media"><img src="https://grupulvatra.com/wp-content/uploads/2024/11/cursuri-traditii-dansuri-populare-copii.jpg" alt="Cei mai mici copii ai Școlii Grupul Vatra, la curs în Torino" loading="lazy"></div>
+        <div class="vtn-course-body">
+          <span class="vtn-tag">Nou din 2026–2027</span>
+          <h3>Baby dance și teatru-dans</h3>
+          <p>Mișcare, joc și poveste pentru cei mai mici dansatori ai școlii. Nu este un curs de performanță: copiii descoperă ritmul, spațiul și propriul corp, într-un loc în care sunt cunoscuți pe nume.</p>
+          <ul class="vtn-facts">
+            <li><b>Baby dance</b><span>4–6 ani · marți și joi, 17:00–18:00</span></li>
+            <li><b>Teatru-dans</b><span>4–11 ani · miercuri, 17:00–18:00</span></li>
+            <li><b>Instructor</b><span>Sofia Zaynetdinova</span></li>
+            <li><b>Ce aduci</b><span>Haine comode, șosete antiderapante, apă</span></li>
+            <li><b>Prima lecție</b><span>Prima săptămână din octombrie</span></li>
+          </ul>
+          <div class="vtn-detail">
+            <h4>La teatru-dans</h4>
+            <p>Copiii spun povești cu corpul: expresie și mimică, ritm și spațiu, improvizație pe teme, scenete construite împreună. Se lucrează și cu obiceiurile românești — Capra, Plugușorul, Paparudele — pe care copiii le duc apoi pe scenă.</p>
+          </div>
+          <a class="vtn-btn vtn-btn--primary vtn-btn--sm" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20informa%C8%9Bii%20despre%20baby%20dance%20%C8%99i%20teatru-dans%20la%20Torino%20Nord%3A%20v%C3%A2rste%20%C8%99i%20orar." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+        </div>
+      </article>
+
+      <!-- internationale -->
+      <article class="vtn-course vtn-rv" data-vtn-audience="adolescenti adulti">
+        <div class="vtn-course-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/dansuri-internationale-grupul-vatra-torino.jpg" alt="Dansatoare cu evantaie într-un dans internațional, Școala Grupul Vatra Torino" loading="lazy"></div>
+        <div class="vtn-course-body">
+          <h3>Dansuri internaționale — Grupul Elle</h3>
+          <p>Dansuri din Italia, Irlanda, Spania, Armenia, Ucraina și din alte culturi, alături de repertoriul românesc. Grupul Feminin Elle lucrează pe două niveluri, cu pantof cu toc la fiecare lecție.</p>
+          <ul class="vtn-facts">
+            <li><b>Public</b><span>Fete, tinere și femei</span></li>
+            <li><b>Începători</b><span>Luni, 20:30–22:00</span></li>
+            <li><b>Avansați</b><span>Miercuri, 19:30–20:30</span></li>
+            <li><b>Instructor</b><span>Sofia Zaynetdinova</span></li>
+            <li><b>Prima lecție</b><span>Începători: prima săptămână din octombrie · Avansați: 4 septembrie</span></li>
+          </ul>
+          <div class="vtn-detail">
+            <h4>Din repertoriu</h4>
+            <p>Pizzica și Tammurriata din Italia, Keigley din Irlanda, dans egiptean, dans armean, Varen'ka și Drăgaica. Repertoriul grupului acoperă dansuri italiene, românești, ruse, bulgărești, slave, armene, ucrainene, egiptene, berlineze și spaniole.</p>
+            <figure style="margin:0 0 14px;border-radius:10px;overflow:hidden;">
+              <img src="https://grupulvatra.com/wp-content/uploads/2026/09/grupul-elle-dans-irlandez-torino-nord.jpg" alt="Grupul Feminin Elle în costume de dans irlandez, pe scenă la Torino" loading="lazy">
+            </figure>
+            <h4>Vezi cursul la lucru</h4>
+            <p>Coregrafiile grupului, filmate pe scenă: <a href="https://www.youtube.com/playlist?list=PLaYoUKKnjBYkN2jBC_YDHbWAZgoqubxWs" target="_blank" rel="noopener">playlistul Gruppo Elle</a> · <a href="https://www.youtube.com/watch?v=pdAj2rMwDro" target="_blank" rel="noopener">dans egiptean</a> · <a href="https://www.youtube.com/watch?v=-RFkwIVprvA" target="_blank" rel="noopener">dans irlandez</a> · <a href="https://www.youtube.com/watch?v=-p5uliyDxfc" target="_blank" rel="noopener">Varen'ka</a> · <a href="https://www.youtube.com/watch?v=AWR_R-zFGAg" target="_blank" rel="noopener">dans armean</a> · <a href="https://www.youtube.com/watch?v=5HfwwCQhOWM" target="_blank" rel="noopener">Pizzica</a> · <a href="https://www.youtube.com/watch?v=e-l3sNT7RNs" target="_blank" rel="noopener">dans rusesc</a>.</p>
+            <h4>Pagina în italiană</h4>
+            <p><a href="https://primopasso.org/corsi-di-danza/danze-popolari-internazionali/" target="_blank" rel="noopener">primopasso.org — Danze popolari internazionali</a></p>
+          </div>
+          <p class="vtn-links">Vezi și: <a href="https://grupulvatra.com/cursuri/grupul-elle-incepatori/">Elle – începători</a> · <a href="https://grupulvatra.com/cursuri/grupul-elle-avansati/">Elle – avansați</a></p>
+          <a class="vtn-btn vtn-btn--primary vtn-btn--sm" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20informa%C8%9Bii%20despre%20Grupul%20Feminin%20Elle%20la%20Torino%20Nord%3A%20nivelurile%20%C8%99i%20orarul." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+        </div>
+      </article>
+
+      <!-- barbati -->
+      <article class="vtn-course vtn-rv" data-vtn-audience="adolescenti adulti">
+        <div class="vtn-course-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/grupa-barbati-dans-popular-adulti-torino.jpg" alt="Grupa de bărbați a Școlii Grupul Vatra, în costum popular, pe scena spectacolului Ritmuri de Acasă" loading="lazy"></div>
+        <div class="vtn-course-body">
+          <h3>Joc bărbătesc și Ceata de Călușari</h3>
+          <p>Joc, forță, virtuozitate, ritm, precizie și rezistență: bătuta călușului, de la primele sărituri până la ceata mare. Se caută parteneri de joc.</p>
+          <ul class="vtn-facts">
+            <li><b>Public</b><span>Băieți și bărbați, pe grupe de nivel</span></li>
+            <li><b>Zi și oră</b><span>Miercuri, 19:30–20:30</span></li>
+            <li><b>Instructor</b><span>Cristian Costin · coregraf Iurie Răileanu</span></li>
+            <li><b>Grupe</b><span>O singură grupă în stagiunea 2026–2027</span></li>
+            <li><b>Prima lecție</b><span>4 septembrie</span></li>
+          </ul>
+          <div class="vtn-detail">
+            <figure style="margin:0 0 14px;border-radius:10px;overflow:hidden;">
+              <img src="https://grupulvatra.com/wp-content/uploads/2026/09/calusar-portret-studio-grupul-vatra.jpg" alt="Călușar din Ceata de Călușari a Școlii Grupul Vatra, în costum complet, portret de studio" loading="lazy">
+            </figure>
+            <h4>Ce înseamnă călușul</h4>
+            <p>Sărituri ample, bătăi rapide de pinteni, formații în linie, semicerc și cerc închis, intrări ritualice și strigături autentice. Ceata a învățat cu maeștrii Ionel Garoafă, Ilie Brăileanu și Simion Buță.</p>
+          </div>
+          <p class="vtn-links">Vezi și: <a href="https://grupulvatra.com/cursuri/calus-incepatori-torino/">Căluș – începători</a> · <a href="https://grupulvatra.com/cursuri/calus-avansati-torino/">Căluș – avansați</a></p>
+          <a class="vtn-btn vtn-btn--primary vtn-btn--sm" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20informa%C8%9Bii%20despre%20jocul%20b%C4%83rb%C4%83tesc%20%C8%99i%20Ceata%20de%20C%C4%83lu%C8%99ari%20la%20Torino%20Nord." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+        </div>
+      </article>
+
+      <!-- pilates -->
+      <article class="vtn-course vtn-rv" data-vtn-audience="adolescenti adulti">
+        <div class="vtn-course-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/sala-arte-balet-grupul-vatra-torino.jpg" alt="Sala Arte a Școlii Grupul Vatra, cu parchet, oglinzi și bară de balet" loading="lazy"></div>
+        <div class="vtn-course-body">
+          <span class="vtn-tag">Nou din 2026–2027</span>
+          <h3>Pilates</h3>
+          <p>Metodele Matwork și Reformer, pentru orice vârstă. Reechilibrare, respirație corectă, tonifiere în profunzime și postură — util pentru dansatori și pentru oricine stă mult la birou.</p>
+          <ul class="vtn-facts">
+            <li><b>Public</b><span>Adolescenți și adulți</span></li>
+            <li><b>Zi și oră</b><span>Marți și joi, 19:00–20:00</span></li>
+            <li><b>Instructor</b><span>Sofia Zaynetdinova</span></li>
+            <li><b>Prima lecție</b><span>Prima săptămână din octombrie</span></li>
+          </ul>
+          <div class="vtn-detail">
+            <h4>Pagina în italiană</h4>
+            <p><a href="https://primopasso.org/corsi-di-danza/pilates/" target="_blank" rel="noopener">primopasso.org — Pilates</a></p>
+          </div>
+          <a class="vtn-btn vtn-btn--primary vtn-btn--sm" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20informa%C8%9Bii%20despre%20cursul%20de%20Pilates%20la%20Torino%20Nord%3A%20orar%20%C8%99i%20prima%20lec%C8%9Bie." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+        </div>
+      </article>
+
+      <!-- bujorii -->
+      <article class="vtn-course vtn-rv" data-vtn-audience="copii">
+        <div class="vtn-course-media"><img src="https://grupulvatra.com/wp-content/uploads/2025/08/ANSAMBLUL-BUJORII-DE-LA-PRUT.webp" alt="Ansamblul folcloric de copii Bujorii de la Prut, Grupul Vatra Torino" loading="lazy"></div>
+        <div class="vtn-course-body">
+          <h3>Ansamblul Bujorii de la Prut</h3>
+          <p>Ansamblul de copii al școlii: repertoriu din Moldova, Basarabia și Bucovina, teatru popular și, opțional, muzică vocală și instrumentală.</p>
+          <ul class="vtn-facts">
+            <li><b>Vârstă</b><span>7–13 ani</span></li>
+            <li><b>Zi și oră</b><span>Joi, 17:30–19:00</span></li>
+            <li><b>Instructor</b><span>Gessica Ecaterina Sfabu</span></li>
+            <li><b>Opțional</b><span>Nai, fluier, vioară, acordeon, percuție</span></li>
+            <li><b>Prima lecție</b><span>4 septembrie</span></li>
+          </ul>
+          <div class="vtn-detail">
+            <h4>Din repertoriu</h4>
+            <p>Huțulca, coșnencuța, rața, ruseasca, ciobănașul, țânțărașul, alunelul, șapte pași, coasa, hangul și coșerul. Teatru popular: Capra, Plugușorul, Ursul, Paparudele.</p>
+          </div>
+          <p class="vtn-links">Vezi și: <a href="https://grupulvatra.com/cursuri/ansamblul-bujorii-de-la-prut-torino/">Pagina ansamblului</a></p>
+          <a class="vtn-btn vtn-btn--primary vtn-btn--sm" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20informa%C8%9Bii%20despre%20cursul%20de%20dans%20popular%20pentru%20copii%20la%20Torino%20Nord%3A%20v%C3%A2rste%2C%20orar%20%C8%99i%20prima%20lec%C8%9Bie." target="_blank" rel="noopener">Întreabă pe WhatsApp</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ========== ORAR COMPLET ========== -->
+    <div id="vtn-orar" class="vtn-orar-block" style="margin-top:56px;padding-top:44px;border-top:1px solid var(--line);">
+      <span class="vtn-eyebrow">Orarul sălii din Via Gressoney</span>
+      <h2 class="vtn-rv">Toate grupele, zi cu zi</h2>
+      <p class="vtn-lead vtn-rv">Grila completă a stagiunii 2026–2027, cu data primei lecții pentru fiecare grupă.
+        Ansamblurile și grupele deja formate au început pe 4 septembrie; grupele noi pornesc în octombrie.
+        <b>Înscrierile sunt deschise tot anul</b>, iar cine vine mai târziu este preluat și adus din urmă.</p>
+
+      <div class="vtn-filters vtn-rv" data-vtn-dayfilters role="group" aria-label="Filtrează orarul după zi">
+        <button type="button" class="vtn-filter vtn-on" data-vtn-for="all" aria-pressed="true">Toate zilele</button>
+        <button type="button" class="vtn-filter" data-vtn-for="luni" aria-pressed="false">Luni</button>
+        <button type="button" class="vtn-filter" data-vtn-for="marti" aria-pressed="false">Marți</button>
+        <button type="button" class="vtn-filter" data-vtn-for="miercuri" aria-pressed="false">Miercuri</button>
+        <button type="button" class="vtn-filter" data-vtn-for="joi" aria-pressed="false">Joi</button>
+        <button type="button" class="vtn-filter" data-vtn-for="vineri" aria-pressed="false">Vineri</button>
+        <button type="button" class="vtn-filter" data-vtn-for="sambata" aria-pressed="false">Sâmbătă</button>
+      </div>
+      <p class="vtn-count" data-vtn-daycount aria-live="polite">28 de grupe afișate.</p>
+
+      <div class="vtn-tablewrap vtn-rv">
+        <table class="vtn-table">
+          <caption>Orarul stagiunii 2026–2027 · Via Gressoney 29/B, Torino</caption>
+          <thead><tr>
+            <th scope="col">Zi</th><th scope="col">Ora</th><th scope="col">Grupă</th>
+            <th scope="col">Vârstă</th><th scope="col">Instructor</th><th scope="col">Prima lecție</th>
+          </tr></thead>
+          <tbody>
+          <tr class="vtn-row-head" data-vtn-head="luni"><td colspan="6">Luni</td></tr>
+          <tr data-vtn-day="luni"><td>Luni</td><td>17:00–18:00</td><td>Propedeutică · balet și dans modern</td><td>7–10 ani</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="luni"><td>Luni</td><td>17:30–19:00</td><td>Dans popular · copii</td><td>4–11 ani</td><td>Gessica Ecaterina Sfabu</td><td class="vtn-start">5 octombrie</td></tr>
+          <tr data-vtn-day="luni"><td>Luni</td><td>18:00–20:30</td><td>Balet, dans de caracter și modern</td><td>15 ani +</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="luni"><td>Luni</td><td>19:00–20:30</td><td>Dans popular · adolescenți și Hora Padului</td><td>14–25 ani</td><td>Gessica Ecaterina Sfabu</td><td class="vtn-start">4 septembrie</td></tr>
+          <tr data-vtn-day="luni"><td>Luni</td><td>20:30–22:00</td><td>Dansuri internaționale · Grupul Elle, începători</td><td>Tineri și adulți</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="luni"><td>Luni</td><td>20:30–22:30</td><td>Dans popular · adulți</td><td>Adulți</td><td>Cristian Costin</td><td class="vtn-start">5 octombrie</td></tr>
+          <tr class="vtn-row-head" data-vtn-head="marti"><td colspan="6">Marți</td></tr>
+          <tr data-vtn-day="marti"><td>Marți</td><td>17:00–18:00</td><td>Baby dance</td><td>4–6 ani</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="marti"><td>Marți</td><td>18:00–19:00</td><td>Balet și dans modern</td><td>11–14 ani</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="marti"><td>Marți</td><td>19:00–20:00</td><td>Pilates</td><td>Adolescenți și adulți</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="marti"><td>Marți</td><td>20:00–21:00</td><td>Balet · adulți</td><td>Adulți</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr class="vtn-row-head" data-vtn-head="miercuri"><td colspan="6">Miercuri</td></tr>
+          <tr data-vtn-day="miercuri"><td>Miercuri</td><td>17:00–18:00</td><td>Teatru-dans pentru copii</td><td>4–11 ani</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="miercuri"><td>Miercuri</td><td>18:00–19:30</td><td>Ansamblul Mugurel · caracter și dansuri internaționale</td><td>Copii și adolescenți</td><td>Sofia Zaynetdinova</td><td class="vtn-start">4 septembrie</td></tr>
+          <tr data-vtn-day="miercuri"><td>Miercuri</td><td>19:30–20:30</td><td>Joc bărbătesc · Mugurel și Ceata de Călușari</td><td>Copii și adolescenți</td><td>Cristian Costin</td><td class="vtn-start">4 septembrie</td></tr>
+          <tr data-vtn-day="miercuri"><td>Miercuri</td><td>19:30–20:30</td><td>Joc femeiesc · Mugurel, Vatra și Grupul Elle</td><td>Copii și adolescenți</td><td>Sofia Zaynetdinova</td><td class="vtn-start">4 septembrie</td></tr>
+          <tr data-vtn-day="miercuri"><td>Miercuri</td><td>20:30–22:30</td><td>Ansamblul Artistic Vatra</td><td>Adolescenți și adulți</td><td>Iurie Răileanu, cu Cristian Costin și Carmen Georgiana Rotariu</td><td class="vtn-start">4 septembrie</td></tr>
+          <tr data-vtn-day="miercuri"><td>Miercuri</td><td>20:45–22:45</td><td>Ansamblul Strămoșeasca</td><td>Adulți</td><td>Iurie Răileanu, asistent Costel Muntianu</td><td class="vtn-start">4 septembrie</td></tr>
+          <tr class="vtn-row-head" data-vtn-head="joi"><td colspan="6">Joi</td></tr>
+          <tr data-vtn-day="joi"><td>Joi</td><td>17:00–18:00</td><td>Baby dance</td><td>4–6 ani</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="joi"><td>Joi</td><td>17:30–19:00</td><td>Ansamblul Bujorii de la Prut</td><td>7–13 ani</td><td>Gessica Ecaterina Sfabu</td><td class="vtn-start">4 septembrie</td></tr>
+          <tr data-vtn-day="joi"><td>Joi</td><td>18:00–19:00</td><td>Balet și dans modern</td><td>11–14 ani</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="joi"><td>Joi</td><td>19:00–20:00</td><td>Pilates</td><td>Adolescenți și adulți</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="joi"><td>Joi</td><td>19:00–20:30</td><td>Dans popular · adolescenți și Hora Padului</td><td>14–25 ani</td><td>Gessica Ecaterina Sfabu</td><td class="vtn-start">4 septembrie</td></tr>
+          <tr data-vtn-day="joi"><td>Joi</td><td>20:00–21:00</td><td>Balet · adulți</td><td>Adulți</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="joi"><td>Joi</td><td>20:30–22:30</td><td>Ansamblul Veselia</td><td>Tineri și adulți</td><td>Gessica Ecaterina Sfabu</td><td class="vtn-start">4 septembrie</td></tr>
+          <tr class="vtn-row-head" data-vtn-head="vineri"><td colspan="6">Vineri</td></tr>
+          <tr data-vtn-day="vineri"><td>Vineri</td><td>17:00–18:00</td><td>Propedeutică · balet și dans modern</td><td>7–10 ani</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="vineri"><td>Vineri</td><td>18:00–20:30</td><td>Balet, dans de caracter și modern</td><td>15 ani +</td><td>Sofia Zaynetdinova</td><td class="vtn-start vtn-start--soon">Prima săptămână din octombrie</td></tr>
+          <tr data-vtn-day="vineri"><td>Vineri</td><td>18:00–20:30</td><td>Ansamblul Mugurel · dansuri românești și moldovenești</td><td>Copii și adolescenți</td><td>Carmen Georgiana Rotariu</td><td class="vtn-start">4 septembrie</td></tr>
+          <tr data-vtn-day="vineri"><td>Vineri</td><td>20:30–22:30</td><td>Ansamblul Artistic Vatra</td><td>Adolescenți și adulți</td><td>Iurie Răileanu, cu Cristian Costin și Carmen Georgiana Rotariu</td><td class="vtn-start">4 septembrie</td></tr>
+          <tr class="vtn-row-head" data-vtn-head="sambata"><td colspan="6">Sâmbătă</td></tr>
+          <tr data-vtn-day="sambata"><td>Sâmbătă</td><td>17:00–19:00</td><td>Dans popular · adulți</td><td>Adulți</td><td>Gessica Ecaterina Sfabu</td><td class="vtn-start">5 septembrie</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="vtn-scroll-hint">Pe telefon, tabelul se derulează lateral.</p>
+
+    <div class="vtn-callout vtn-rv">
+      <p><strong>Tarifele se comunică în privat.</strong> Scrie-ne pe WhatsApp și îți spunem tot ce trebuie să știi: vârsta potrivită, ziua, ora, ce aduci la prima lecție și cum te înscrii. Prima lecție de probă este gratuită.</p>
+      <p style="margin-top:12px;"><a class="vtn-btn vtn-btn--ghost vtn-btn--sm" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20orarul%20complet%20al%20stagiunii%202026-2027%20la%20Torino%20Nord." target="_blank" rel="noopener">Cere orarul complet pe WhatsApp</a></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 4 · SPAȚIILE ========== -->
+<section class="vtn-sec vtn-sec--porcelain" id="vtn-spatii">
+  <div class="vtn-wrap">
+    <span class="vtn-eyebrow">Spațiile noastre</span>
+    <h2 class="vtn-rv">Două săli de dans, un studio media și o casă pentru comunitate</h2>
+    <div class="vtn-orn"><svg xmlns="http://www.w3.org/2000/svg" width="240" height="34" viewBox="0 0 240 34" fill="none" aria-hidden="true"><path d="M2 17 L6 8.5 L13 5.5 L28 5 L104 16.2 L104 17.8 L28 29 L13 28.5 L6 25.5 Z" fill="#f72c25"/><path d="M120 4.4 Q121.6 4.4 122.6 5.6 L131.4 15.6 Q132.4 17 131.4 18.4 L122.6 28.4 Q121.6 29.6 120 29.6 Q118.4 29.6 117.4 28.4 L108.6 18.4 Q107.6 17 108.6 15.6 L117.4 5.6 Q118.4 4.4 120 4.4 Z" fill="#091c7a"/><path d="M238 17 L234 8.5 L227 5.5 L212 5 L136 16.2 L136 17.8 L212 29 L227 28.5 L234 25.5 Z" fill="#f72c25"/></svg></div>
+    <p class="vtn-lead">Sediul din Via Gressoney 29/B are aproximativ 250 de metri pătrați: două săli de dans, o sală multimedia, secretariat, vestiar și o zonă de așteptare pentru părinți.</p>
+
+    <div class="vtn-gal">
+      <figure class="vtn-rv"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/sala-mare-salone-danza-grupul-vatra-torino-nord.jpg" alt="Salone Danza, sala mare de 100 mp a Școlii Grupul Vatra din Torino Nord" loading="lazy"><figcaption><b>Salone Danza</b>100 mp, parchet din lemn masiv, oglinzi pe tot peretele</figcaption><button type="button" class="vtn-lbbtn" data-vtn-src="https://grupulvatra.com/wp-content/uploads/2026/09/sala-mare-salone-danza-grupul-vatra-torino-nord.jpg" data-vtn-alt="Salone Danza, sala mare de 100 mp a Școlii Grupul Vatra din Torino Nord" data-vtn-cap="Salone Danza 100 mp, parchet din lemn masiv, oglinzi pe tot peretele"><span class="vtn-sr">Mărește fotografia: Salone Danza, sala mare de 100 mp a Școlii Grupul Vatra din Torino Nord</span></button></figure>
+      <figure class="vtn-rv"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/sala-mare-bare-balet-oglinzi-via-gressoney.jpg" alt="Bare de balet și oglinzi în sala mare din Via Gressoney, Torino" loading="lazy"><figcaption><b>Bare și oglinzi</b>Bare de balet pe doi pereți, oglinzi de 10 metri</figcaption><button type="button" class="vtn-lbbtn" data-vtn-src="https://grupulvatra.com/wp-content/uploads/2026/09/sala-mare-bare-balet-oglinzi-via-gressoney.jpg" data-vtn-alt="Bare de balet și oglinzi în sala mare din Via Gressoney, Torino" data-vtn-cap="Bare și oglinzi Bare de balet pe doi pereți, oglinzi de 10 metri"><span class="vtn-sr">Mărește fotografia: Bare de balet și oglinzi în sala mare din Via Gressoney, Torino</span></button></figure>
+      <figure class="vtn-rv"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/sala-arte-balet-grupul-vatra-torino.jpg" alt="Sala Arte a Școlii Grupul Vatra, sala de balet din Torino Nord" loading="lazy"><figcaption><b>Sala Arte</b>60 mp, parchet laminat, bară continuă, tablă inteligentă</figcaption><button type="button" class="vtn-lbbtn" data-vtn-src="https://grupulvatra.com/wp-content/uploads/2026/09/sala-arte-balet-grupul-vatra-torino.jpg" data-vtn-alt="Sala Arte a Școlii Grupul Vatra, sala de balet din Torino Nord" data-vtn-cap="Sala Arte 60 mp, parchet laminat, bară continuă, tablă inteligentă"><span class="vtn-sr">Mărește fotografia: Sala Arte a Școlii Grupul Vatra, sala de balet din Torino Nord</span></button></figure>
+      <figure class="vtn-rv"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/sala-multimedia-studio-podcast-grupul-vatra.jpg" alt="Sala Multimedia, studioul de podcast și streaming al Grupului Vatra" loading="lazy"><figcaption><b>Sala Multimedia</b>Studio de podcast, interviuri și streaming</figcaption><button type="button" class="vtn-lbbtn" data-vtn-src="https://grupulvatra.com/wp-content/uploads/2026/09/sala-multimedia-studio-podcast-grupul-vatra.jpg" data-vtn-alt="Sala Multimedia, studioul de podcast și streaming al Grupului Vatra" data-vtn-cap="Sala Multimedia Studio de podcast, interviuri și streaming"><span class="vtn-sr">Mărește fotografia: Sala Multimedia, studioul de podcast și streaming al Grupului Vatra</span></button></figure>
+      <figure class="vtn-rv"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/secretariat-receptie-grupul-vatra-torino-nord.jpg" alt="Secretariatul și recepția Școlii Grupul Vatra din Via Gressoney" loading="lazy"><figcaption><b>Secretariat și recepție</b>Aici te întâmpinăm și aici aștepți în timpul lecției</figcaption><button type="button" class="vtn-lbbtn" data-vtn-src="https://grupulvatra.com/wp-content/uploads/2026/09/secretariat-receptie-grupul-vatra-torino-nord.jpg" data-vtn-alt="Secretariatul și recepția Școlii Grupul Vatra din Via Gressoney" data-vtn-cap="Secretariat și recepție Aici te întâmpinăm și aici aștepți în timpul lecției"><span class="vtn-sr">Mărește fotografia: Secretariatul și recepția Școlii Grupul Vatra din Via Gressoney</span></button></figure>
+      <figure class="vtn-rv"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/vestiar-scoala-de-dans-torino-nord.jpg" alt="Vestiarul Școlii Grupul Vatra din Torino Nord" loading="lazy"><figcaption><b>Vestiar</b>Bănci, cuiere și oglindă, separat de sălile de dans</figcaption><button type="button" class="vtn-lbbtn" data-vtn-src="https://grupulvatra.com/wp-content/uploads/2026/09/vestiar-scoala-de-dans-torino-nord.jpg" data-vtn-alt="Vestiarul Școlii Grupul Vatra din Torino Nord" data-vtn-cap="Vestiar Bănci, cuiere și oglindă, separat de sălile de dans"><span class="vtn-sr">Mărește fotografia: Vestiarul Școlii Grupul Vatra din Torino Nord</span></button></figure>
+      <figure class="vtn-rv"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/intrare-scoala-via-gressoney-29b-torino.jpg" alt="Intrarea în Școala Grupul Vatra din Via Gressoney 29/B, Torino" loading="lazy"><figcaption><b>Intrarea</b>Via Gressoney 29/B, sub porticul acoperit</figcaption><button type="button" class="vtn-lbbtn" data-vtn-src="https://grupulvatra.com/wp-content/uploads/2026/09/intrare-scoala-via-gressoney-29b-torino.jpg" data-vtn-alt="Intrarea în Școala Grupul Vatra din Via Gressoney 29/B, Torino" data-vtn-cap="Intrarea Via Gressoney 29/B, sub porticul acoperit"><span class="vtn-sr">Mărește fotografia: Intrarea în Școala Grupul Vatra din Via Gressoney 29/B, Torino</span></button></figure>
+      <figure class="vtn-rv"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/sala-arte-dulapuri-costume-populare-torino.jpg" alt="Garderoba de costume populare a Școlii Grupul Vatra, în Sala Arte" loading="lazy"><figcaption><b>Garderoba de costume</b>Costume autentice din zece zone etnografice</figcaption><button type="button" class="vtn-lbbtn" data-vtn-src="https://grupulvatra.com/wp-content/uploads/2026/09/sala-arte-dulapuri-costume-populare-torino.jpg" data-vtn-alt="Garderoba de costume populare a Școlii Grupul Vatra, în Sala Arte" data-vtn-cap="Garderoba de costume Costume autentice din zece zone etnografice"><span class="vtn-sr">Mărește fotografia: Garderoba de costume populare a Școlii Grupul Vatra, în Sala Arte</span></button></figure>
+      <figure class="vtn-rv"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/secretariat-vitrina-trofee-costume-torino.jpg" alt="Vitrina cu trofee și păpuși în port popular de la secretariatul școlii" loading="lazy"><figcaption><b>Vitrina cu trofee</b>Cincisprezece ani de concursuri și festivaluri</figcaption><button type="button" class="vtn-lbbtn" data-vtn-src="https://grupulvatra.com/wp-content/uploads/2026/09/secretariat-vitrina-trofee-costume-torino.jpg" data-vtn-alt="Vitrina cu trofee și păpuși în port popular de la secretariatul școlii" data-vtn-cap="Vitrina cu trofee Cincisprezece ani de concursuri și festivaluri"><span class="vtn-sr">Mărește fotografia: Vitrina cu trofee și păpuși în port popular de la secretariatul școlii</span></button></figure>
+    </div>
+
+    <div class="vtn-rooms">
+      <div class="vtn-room vtn-rv">
+        <h3>Salone Danza — 100 mp</h3>
+        <ul>
+          <li>Parchet din lemn masiv, plăci de 1,5 × 1,5 m</li>
+          <li>Perete întreg cu oglinzi, 10 m lungime și 2 m înălțime</li>
+          <li>Sistem audio cu mixer Yamaha pe 4 canale și două boxe FBT de 700 W</li>
+          <li>Videoproiector Epson cu ecran retractabil de 4 × 3 m, sală obscurabilă</li>
+          <li>Două radiomicrofoane și microfon headset, amplificare pentru muzică live</li>
+          <li>Bare de balet</li>
+        </ul>
+      </div>
+      <div class="vtn-room vtn-rv">
+        <h3>Sala Arte — 60 mp</h3>
+        <ul>
+          <li>Parchet laminat de calitate, clasa C4</li>
+          <li>Perete cu oglinzi, 9 m lungime și 2 m înălțime</li>
+          <li>Proiector și tablă inteligentă</li>
+          <li>Sistem audio cu mixer și intrare pentru telefon, tabletă sau laptop</li>
+          <li>Bare de balet</li>
+          <li>Dulapuri încastrate pentru garderoba de costume populare</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 5 · ÎNCHIRIERE ========== -->
+<hr class="vtn-ribbon" aria-hidden="true">
+<section class="vtn-sec vtn-sec--deep" id="vtn-inchiriere">
+  <div class="vtn-wrap">
+    <div class="vtn-rent">
+      <div>
+        <span class="vtn-eyebrow">Închiriere</span>
+        <h2 class="vtn-rv">Închiriază sălile pentru activități artistice și culturale</h2>
+        <p>Sălile din Via Gressoney se pot închiria pentru repetiții, cursuri, ateliere, castinguri, ședințe foto și video, prezentări și întâlniri culturale. Spațiile sunt luminoase, silențioase și complet echipate, iar zona are parcare și acces ușor cu transportul public.</p>
+        <ul class="vtn-rent-list">
+          <li><b>Când</b> Luni–sâmbătă, între 9:00 și 17:00</li>
+          <li><b>Ce primești</b> Sala aleasă, sonorizare, videoproiector, lumini și până la 40 de scaune</li>
+          <li><b>Pentru cine</b> Asociații, școli, companii de dans și teatru, formatori, fotografi și echipe de producție</li>
+          <li><b>Cum rezervi</b> Ne scrii pe WhatsApp, stabilim o vizitare și confirmăm în scris</li>
+        </ul>
+        <p>Condițiile și disponibilitatea se discută în privat. Pentru parteneri și instituții din Italia, prezentarea spațiilor în limba italiană se află pe <a href="https://primopasso.org/scuola-di-danza-e-arte-primo-passo/sale-prove-da-danza/" target="_blank" rel="noopener">primopasso.org — Sale prove da danza</a>.</p>
+        <div class="vtn-btns">
+          <a class="vtn-btn vtn-btn--light" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20s%C4%83%20%C3%AEnchiriez%20o%20sal%C4%83%20la%20Via%20Gressoney%2029%2FB%20pentru%20o%20activitate%20artistic%C4%83%20sau%20cultural%C4%83." target="_blank" rel="noopener">Cere disponibilitatea</a>
+          <a class="vtn-btn vtn-btn--outline-light" href="#vtn-spatii">Vezi sălile</a>
+        </div>
+      </div>
+      <div>
+        <img src="https://grupulvatra.com/wp-content/uploads/2026/09/sala-mare-parchet-dans-popular-torino.jpg" alt="Salone Danza gol, pregătit pentru repetiții sau evenimente, Via Gressoney Torino" loading="lazy">
+      </div>
+    </div>
+
+    <div style="margin-top:56px;padding-top:40px;border-top:1px solid rgba(255,255,255,.18);">
+      <span class="vtn-eyebrow">Pentru organizatori</span>
+      <h2 class="vtn-rv">Ne puteți invita să dansăm la evenimentul dumneavoastră</h2>
+      <p class="vtn-lead">Primăriei, școlii, parohiei, asociației sau festivalului îi propunem șase formate, de la un moment scurt la un spectacol întreg. Costumele autentice sunt asigurate de școală, iar toți asociații sunt acoperiți de poliță de asigurare de răspundere civilă.</p>
+      <ul class="vtn-offer">
+        <li><b>Spectacol complet</b>60–90 de minute, cu mai multe ansambluri și schimburi de costum</li>
+        <li><b>Bloc de spectacol</b>20–30 de minute, trei sau patru suite dintr-o zonă etnografică</li>
+        <li><b>Moment scurt</b>8–12 minute, pentru deschiderea sau finalul unui eveniment</li>
+        <li><b>Flash mob și animație urbană</b>În piață, pe stradă sau într-un centru comercial</li>
+        <li><b>Laborator de dans popular</b>45–60 de minute, deschis publicului, cu predarea pașilor de horă</li>
+        <li><b>Paradă în costum</b>Pe traseu, cu steag și formație completă</li>
+      </ul>
+      <div class="vtn-detail" style="border-top-color:rgba(255,255,255,.18);margin-top:30px;">
+        <h4 style="color:var(--lemon);">Ce ne trebuie de la dumneavoastră</h4>
+        <p style="color:#D9E1F3;">Scenă de minimum 8 × 6 metri, plană și nealunecoasă. Sonorizare cu intrare jack sau USB și un tehnician prezent. Două vestiare separate, încuiabile, cu scaune și oglinzi. Sosim cu 90 de minute înainte și avem nevoie de 20 de minute de probă de scenă. Pentru grupele de copii, un spațiu de așteptare supravegheat.</p>
+      </div>
+      <div class="vtn-btns">
+        <a class="vtn-btn vtn-btn--light" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20s%C4%83%20invit%20%C8%98coala%20Grupul%20Vatra%20la%20un%20eveniment.%20V%C4%83%20scriu%20data%2C%20locul%20%C8%99i%20formatul%20dorit." target="_blank" rel="noopener">Propune-ne un eveniment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 6 · ANSAMBLURI ========== -->
+<section class="vtn-sec vtn-sec--white" id="vtn-ansambluri">
+  <div class="vtn-wrap">
+    <span class="vtn-eyebrow">Ansambluri</span>
+    <h2 class="vtn-rv">De aici se ajunge pe scenă</h2>
+    <div class="vtn-orn"><svg xmlns="http://www.w3.org/2000/svg" width="240" height="34" viewBox="0 0 240 34" fill="none" aria-hidden="true"><path d="M2 17 L6 8.5 L13 5.5 L28 5 L104 16.2 L104 17.8 L28 29 L13 28.5 L6 25.5 Z" fill="#f72c25"/><path d="M120 4.4 Q121.6 4.4 122.6 5.6 L131.4 15.6 Q132.4 17 131.4 18.4 L122.6 28.4 Q121.6 29.6 120 29.6 Q118.4 29.6 117.4 28.4 L108.6 18.4 Q107.6 17 108.6 15.6 L117.4 5.6 Q118.4 4.4 120 4.4 Z" fill="#091c7a"/><path d="M238 17 L234 8.5 L227 5.5 L212 5 L136 16.2 L136 17.8 L212 29 L227 28.5 L234 25.5 Z" fill="#f72c25"/></svg></div>
+    <figure style="margin:0 0 30px;border-radius:14px;overflow:hidden;border:1px solid rgba(0,16,66,.12);">
+      <img src="https://grupulvatra.com/wp-content/uploads/2026/09/ansamblul-artistic-vatra-fotografie-oficiala.jpg" alt="Fotografia oficială a Ansamblului Artistic Vatra, formație completă pe scenă" loading="lazy">
+      <figcaption style="background:#fff;padding:14px 18px;font-size:14px;color:#4A5568;">Ansamblul Artistic Vatra, fotografia oficială a stagiunii. Fotografie: Grupul Vatra Torino.</figcaption>
+    </figure>
+    <p class="vtn-lead">Opt ansambluri repetă la Torino Nord, clasificate pe vârstă și experiență. Sunt cele mai avansate și cu cea mai lungă activitate din școală, iar accesul la ele este progresiv: din cursurile de începători, pe bază de merit și constanță. Toate coregrafiile și programul artistic sunt realizate de Iurie Răileanu.</p>
+
+    <div class="vtn-grid vtn-grid--4" style="margin-top:34px;">
+
+      <article class="vtn-ens vtn-rv">
+        <div class="vtn-ens-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/ansamblul-vatra-costume-dobrogea-scena.jpg" alt="Ansamblul Artistic Vatra pe scenă, formație completă în costume populare, la spectacolul de final de an" loading="lazy"></div>
+        <div class="vtn-ens-body">
+          <p class="vtn-ens-meta">Din 2011 · Tineri și adulți</p>
+          <h3>Ansamblul Artistic Vatra</h3>
+          <p>Ansamblul reprezentativ al școlii. Repertoriu din Ardealul de Sud, Basarabia, Bucovina, Olt, Dolj, Maramureș, Dobrogea, Neamț și Botoșani, plus o secție internațională. În montaj: Banatul de câmpie și de munte. Pentru 2026: Bihor.</p>
+          <p class="vtn-ens-when">Miercuri și vineri, 20:30–22:30</p>
+          <p class="vtn-prize">Locul I la „Călușul Românesc", Slatina 2025, primul ansamblu din diaspora la secțiunea Ansambluri Folclorice · Marele Premiu în 2024 · Premiul I la Sanremo, 2024</p>
+          <div class="vtn-detail">
+            <h4>Cum se intră</h4>
+            <p>Preselecție și trei luni de probă. Evaluări la fiecare șase luni, seminarii tematice periodice și un seminar intensiv de trei zile pe an, fără cost suplimentar pentru elevii ansamblurilor, cu invitați din România și din diaspora. Cine nu atinge nivelul este îndrumat spre alt ansamblu sau spre lecții individuale.</p>
+            <h4>Unde am dansat</h4>
+            <p>Franța — Avignon și Marsilia · Elveția · Italia — Torino, Milano, Asti, Alessandria, Aosta, Verona, Vercelli, Sanremo, Rimini, Pisa, Bari, Genova, Novara, Biella, Lago di Garda, Veneția, Sardinia · România · Republica Moldova.</p>
+          </div>
+          <div class="vtn-ens-links">
+            <a href="https://grupulvatra.com/ansamblul-vatra/">Vezi ansamblul</a>
+            <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD4_8J9dYIFgBxXvTzQ0jkf4" target="_blank" rel="noopener">Pe YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="vtn-ens vtn-rv">
+        <div class="vtn-ens-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/ansamblul-stramoseasca-pereche-adulti-torino.jpg" alt="Dansatorii adulți ai Ansamblului Strămoșeasca, Grupul Vatra Torino" loading="lazy"></div>
+        <div class="vtn-ens-body">
+          <p class="vtn-ens-meta">Din 2017 · Exclusiv adulți</p>
+          <h3>Strămoșeasca</h3>
+          <p>Peste 30 de jocuri din Bacău, Piatra Neamț, Bucovina, Botoșani, Iași, Vaslui și Maramureș, plus repertoriul de iarnă: Capra și Jocul Ursului. Doisprezece perechi, cu locuri deschise.</p>
+          <p class="vtn-ens-when">Miercuri, 20:45–22:45</p>
+          <div class="vtn-detail">
+            <h4>Cum arată o repetiție</h4>
+            <p>Încălzire și mobilitate, apoi pași și ritmuri tradiționale pe zone etnografice, coregrafii de grup lucrate pe sincronizare, expresie și stil regional, și repetiții pentru scenă, cu costume și poziționări.</p>
+            <h4>Cum se intră</h4>
+            <p>O lună de probă. Se intră cu experiență sau după cursul de adulți începători: din cinci candidați, trei sau patru rămân în ansamblu, iar ceilalți continuă în cursurile de perfecționare. Nu trebuie să fii dansator profesionist — trebuie să ai pasiune, dorință și respect pentru valorile care ne definesc ca popor.</p>
+          </div>
+          <div class="vtn-ens-links">
+            <a href="https://grupulvatra.com/ansamblul-stramoseasca/">Vezi ansamblul</a>
+            <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD6mrK3lorjJ-EXfmENs_efR" target="_blank" rel="noopener">Pe YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="vtn-ens vtn-rv">
+        <div class="vtn-ens-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/ansamblul-veselia-costume-bucovina-torino.jpg" alt="Ansamblul Veselia al Școlii Grupul Vatra din Torino" loading="lazy"></div>
+        <div class="vtn-ens-body">
+          <p class="vtn-ens-meta">Din 2020 · Tineri și adulți</p>
+          <h3>Veselia</h3>
+          <p>Suite din Galați, Bucovina și Vaslui, cu jocuri precum Ciobănașul, Coasa, Hangul de la Țepu și Bătrâneasca. Opt perechi, cu locuri până la douăsprezece.</p>
+          <p class="vtn-ens-when">Joi, 20:30–22:30</p>
+          <div class="vtn-detail">
+            <h4>Ce se joacă</h4>
+            <p><b>Suita din Galați:</b> Ciobănașul, Coasa, Bordeiașul, Dura de la Suceveni, Hangul de la Țepu, Hopaiala de nuntă, Ovreicuța, Sfredelușul. <b>Bucovina:</b> Bătrâneasca, Coșnencuța, Pădurețul, Bălăceana, Hop Zup. <b>Vaslui:</b> hora mare, țărăneasca, bătuta de la Miclești. În lucru: Bacău, Neamț și Iași.</p>
+            <h4>De unde vine repertoriul</h4>
+            <p>Suita din Galați a fost adusă de Iurie Răileanu de la seminariile cu maeștrii Virgil Țăbuș și Ion Horojenco. Numele ansamblului a fost ales de membri: „Acolo unde este Veselia, sunt și oameni buni."</p>
+          </div>
+          <div class="vtn-ens-links">
+            <a href="https://grupulvatra.com/ansamblul-veselia-torino/">Vezi ansamblul</a>
+            <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD7sCM-FottY1sQh8eapn4WF" target="_blank" rel="noopener">Pe YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="vtn-ens vtn-rv">
+        <div class="vtn-ens-media"><img src="https://grupulvatra.com/wp-content/uploads/2025/08/Ansamblul-Mugurel-Festival-International-Vatra-Dornei.jpg" alt="Ansamblul de copii Mugurel la Festivalul Internațional de la Vatra Dornei" loading="lazy"></div>
+        <div class="vtn-ens-body">
+          <p class="vtn-ens-meta">Din 2021 · Copii și adolescenți</p>
+          <h3>Mugurel</h3>
+          <p>Peste 50 de jocuri din toate regiunile, costume autentice din șapte zone etnografice și trei rânduri de costume pentru dansuri internaționale. Peste 20 de reprezentații pe an.</p>
+          <p class="vtn-ens-when">Miercuri, 18:00–19:30 · Vineri, 18:00–20:30</p>
+          <p class="vtn-prize">Locul I la Acqui Terme și la Sanremo Dance Festival, categoria Junior, 2026</p>
+          <div class="vtn-ens-links">
+            <a href="https://grupulvatra.com/ansamblul-mugurel/">Vezi ansamblul</a>
+            <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD6g_FviZ8QalYFIh03OnDa6" target="_blank" rel="noopener">Pe YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="vtn-ens vtn-rv">
+        <div class="vtn-ens-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/ansamblul-hora-padului-diplome-spectacol-2026.jpg" alt="Ansamblul Hora Padului la spectacolul de final de an 2026, Torino" loading="lazy"></div>
+        <div class="vtn-ens-body">
+          <p class="vtn-ens-meta">Din 2025 · 14–25 de ani</p>
+          <h3>Hora Padului</h3>
+          <p>Numele vine de la râul Po. Repertoriu din Moldova, Bucovina și Basarabia, pe subzone, cu dans, muzică vocală și instrumentală și teatru folcloric. Se intră fără experiență.</p>
+          <p class="vtn-ens-when">Luni și joi, 19:00–20:30</p>
+          <div class="vtn-detail">
+            <h4>Ce se învață</h4>
+            <p>Poziția corectă a corpului și alinierea scenică, ținuta, pașii de bază și pașii de legătură, coordonarea în cerc, semicerc, linie și diagonală, lucrul cu partenerul, interpretarea muzicală cu accente și frazare, expresivitatea scenică.</p>
+            <h4>Patru feluri de a fi membru</h4>
+            <p>Dansator, solist vocal sau corist, instrumentist, actor folcloric. Numele vine de la râul Po — Pad, din latinescul Padus. Repetițiile muzicale au loc o dată la două săptămâni.</p>
+          </div>
+          <div class="vtn-ens-links">
+            <a href="https://grupulvatra.com/cursuri/ansamblul-hora-padului-torino/">Vezi ansamblul</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="vtn-ens vtn-rv">
+        <div class="vtn-ens-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/ansamblul-bujorii-de-la-prut-scena-2026.jpg" alt="Ansamblul de copii Bujorii de la Prut pe scenă, spectacolul Ritmuri de Acasă 2026" loading="lazy"></div>
+        <div class="vtn-ens-body">
+          <p class="vtn-ens-meta">Din 2025 · Copii 7–13 ani</p>
+          <h3>Bujorii de la Prut</h3>
+          <p>Ansamblul de copii al școlii: sârbe, hore, bătute, brâuri și polci din Moldova, Basarabia și Bucovina, plus teatru popular și, opțional, muzică vocală și instrumentală.</p>
+          <p class="vtn-ens-when">Joi, 17:30–19:00</p>
+          <div class="vtn-ens-links">
+            <a href="https://grupulvatra.com/cursuri/ansamblul-bujorii-de-la-prut-torino/">Vezi ansamblul</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="vtn-ens vtn-rv">
+        <div class="vtn-ens-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/detaliu-costum-calus-ciucuri-opinci.jpg" alt="Ceata de Călușari a Grupului Vatra, dans călușăresc la Torino" loading="lazy"></div>
+        <div class="vtn-ens-body">
+          <p class="vtn-ens-meta">Din februarie 2022 · Băieți și bărbați</p>
+          <h3>Ceata de Călușari</h3>
+          <p>Călușul oltenesc, suita din zona Olt și suita din Dolj, învățate cu maeștrii Ionel Garoafă, Ilie Brăileanu și Simion Buță. Prima ceată din afara granițelor care a concurat la secțiunea dedicată de la Slatina.</p>
+          <p class="vtn-ens-when">Miercuri, 19:30–20:30 · alte grupe, pe WhatsApp</p>
+          <p class="vtn-prize">Locul I la „Călușul Românesc", Slatina 2025, secțiunea Ceată de Călușari</p>
+          <div class="vtn-detail">
+            <h4>Cum arată o repetiție avansată</h4>
+            <p>Încălzire riguroasă pentru mobilitate, forță și rezistență, apoi tehnică avansată — sărituri ample, bătăi rapide de pinteni, schimbări bruște de direcție — sincronizare de ceată, coregrafii în linie, semicerc și cerc închis, intrări ritualice și strigături autentice.</p>
+            <h4>Recunoaștere</h4>
+            <p>La șase luni de la înființare, ceata a fost validată de Emil Țîrcomnicu, cercetător la Institutul de Etnografie și Folclor „C. Brăiloiu" al Academiei Române, și de Cătălin Alexa, autorul volumului „Ritualul Călușului".</p>
+          </div>
+          <div class="vtn-ens-links">
+            <a href="https://grupulvatra.com/ceata-de-calusari/">Vezi ansamblul</a>
+            <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD7eNLj1ndREjeN33Qi_HiqZ" target="_blank" rel="noopener">Pe YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="vtn-ens vtn-rv">
+        <div class="vtn-ens-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/grupul-elle-dans-egiptean-torino-nord.jpg" alt="Grupul Feminin Elle al Școlii Grupul Vatra, moment de dans de caracter" loading="lazy"></div>
+        <div class="vtn-ens-body">
+          <p class="vtn-ens-meta">Din 2022 · Fete și femei</p>
+          <h3>Grupul Feminin Elle</h3>
+          <p>Singurul grup feminin al școlii, înființat de Sofia Zaynetdinova împreună cu Iurie Răileanu. Dans de caracter și dansuri internaționale, pe două niveluri. Fetele și femeile din Elle învață stiluri din culturi diferite și își lărgesc orizontul prin fiecare coregrafie nouă.</p>
+          <p class="vtn-ens-when">Luni, 20:30–22:00 · Miercuri, 19:30–20:30</p>
+          <p class="vtn-prize">Locul II la Golden Bee, Viena 2025 · Mențiune specială a juriului la Sanremo, Teatro Ariston, 2024 · Marele Premiu la Festivalul Național de Dans de Caracter „Varazze Città", martie 2022</p>
+          <div class="vtn-detail">
+            <h4>Concursuri și festivaluri</h4>
+            <ul class="vtn-ul">
+              <li>Festivalul Național de Dans de Caracter „Varazze Città" — Marele Premiu, martie 2022</li>
+              <li>Concursul Internațional Golden Bee, Elveția — 22 mai 2022</li>
+              <li>Concursul „Talent for Dance", cu dansul cazac Varen'ka — decembrie 2022</li>
+              <li>Concursul Internațional Golden Bee, Geneva — 2 aprilie 2023</li>
+              <li>Concursul „Talent for Dance", Camogli — 7 mai 2023</li>
+              <li>Concursul „Talent for Dance" — 18 februarie 2024</li>
+              <li>Dance Festival Sanremo, Teatro Ariston — 26 aprilie 2024</li>
+              <li>Golden Bee, Viena — locul II, februarie 2025</li>
+            </ul>
+          </div>
+          <div class="vtn-ens-links">
+            <a href="https://grupulvatra.com/grupul-elle/">Vezi ansamblul</a>
+            <a href="https://www.youtube.com/playlist?list=PLaYoUKKnjBYkN2jBC_YDHbWAZgoqubxWs" target="_blank" rel="noopener">Playlist video</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 8 · REPERTORIU ========== -->
+<section class="vtn-sec vtn-sec--porcelain" id="vtn-repertoriu">
+  <div class="vtn-wrap">
+    <span class="vtn-eyebrow">Repertoriu</span>
+    <h2 class="vtn-rv">Ce se joacă, zonă cu zonă</h2>
+    <div class="vtn-orn"><svg xmlns="http://www.w3.org/2000/svg" width="240" height="34" viewBox="0 0 240 34" fill="none" aria-hidden="true"><path d="M2 17 L6 8.5 L13 5.5 L28 5 L104 16.2 L104 17.8 L28 29 L13 28.5 L6 25.5 Z" fill="#f72c25"/><path d="M120 4.4 Q121.6 4.4 122.6 5.6 L131.4 15.6 Q132.4 17 131.4 18.4 L122.6 28.4 Q121.6 29.6 120 29.6 Q118.4 29.6 117.4 28.4 L108.6 18.4 Q107.6 17 108.6 15.6 L117.4 5.6 Q118.4 4.4 120 4.4 Z" fill="#091c7a"/><path d="M238 17 L234 8.5 L227 5.5 L212 5 L136 16.2 L136 17.8 L212 29 L227 28.5 L234 25.5 Z" fill="#f72c25"/></svg></div>
+    <p class="vtn-lead">Repertoriul școlii acoperă peste o sută de jocuri, învățate de la maeștri și documentate pe subzone etnografice. Fiecare ansamblu lucrează o parte din el, în funcție de vârstă și de nivel.</p>
+    <div class="vtn-rep">
+      <div class="vtn-repcard vtn-rv">
+        <h3>Moldova și Bucovina</h3>
+        <p>Suceava, Rădăuți, Fălticeni, Botoșani, Neamț, Iași, Bacău, Vaslui, Galați</p>
+        <p class="vtn-jocuri">Huțulca · Rața · Brâul Moldovenesc · Ciobănașul · Polcuța · Țânțărașul · Coasa · Hostropăț · Bătrâneasca · Coșnencuța · Pădurețul · Bălăceana · Hop Zup</p>
+      </div>
+      <div class="vtn-repcard vtn-rv">
+        <h3>Basarabia</h3>
+        <p>Cahul, Soroca, Bălți, Orhei</p>
+        <p class="vtn-jocuri">Hore și sârbe basarabene · Ruseasca · Coșerul · Hangul · Alunelul · Șapte pași</p>
+      </div>
+      <div class="vtn-repcard vtn-rv">
+        <h3>Oltenia și Dolj</h3>
+        <p>Zona Olt și zona Dolj</p>
+        <p class="vtn-jocuri">Călușul oltenesc, cu bătăi de pinteni, intrări ritualice și strigături · Suita din Olt · Suita din Dolj</p>
+      </div>
+      <div class="vtn-repcard vtn-rv">
+        <h3>Ardeal și Maramureș</h3>
+        <p>Ardealul de Sud, Crihalma, Maramureș</p>
+        <p class="vtn-jocuri">Fecioreasca fetelor din Crihalma · Învârtita · Ardeleana · Jocuri de perechi maramureșene</p>
+      </div>
+      <div class="vtn-repcard vtn-rv">
+        <h3>Dobrogea, Muntenia și Banat</h3>
+        <p>Dobrogea, Muntenia, Banatul de câmpie și de munte</p>
+        <p class="vtn-jocuri">Geamparalele · Brâuri dobrogene · Hore muntenești · Banatul, în curs de montaj</p>
+      </div>
+      <div class="vtn-repcard vtn-rv">
+        <h3>Obiceiuri și teatru folcloric</h3>
+        <p>Repertoriul de iarnă și de primăvară</p>
+        <p class="vtn-jocuri">Capra · Jocul Ursului · Plugușorul · Sorcova · Jocul Căiuților · Paparudele · Drăgaica · Colinde</p>
+      </div>
+    </div>
+    <div class="vtn-detail" style="margin-top:34px;">
+      <h4>Repertoriu internațional</h4>
+      <p>Alături de dansul românesc se studiază dansuri din Italia — Pizzica, Tammurriata, Tarantella și dansurile occitane din Piemont, La Ronde, La Bourrée și La Mazurka — plus repertoriu din Irlanda, Spania, Ucraina, Armenia, Bulgaria, Egipt, Rusia, Germania, Finlanda și Bielorusia. Dansurile occitane sunt studiul nostru despre tradiția regiunii care ne găzduiește.</p>
+      <h4>Maeștrii de la care am învățat</h4>
+      <p>Ionel Garoafă, Ansamblul „Maria Tănase" din Craiova · Iliuță Brăileanu, Palatul Copiilor Slatina · Simion Buță · Vasile Stoia · Marcel Bela · Simion Cherecheș · Constantin Șeremet · Stanimir Minev · Virgil Țăbuș · Ion Horojenco. Ceata de Călușari a început cu ajutorul lui Marius Nica, fost dansator în ceata din zona Caracal.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 9 · CE SPUN MAEȘTRII ========== -->
+<section class="vtn-sec vtn-sec--white" id="vtn-maestri">
+  <div class="vtn-wrap">
+    <span class="vtn-eyebrow">Mărturii</span>
+    <h2 class="vtn-rv">Ce spun maeștrii despre școala aceasta</h2>
+    <div class="vtn-orn"><svg xmlns="http://www.w3.org/2000/svg" width="240" height="34" viewBox="0 0 240 34" fill="none" aria-hidden="true"><path d="M2 17 L6 8.5 L13 5.5 L28 5 L104 16.2 L104 17.8 L28 29 L13 28.5 L6 25.5 Z" fill="#f72c25"/><path d="M120 4.4 Q121.6 4.4 122.6 5.6 L131.4 15.6 Q132.4 17 131.4 18.4 L122.6 28.4 Q121.6 29.6 120 29.6 Q118.4 29.6 117.4 28.4 L108.6 18.4 Q107.6 17 108.6 15.6 L117.4 5.6 Q118.4 4.4 120 4.4 Z" fill="#091c7a"/><path d="M238 17 L234 8.5 L227 5.5 L212 5 L136 16.2 L136 17.8 L212 29 L227 28.5 L234 25.5 Z" fill="#f72c25"/></svg></div>
+    <div class="vtn-quotes">
+      <div class="vtn-quote vtn-rv">
+        <blockquote>„Iurie Răileanu vine din altă dimensiune a trăirii noastre. El gândește zi și noapte dansul, îl vede ca mod cultural, ca mesaj transmis oamenilor în viața de zi cu zi."</blockquote>
+        <cite>Ionel Garoafă<span>Coregraf, Ansamblul „Maria Tănase", Craiova · interviu în Revista IR</span></cite>
+      </div>
+      <div class="vtn-quote vtn-rv">
+        <blockquote>„Ceea ce a creat Iurie Răileanu este incredibil. O să mă străduiesc cu toate forțele mele ca Grupul Vatra să devină cea mai bună școală de dansuri tradiționale din străinătate. Pentru că merită!"</blockquote>
+        <cite>Constantin Șeremet<span>Coregraf și maestru invitat</span></cite>
+      </div>
+      <div class="vtn-quote vtn-rv">
+        <blockquote>„Dansul ardelenesc a fost predat la Grupul Vatra și de aici noi îl dăruim tuturor, la cursuri și în viitoarele spectacole din diaspora."</blockquote>
+        <cite>Vasile Stoia<span>Coregraf, maestru de dans ardelenesc</span></cite>
+      </div>
+      <div class="vtn-quote vtn-rv">
+        <blockquote>„Dacă ați reușit să faceți asta în doar șase luni, este extraordinar!"</blockquote>
+        <cite>Emil Țîrcomnicu și Cătălin Alexa<span>Institutul de Etnografie și Folclor „C. Brăiloiu" al Academiei Române · despre Ceata de Călușari, la șase luni de la înființare</span></cite>
+      </div>
+    </div>
+    <p class="vtn-note" style="margin-top:22px;">Mărturiile sunt preluate din interviurile și materialele documentare ale școlii, cu numele și rolul fiecărui vorbitor.</p>
+  </div>
+</section>
+
+
+<!-- ========== 10 · PARTICIPĂRI ========== -->
+<section class="vtn-sec vtn-sec--porcelain" id="vtn-participari">
+  <div class="vtn-wrap">
+    <span class="vtn-eyebrow">Pe scenă</span>
+    <h2 class="vtn-rv">Unde am dansat în ultimii trei ani</h2>
+    <div class="vtn-orn"><svg xmlns="http://www.w3.org/2000/svg" width="240" height="34" viewBox="0 0 240 34" fill="none" aria-hidden="true"><path d="M2 17 L6 8.5 L13 5.5 L28 5 L104 16.2 L104 17.8 L28 29 L13 28.5 L6 25.5 Z" fill="#f72c25"/><path d="M120 4.4 Q121.6 4.4 122.6 5.6 L131.4 15.6 Q132.4 17 131.4 18.4 L122.6 28.4 Q121.6 29.6 120 29.6 Q118.4 29.6 117.4 28.4 L108.6 18.4 Q107.6 17 108.6 15.6 L117.4 5.6 Q118.4 4.4 120 4.4 Z" fill="#091c7a"/><path d="M238 17 L234 8.5 L227 5.5 L212 5 L136 16.2 L136 17.8 L212 29 L227 28.5 L234 25.5 Z" fill="#f72c25"/></svg></div>
+    <p class="vtn-lead">Ansamblurile de la Torino Nord urcă pe scenă în Italia, în România și în Republica Moldova. Elevii nu plătesc transportul la festivaluri; școala caută sponsori pentru fiecare deplasare.</p>
+
+    <div class="vtn-time">
+      <div class="vtn-time-row vtn-rv"><b>2026</b>
+        <ul>
+          <li>Locul I la Concursul de la Acqui Terme, dans popular și dans de caracter — 1 martie</li>
+          <li>Locul I, categoria Junior, la Sanremo Dance Festival — 3 mai</li>
+          <li>„Iubește Românește — Nunta Tradițională și Nunta Modernă", Torino și Milano — 14–15 februarie</li>
+          <li>Festivalul Primăverii, ediția a II-a, Torino și Milano — martie</li>
+          <li>„Ritmuri de Acasă", spectacolul de final de an, Teatro San Giuseppe, Torino — 30 mai</li>
+          <li>DiasporaFest la Cesena, Festival delle Culture la Rho, „SânzIEnele în ie", IA Liguria la Chiavari</li>
+          <li>Festivalul Internațional „Cătălina", Iași, cu Ansamblul Mugurel</li>
+        </ul>
+      </div>
+      <div class="vtn-time-row vtn-rv"><b>2025</b>
+        <ul>
+          <li>Locul I la Festivalul Național „Călușul Românesc", Slatina, ediția a XXV-a — primul ansamblu din diaspora la secțiunea Ansambluri Folclorice</li>
+          <li>Festivalul Internațional „Dorna, plai de joc și cântec", Vatra Dornei, ediția a XVIII-a — 16–19 iulie</li>
+          <li>Festivalul „Călușul Oltenesc", Brebeni, și debutul la Caracal — iunie</li>
+          <li>Locul II la Golden Bee, Viena, cu Grupul Elle — februarie</li>
+          <li>Spectacolul de Final de An la Teatrul Erba — 14–15 iunie</li>
+          <li>Flash Mob de Ziua României, Piazza Castello, Torino — 30 noiembrie</li>
+          <li>„Spiritul Crăciunului", două spectacole sold out — 20–21 decembrie</li>
+        </ul>
+      </div>
+      <div class="vtn-time-row vtn-rv"><b>2024</b>
+        <ul>
+          <li>Marele Premiu la Festivalul „Călușul Românesc", Slatina, ediția a XXIV-a — prima școală din diaspora care a concurat alături de cetele din România</li>
+          <li>Premiul I la Sanremo Dance Festival, Teatro Ariston</li>
+          <li>Ziua Universală a Iei, Torino</li>
+          <li>Seminar cu maestrul coregraf Vasile Stoia, la sediul școlii — 15–22 ianuarie</li>
+          <li>Spectacolul aniversar „15 ani de carieră artistică Iurie Răileanu", Teatrul Superga</li>
+          <li>Festivalul „Acasă la Brâncuși", Târgu Jiu</li>
+        </ul>
+      </div>
+      <div class="vtn-time-row vtn-rv"><b>2022–2023</b>
+        <ul>
+          <li>Pala Alpitour, Torino, alături de Andra și Frații Advahov, în concertul „Tradițional 2" — 2023</li>
+          <li>„Suflet de Român", cu Sofia Vicoveanca — 2023</li>
+          <li>Trofeul Festivalului Național de Dans de Caracter „Varazze Città" — 2022</li>
+          <li>World Folklore Festival, Diano Marina, și diplomă de recunoaștere la Heidelberg — 2022</li>
+          <li>„10 ani de Vatra", cu Surorile Osoianu — 29 mai 2022</li>
+          <li>„Spiritul Crăciunului", ediția a V-a, la Conservatorul „Giuseppe Verdi" din Torino — 2023</li>
+        </ul>
+      </div>
+      <div class="vtn-time-row vtn-rv"><b>2011–2021</b>
+        <ul>
+          <li>Locul II la Festivalul Balagan — 2016 · Aosta, alături de Sofia Vicoveanca — decembrie 2016</li>
+          <li>Locul II la Festivalul Internațional „Danze dal Mondo", Milano — 2017</li>
+          <li>Prima ediție a spectacolului „Spiritul Crăciunului" și primul Flash Mob de Ziua Națională, în centrul Torinoului — 2018</li>
+          <li>Spectacole alături de Marina Filipovici, Costi Burlacu, Corina Țepeș, Ion Paladi, Margareta Clipa, Igor Cuciuc, Pavel Stratan</li>
+          <li>Marsilia, Franța — 2018</li>
+        </ul>
+      </div>
+    </div>
+
+    <figure style="margin-top:30px;border-radius:14px;overflow:hidden;border:1px solid rgba(0,16,66,.12);">
+      <img src="https://grupulvatra.com/wp-content/uploads/2026/09/spectacol-ritmuri-de-acasa-2026-grupul-vatra.jpg" alt="Fotografia de grup a Școlii Grupul Vatra la spectacolul Ritmuri de Acasă 2026, Teatro San Giuseppe Torino" loading="lazy">
+      <figcaption style="background:#fff;padding:14px 18px;font-size:14px;color:#4A5568;">Toate ansamblurile școlii, pe scena Teatrului San Giuseppe, la spectacolul de final de an „Ritmuri de Acasă", 30 mai 2026. Fotografie: Grupul Vatra Torino.</figcaption>
+    </figure>
+
+    <div class="vtn-grid vtn-grid--3" style="margin-top:26px;">
+      <figure style="border-radius:14px;overflow:hidden;border:1px solid rgba(0,16,66,.12);background:#fff;">
+        <img src="https://grupulvatra.com/wp-content/uploads/2026/09/parada-festival-calusul-romanesc-slatina.jpg" alt="Parada Școlii Grupul Vatra pe străzile din Slatina, la Festivalul Călușul Românesc" loading="lazy">
+        <figcaption style="padding:13px 16px;font-size:14px;color:#4A5568;">Parada de deschidere la „Călușul Românesc", Slatina</figcaption>
+      </figure>
+      <figure style="border-radius:14px;overflow:hidden;border:1px solid rgba(0,16,66,.12);background:#fff;">
+        <img src="https://grupulvatra.com/wp-content/uploads/2026/09/ansamblul-vatra-suita-din-maramures.jpg" alt="Ansamblul Artistic Vatra în suita din Maramureș, pe scenă" loading="lazy">
+        <figcaption style="padding:13px 16px;font-size:14px;color:#4A5568;">Suita din Maramureș, Ansamblul Artistic Vatra</figcaption>
+      </figure>
+      <figure style="border-radius:14px;overflow:hidden;border:1px solid rgba(0,16,66,.12);background:#fff;">
+        <img src="https://grupulvatra.com/wp-content/uploads/2026/09/grupul-elle-pizzica-aer-liber-torino.jpg" alt="Grupul Feminin Elle dansând Pizzica în aer liber, la un eveniment din Torino" loading="lazy">
+        <figcaption style="padding:13px 16px;font-size:14px;color:#4A5568;">Grupul Elle, Pizzica, eveniment public în Torino</figcaption>
+      </figure>
+      <figure style="border-radius:14px;overflow:hidden;border:1px solid rgba(0,16,66,.12);background:#fff;">
+        <img src="https://grupulvatra.com/wp-content/uploads/2026/09/ansamblul-vatra-final-suita-scena-torino.jpg" alt="Finalul unei suite, Ansamblul Artistic Vatra pe scena spectacolului de final de an" loading="lazy">
+        <figcaption style="padding:13px 16px;font-size:14px;color:#4A5568;">Finalul suitei, Ansamblul Artistic Vatra</figcaption>
+      </figure>
+      <figure style="border-radius:14px;overflow:hidden;border:1px solid rgba(0,16,66,.12);background:#fff;">
+        <img src="https://grupulvatra.com/wp-content/uploads/2026/09/ansamblul-veselia-suita-din-galati-grup.jpg" alt="Ansamblul Veselia, fotografie de grup pe scenă, suita din Galați" loading="lazy">
+        <figcaption style="padding:13px 16px;font-size:14px;color:#4A5568;">Ansamblul Veselia, suita din Galați</figcaption>
+      </figure>
+      <figure style="border-radius:14px;overflow:hidden;border:1px solid rgba(0,16,66,.12);background:#fff;">
+        <img src="https://grupulvatra.com/wp-content/uploads/2026/09/barbati-dans-popular-torino-parteneri-de-joc.jpg" alt="Bărbați din Școala Grupul Vatra, în costum popular, cântând pe scenă" loading="lazy">
+        <figcaption style="padding:13px 16px;font-size:14px;color:#4A5568;">Grupele masculine, la spectacolul aniversar</figcaption>
+      </figure>
+      <figure style="border-radius:14px;overflow:hidden;border:1px solid rgba(0,16,66,.12);background:#fff;">
+        <img src="https://grupulvatra.com/wp-content/uploads/2026/09/dansatoare-adulte-grupul-vatra-bucurie.jpg" alt="Dansatoare adulte ale Școlii Grupul Vatra, râzând pe scenă" loading="lazy">
+        <figcaption style="padding:13px 16px;font-size:14px;color:#4A5568;">Grupele de adulți, spectacolul aniversar</figcaption>
+      </figure>
+    </div>
+
+    <div class="vtn-callout vtn-rv">
+      <p>Ansamblurile au lucrat, de-a lungul anilor, cu maeștrii Ionel Garoafă, Ilie Brăileanu, Simion Buță, Vasile Stoia, Simion Cherecheș, Constantin Șeremet și Stanimir Minev, și au urcat pe scenă alături de Sofia Vicoveanca, Adriana Ochișanu, Ion Paladi, Corneliu Botgros, Surorile Osoianu, Fuego și Ansamblul Plăieșii.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 8 · ECHIPA ========== -->
+<section class="vtn-sec vtn-sec--white" id="vtn-echipa">
+  <div class="vtn-wrap">
+    <span class="vtn-eyebrow">Echipa</span>
+    <h2 class="vtn-rv">Oamenii care te învață să dansezi</h2>
+    <div class="vtn-orn"><svg xmlns="http://www.w3.org/2000/svg" width="240" height="34" viewBox="0 0 240 34" fill="none" aria-hidden="true"><path d="M2 17 L6 8.5 L13 5.5 L28 5 L104 16.2 L104 17.8 L28 29 L13 28.5 L6 25.5 Z" fill="#f72c25"/><path d="M120 4.4 Q121.6 4.4 122.6 5.6 L131.4 15.6 Q132.4 17 131.4 18.4 L122.6 28.4 Q121.6 29.6 120 29.6 Q118.4 29.6 117.4 28.4 L108.6 18.4 Q107.6 17 108.6 15.6 L117.4 5.6 Q118.4 4.4 120 4.4 Z" fill="#091c7a"/><path d="M238 17 L234 8.5 L227 5.5 L212 5 L136 16.2 L136 17.8 L212 29 L227 28.5 L234 25.5 Z" fill="#f72c25"/></svg></div>
+    <p class="vtn-lead">Șase instructori, un secretariat care îți răspunde și un departament media care duce mai departe tot ce se întâmplă pe scenă.</p>
+
+    <div class="vtn-grid vtn-grid--3" style="margin-top:34px;">
+      <article class="vtn-person vtn-rv">
+        <div class="vtn-person-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/08/iurie-raileanu-coregraf-grupul-vatra__varianta-A.jpg" alt="Iurie Răileanu, fondatorul și coregraful general al Grupului Vatra" loading="lazy"></div>
+        <div class="vtn-person-body"><h3>Iurie Răileanu</h3><span>Fondator, director și coregraf general. Diplomă de instructor și coregraf recunoscută CONI.</span><a href="https://grupulvatra.com/iurie-raileanu-coreograf-grupul-vatra/">Citește prezentarea</a></div>
+      </article>
+      <article class="vtn-person vtn-rv">
+        <div class="vtn-person-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/08/gessica-ecaterina-sfabu-instructoare-torino-nord__varianta-A.jpg" alt="Gessica Ecaterina Sfabu, instructoare de dans popular la Grupul Vatra Torino Nord" loading="lazy"></div>
+        <div class="vtn-person-body"><h3>Gessica Ecaterina Sfabu</h3><span>Dans popular: copii, adolescenți, adulți începători, Bujorii de la Prut, Hora Padului și Veselia.</span><a href="https://grupulvatra.com/gessica-ecaterina-sfabu-instructoare/">Citește prezentarea</a></div>
+      </article>
+      <article class="vtn-person vtn-rv">
+        <div class="vtn-person-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/08/sofia-zaynetdinova-coregrafa-balet-grupul-vatra__varianta-A.jpg" alt="Sofia Zaynetdinova, profesoară de balet și coregrafă de dansuri internaționale" loading="lazy"></div>
+        <div class="vtn-person-body"><h3>Sofia Zaynetdinova</h3><span>Balet, dans de caracter, dans modern, baby dance, teatru-dans, Pilates și dansuri internaționale.</span><a href="https://grupulvatra.com/sofia-zaynetdinova-coregraf-balet-grupul-vatra/">Citește prezentarea</a></div>
+      </article>
+      <article class="vtn-person vtn-rv">
+        <div class="vtn-person-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/08/carmen-rotariu-instructoare-dansuri-populare__varianta-A.jpg" alt="Carmen Georgiana Rotariu, instructoare de dansuri populare la Grupul Vatra" loading="lazy"></div>
+        <div class="vtn-person-body"><h3>Carmen Georgiana Rotariu</h3><span>Ansamblul Mugurel și Ansamblul Artistic Vatra. Din 2013 la Vatra, din 2016 la catedră.</span><a href="https://grupulvatra.com/carmen-georgiana-rotariu-instructor-grupul-vatra/">Citește prezentarea</a></div>
+      </article>
+      <article class="vtn-person vtn-rv">
+        <div class="vtn-person-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/08/cristian-costin-asistent-instructor-milano__varianta-A.jpg" alt="Cristian Costin, instructor și dansator în Ansamblul Vatra și Ceata de Călușari" loading="lazy"></div>
+        <div class="vtn-person-body"><h3>Cristian Costin</h3><span>Adulți începători și joc bărbătesc. Dansator în Ansamblul Vatra și în Ceata de Călușari.</span><a href="https://grupulvatra.com/cristian-costin-instructor-grupul-vatra/">Citește prezentarea</a></div>
+      </article>
+      <article class="vtn-person vtn-rv">
+        <div class="vtn-person-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/08/costel-muntianu-instructor-dans-adulti-torino-sud__varianta-A.jpg" alt="Costel Muntianu, asistent instructor la Ansamblul Strămoșeasca" loading="lazy"></div>
+        <div class="vtn-person-body"><h3>Costel Muntianu</h3><span>Asistent instructor la Ansamblul Strămoșeasca.</span><a href="https://grupulvatra.com/costel-muntianu-instructor-grupul-vatra/">Citește prezentarea</a></div>
+      </article>
+      <article class="vtn-person vtn-rv">
+        <div class="vtn-person-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/andreea-mititiuc-secretariat-grupul-vatra.jpg" alt="Andreea Mititiuc, secretariatul și înscrierile Școlii Grupul Vatra" loading="lazy"></div>
+        <div class="vtn-person-body"><h3>Andreea Mititiuc</h3><span>Secretariat și înscrieri, pentru toate grupele filialei. Ei îi scrii pe WhatsApp.</span></div>
+      </article>
+      <article class="vtn-person vtn-rv">
+        <div class="vtn-person-media"><img src="https://grupulvatra.com/wp-content/uploads/2026/09/ioan-ungurianu-departament-media-grupul-vatra.jpg" alt="Ioan Ungurianu, responsabilul Departamentului Media al Școlii Grupul Vatra" loading="lazy"></div>
+        <div class="vtn-person-body"><h3>Ioan Ungurianu</h3><span>Responsabilul Departamentului Media și consilier în consiliul director. Fotograf, USIABC Studio Torino.</span></div>
+      </article>
+    </div>
+
+    <div class="vtn-team-extra">
+      <div class="vtn-box vtn-rv">
+        <h3>Cine îți răspunde când scrii</h3>
+        <p>Andreea Mititiuc se ocupă de secretariat și de înscrieri. Ei îi scrii pe WhatsApp pentru toate întrebările practice: vârste, orar, ce aduci la prima lecție și cum te înscrii.</p>
+        <a class="vtn-btn vtn-btn--ghost vtn-btn--sm" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20Am%20v%C4%83zut%20pagina%20Torino%20Nord%20%C8%99i%20a%C8%99%20vrea%20informa%C8%9Bii%20despre%20cursuri." target="_blank" rel="noopener">Scrie-i Andreei</a>
+      </div>
+      <div class="vtn-box vtn-rv">
+        <h3>Consiliul director al APS ASD Primo Passo</h3>
+        <p>Iurie Răileanu (președinte), Marcelin Enascut (vicepreședinte), Luiza Diculescu (secretar), Sabin Doboș (trezorier), Ioan Ungurianu (consilier).</p>
+        <p><a href="https://grupulvatra.com/despre-noi/">Despre școală și despre asociație</a></p>
+      </div>
+    </div>
+
+    <div class="vtn-split" style="margin-top:36px;align-items:center;">
+      <div>
+        <h3>Învățăm de la maeștri, nu din înregistrări</h3>
+        <p>De câteva ori pe an aducem la Torino coregrafi și maeștri din România și din diaspora, pentru seminarii tematice. O dată pe an, un seminar intensiv de trei zile, de vineri până duminică, nu presupune niciun cost suplimentar pentru elevii ansamblurilor. Așa intră în repertoriu jocuri documentate, nu copiate.</p>
+        <p class="vtn-note">În fotografie: seminarul cu maestrul Stanimir Minev, la sediul din Via Gressoney.</p>
+      </div>
+      <figure style="border-radius:14px;overflow:hidden;border:1px solid rgba(0,16,66,.12);">
+        <img src="https://grupulvatra.com/wp-content/uploads/2026/09/seminar-stanimir-minev-grupul-vatra-torino.jpg" alt="Seminar de dans cu maestrul Stanimir Minev, la sediul Școlii Grupul Vatra din Torino" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 9 · DEPARTAMENTUL MEDIA ========== -->
+<hr class="vtn-ribbon" aria-hidden="true">
+<section class="vtn-sec vtn-sec--deep" id="vtn-media">
+  <div class="vtn-wrap">
+    <div class="vtn-split">
+      <div>
+        <span class="vtn-eyebrow">Departamentul Media</span>
+        <h2 class="vtn-rv">Filmăm, montăm, transmitem</h2>
+        <p>Tot ce vezi online de la Vatra pornește din Sala Multimedia de la Via Gressoney: un studio cu patru camere, regie video, lumini, panouri fonoabsorbante și masă de podcast. Departamentul, coordonat de Ioan Ungurianu, lucrează pentru ansamblurile școlii și pentru comunitățile și asociațiile care au nevoie de un partener de producție. Partener de producție foto-audio-video: USIABC Studio Torino.</p>
+        <p>Pentru colaborări externe, anunțul se face cu cel puțin 14 zile înainte, iar drepturile de utilizare se stabilesc în scris înaintea producției. Condițiile se discută în privat.</p>
+        <div class="vtn-btns">
+          <a class="vtn-btn vtn-btn--light" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20A%C8%99%20vrea%20s%C4%83%20discut%C4%83m%20o%20colaborare%20cu%20Departamentul%20Media%20al%20Grupului%20Vatra." target="_blank" rel="noopener">Scrie-ne pentru o colaborare</a>
+          <a class="vtn-btn vtn-btn--outline-light" href="https://www.youtube.com/@grupulvatra" target="_blank" rel="noopener">Vezi canalul de YouTube</a>
+        </div>
+      </div>
+      <div>
+        <img src="https://grupulvatra.com/wp-content/uploads/2026/09/departament-media-regie-streaming-torino.jpg" alt="Regia video și masa de podcast din Sala Multimedia a Grupului Vatra" loading="lazy" style="border-radius:14px;margin-bottom:18px;">
+        <ul class="vtn-services">
+          <li><b>Înregistrarea și montajul spectacolelor</b>Master integral, capitole pe ansambluri și suite, piese verticale pentru social, miniaturi</li>
+          <li><b>Streaming live</b>Transmisiuni pe Facebook și YouTube, cu grafică de titraj</li>
+          <li><b>Fotografie de scenă și de studio</b>Selecție rapidă în 48 de ore, livrare completă în zece zile lucrătoare</li>
+          <li><b>Interviuri și portrete video</b>Interviu montat, versiune scurtă și variante verticale</li>
+          <li><b>Podcast și înregistrare audio</b>În studioul propriu, pentru Radio LU și Spazio Trad</li>
+          <li><b>Lumini și efecte speciale</b>Schemă de lumini pentru spectacole și evenimente</li>
+          <li><b>Pachet de prezentare</b>Fotografii editate pentru ansambluri, instructori și proiecte</li>
+          <li><b>Arhivare</b>Index căutabil al materialului foto și video al școlii</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:50px;padding-top:38px;border-top:1px solid rgba(255,255,255,.18);">
+      <h3 style="color:#fff;">Proiectele noastre de media</h3>
+      <div class="vtn-offer" style="margin-top:22px;">
+        <li><b>Spazio Trad</b>Spațiul de documentare și dialog despre tradiție</li>
+        <li><b>Radio LU</b>Radioul școlii, înregistrat în Sala Multimedia</li>
+        <li><b>Revista IR — Inspirație Românească</b>Publicație online din 2021, directoare responsabilă Luiza Diculescu · <a href="https://rivistair.com" target="_blank" rel="noopener">rivistair.com</a></li>
+        <li><b>Dansează Românești</b>Platforma educațională a școlii, din 2020 · <a href="https://danseazaromaneste.com" target="_blank" rel="noopener">danseazaromaneste.com</a></li>
+        <li><b>Oamenii din spatele Vatrei</b>Serie de interviuri video cu instructori, voluntari și părinți</li>
+        <li><b>Flash Mob de Ziua României</b>Producția anuală filmată în centrul Torinoului, din 2018</li>
+      </div>
+      <div class="vtn-detail" style="border-top-color:rgba(255,255,255,.18);margin-top:32px;">
+        <h4 style="color:var(--lemon);">Ce nu facem</h4>
+        <p style="color:#D9E1F3;">Nu filmăm minori fără acord scris. Nu livrăm material brut, nemontat. Nu publicăm pe canalele școlii materiale produse pentru terți fără acordul clientului. Nu preluăm evenimente care se suprapun cu spectacolele școlii.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 10 · YOUTUBE ========== -->
+<section class="vtn-sec vtn-sec--white" id="vtn-youtube">
+  <div class="vtn-wrap">
+    <span class="vtn-eyebrow">Video</span>
+    <h2 class="vtn-rv">Vezi cum arată munca noastră</h2>
+    <div class="vtn-orn"><svg xmlns="http://www.w3.org/2000/svg" width="240" height="34" viewBox="0 0 240 34" fill="none" aria-hidden="true"><path d="M2 17 L6 8.5 L13 5.5 L28 5 L104 16.2 L104 17.8 L28 29 L13 28.5 L6 25.5 Z" fill="#f72c25"/><path d="M120 4.4 Q121.6 4.4 122.6 5.6 L131.4 15.6 Q132.4 17 131.4 18.4 L122.6 28.4 Q121.6 29.6 120 29.6 Q118.4 29.6 117.4 28.4 L108.6 18.4 Q107.6 17 108.6 15.6 L117.4 5.6 Q118.4 4.4 120 4.4 Z" fill="#091c7a"/><path d="M238 17 L234 8.5 L227 5.5 L212 5 L136 16.2 L136 17.8 L212 29 L227 28.5 L234 25.5 Z" fill="#f72c25"/></svg></div>
+    <p class="vtn-lead">Canalul școlii are peste 320 de materiale: spectacole, suite filmate integral, interviuri cu maeștri și artiști invitați, reportaje și rubrica „Vești și Povești Românești". Îl poți urmări la <a href="https://www.youtube.com/@grupulvatra" target="_blank" rel="noopener">youtube.com/@grupulvatra</a>.</p>
+
+    <div class="vtn-yt">
+      <a class="vtn-ytcard vtn-rv" href="https://www.youtube.com/watch?v=9k8i8P4Axj8" target="_blank" rel="noopener">
+        <div class="vtn-ytthumb"><img src="https://i.ytimg.com/vi/9k8i8P4Axj8/hqdefault.jpg" alt="Videoclip de prezentare a cursurilor de dansuri populare românești din Torino" loading="lazy"><span class="vtn-ytplay"><span></span></span></div>
+        <div class="vtn-ytbody"><b>Descoperă dansurile populare românești din Torino</b><span>Prezentarea sediului din Via Gressoney 29/B</span></div>
+      </a>
+      <a class="vtn-ytcard vtn-rv" href="https://www.youtube.com/watch?v=msO1-eEG0Ek" target="_blank" rel="noopener">
+        <div class="vtn-ytthumb"><img src="https://i.ytimg.com/vi/msO1-eEG0Ek/hqdefault.jpg" alt="Fecioreasca fetelor din Crihalma, interpretată de Ansamblul Artistic Vatra" loading="lazy"><span class="vtn-ytplay"><span></span></span></div>
+        <div class="vtn-ytbody"><b>Fecioreasca fetelor din Crihalma</b><span>Ansamblul Artistic Vatra · coregrafie Vasile Stoia</span></div>
+      </a>
+      <a class="vtn-ytcard vtn-rv" href="https://www.youtube.com/watch?v=1_vQQAtOE3k" target="_blank" rel="noopener">
+        <div class="vtn-ytthumb"><img src="https://i.ytimg.com/vi/1_vQQAtOE3k/hqdefault.jpg" alt="Suita din Neamț interpretată de Ansamblul Strămoșeasca" loading="lazy"><span class="vtn-ytplay"><span></span></span></div>
+        <div class="vtn-ytbody"><b>Suita din Neamț</b><span>Ansamblul Strămoșeasca · șapte jocuri documentate</span></div>
+      </a>
+      <a class="vtn-ytcard vtn-rv" href="https://www.youtube.com/watch?v=llYiPglu8R4" target="_blank" rel="noopener">
+        <div class="vtn-ytthumb"><img src="https://i.ytimg.com/vi/llYiPglu8R4/hqdefault.jpg" alt="Suita din Bucovina interpretată de Ansamblul Veselia" loading="lazy"><span class="vtn-ytplay"><span></span></span></div>
+        <div class="vtn-ytbody"><b>Suita din Bucovina</b><span>Ansamblul Veselia · Bătrâneasca, Bălăceana, Pădurețul</span></div>
+      </a>
+      <a class="vtn-ytcard vtn-rv" href="https://www.youtube.com/watch?v=0-aEQsiOWPE" target="_blank" rel="noopener">
+        <div class="vtn-ytthumb"><img src="https://i.ytimg.com/vi/0-aEQsiOWPE/hqdefault.jpg" alt="Suita din Mărginimea Sibiului interpretată de Ansamblul Mugurel" loading="lazy"><span class="vtn-ytplay"><span></span></span></div>
+        <div class="vtn-ytbody"><b>Suită din Mărginimea Sibiului</b><span>Ansamblul Mugurel · copii și adolescenți</span></div>
+      </a>
+      <a class="vtn-ytcard vtn-rv" href="https://www.youtube.com/watch?v=lbTpAuuoV-c" target="_blank" rel="noopener">
+        <div class="vtn-ytthumb"><img src="https://i.ytimg.com/vi/lbTpAuuoV-c/hqdefault.jpg" alt="Ritmuri de Acasă 2026, spectacolul de final de an al Școlii Grupul Vatra" loading="lazy"><span class="vtn-ytplay"><span></span></span></div>
+        <div class="vtn-ytbody"><b>Ritmuri de Acasă 2026</b><span>Spectacolul de final de an, cu toate ansamblurile</span></div>
+      </a>
+    </div>
+
+    <h3 style="margin-top:34px;">Pe playlisturi</h3>
+    <div class="vtn-playlists">
+      <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD4_8J9dYIFgBxXvTzQ0jkf4" target="_blank" rel="noopener">Ansamblul Vatra</a>
+      <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD6mrK3lorjJ-EXfmENs_efR" target="_blank" rel="noopener">Ansamblul Strămoșeasca</a>
+      <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD6g_FviZ8QalYFIh03OnDa6" target="_blank" rel="noopener">Ansamblul Mugurel</a>
+      <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD7sCM-FottY1sQh8eapn4WF" target="_blank" rel="noopener">Ansamblul Veselia</a>
+      <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD7eNLj1ndREjeN33Qi_HiqZ" target="_blank" rel="noopener">Ceata de Călușari</a>
+      <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD5e7IwWkh5iYfJmf_vdr2t6" target="_blank" rel="noopener">Grupurile de copii</a>
+      <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD5EJuPMNpNDvZP1mLL7u4E3" target="_blank" rel="noopener">Dialoguri cu artiști și coregrafi</a>
+      <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD7Xj9HKC2H1MIcDf7evg7vx" target="_blank" rel="noopener">Emisiunea IR</a>
+      <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD73nEgDP3M0eRM4z_4k89zP" target="_blank" rel="noopener">Flash Mob de Ziua României</a>
+      <a href="https://www.youtube.com/playlist?list=PL60npEqE3BD7uz9Dy6Y0-hYXrTM7gQ-kS" target="_blank" rel="noopener">Istoria Grupului Vatra</a>
+    </div>
+
+    <div class="vtn-ytsub">
+      <h3>Balet, caracter, modern și dansuri internaționale</h3>
+      <p class="vtn-lead">Aceste cursuri au propriul canal, în limba italiană: <a href="https://www.youtube.com/@scuoladidanzaprimopasso" target="_blank" rel="noopener">Scuola di Danza e Arte Primo Passo</a>. Acolo găsești spectacolele de balet, coregrafiile de caracter și dansurile internaționale ale Grupului Elle, filmate pe scenă.</p>
+    </div>
+
+    <div class="vtn-yt">
+      <a class="vtn-ytcard vtn-rv" href="https://www.youtube.com/watch?v=pdAj2rMwDro" target="_blank" rel="noopener">
+        <div class="vtn-ytthumb"><img src="https://i.ytimg.com/vi/pdAj2rMwDro/hqdefault.jpg" alt="Dans egiptean interpretat de Grupul Feminin Elle al Școlii Grupul Vatra din Torino" loading="lazy"><span class="vtn-ytplay"><span></span></span></div>
+        <div class="vtn-ytbody"><b>Dans egiptean</b><span>Grupul Elle · cel mai urmărit material al grupului</span></div>
+      </a>
+      <a class="vtn-ytcard vtn-rv" href="https://www.youtube.com/watch?v=-RFkwIVprvA" target="_blank" rel="noopener">
+        <div class="vtn-ytthumb"><img src="https://i.ytimg.com/vi/-RFkwIVprvA/hqdefault.jpg" alt="Dans irlandez interpretat de Grupul Feminin Elle pe scenă, la Torino" loading="lazy"><span class="vtn-ytplay"><span></span></span></div>
+        <div class="vtn-ytbody"><b>Dans irlandez</b><span>Grupul Elle · repertoriu internațional</span></div>
+      </a>
+      <a class="vtn-ytcard vtn-rv" href="https://www.youtube.com/watch?v=-p5uliyDxfc" target="_blank" rel="noopener">
+        <div class="vtn-ytthumb"><img src="https://i.ytimg.com/vi/-p5uliyDxfc/hqdefault.jpg" alt="Dansul cazac Varenka, interpretat de Grupul Feminin Elle" loading="lazy"><span class="vtn-ytplay"><span></span></span></div>
+        <div class="vtn-ytbody"><b>Varen'ka</b><span>Grupul Elle · dansul cu care a concurat la „Talent for Dance"</span></div>
+      </a>
+      <a class="vtn-ytcard vtn-rv" href="https://www.youtube.com/watch?v=z49ucWVR3PI" target="_blank" rel="noopener">
+        <div class="vtn-ytthumb"><img src="https://i.ytimg.com/vi/z49ucWVR3PI/hqdefault.jpg" alt="Trupa de balet a Școlii de Dans și Artă Primo Passo, pe scenă" loading="lazy"><span class="vtn-ytplay"><span></span></span></div>
+        <div class="vtn-ytbody"><b>Trupa de balet</b><span>Danza classica · toate grupele de vârstă</span></div>
+      </a>
+      <a class="vtn-ytcard vtn-rv" href="https://www.youtube.com/watch?v=tz86xdvA0OY" target="_blank" rel="noopener">
+        <div class="vtn-ytthumb"><img src="https://i.ytimg.com/vi/tz86xdvA0OY/hqdefault.jpg" alt="Grupa de balet pentru adulți începători, în coregrafia Bosco incantato" loading="lazy"><span class="vtn-ytplay"><span></span></span></div>
+        <div class="vtn-ytbody"><b>Bosco incantato</b><span>Balet · grupa de adulți începători</span></div>
+      </a>
+      <a class="vtn-ytcard vtn-rv" href="https://www.youtube.com/watch?v=4H4DE3PaaDo" target="_blank" rel="noopener">
+        <div class="vtn-ytthumb"><img src="https://i.ytimg.com/vi/4H4DE3PaaDo/hqdefault.jpg" alt="Sofia Zaynetdinova, coregrafa care predă balet la Școala Primo Passo din Torino" loading="lazy"><span class="vtn-ytplay"><span></span></span></div>
+        <div class="vtn-ytbody"><b>Sofia Zaynetdinova, despre cum predă</b><span>Interviu · coregrafa de balet a școlii</span></div>
+      </a>
+    </div>
+
+    <div class="vtn-playlists">
+      <a href="https://www.youtube.com/playlist?list=PLaYoUKKnjBYkN2jBC_YDHbWAZgoqubxWs" target="_blank" rel="noopener">Gruppo Elle</a>
+      <a href="https://www.youtube.com/playlist?list=PLaYoUKKnjBYkRWHAcX6YgxXZicGVLwsF1" target="_blank" rel="noopener">Danza Classica</a>
+      <a href="https://www.youtube.com/playlist?list=PLaYoUKKnjBYlsB1LRN2OkU597fhl2mp6a" target="_blank" rel="noopener">Danza di carattere</a>
+      <a href="https://www.youtube.com/playlist?list=PLaYoUKKnjBYnKqzVzs0BfAcsCaFbMtaof" target="_blank" rel="noopener">Danze popolari</a>
+      <a href="https://www.youtube.com/playlist?list=PLaYoUKKnjBYm7WpmatvMX4AjCFQFUxlDO" target="_blank" rel="noopener">Spettacoli</a>
+      <a href="https://www.youtube.com/playlist?list=PLaYoUKKnjBYk6YnSsoY0IY9fHX4MaKmVG" target="_blank" rel="noopener">I nostri corsi</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 11 · VATRA SOLIDALE ========== -->
+<section class="vtn-sec vtn-sec--porcelain" id="vtn-voluntariat">
+  <div class="vtn-wrap">
+    <div class="vtn-solidale">
+      <div>
+        <span class="vtn-eyebrow">Voluntariat</span>
+        <h2 class="vtn-rv">Vatra Solidale: căutăm oameni care vor să construiască ceva împreună</h2>
+        <div class="vtn-orn"><svg xmlns="http://www.w3.org/2000/svg" width="240" height="34" viewBox="0 0 240 34" fill="none" aria-hidden="true"><path d="M2 17 L6 8.5 L13 5.5 L28 5 L104 16.2 L104 17.8 L28 29 L13 28.5 L6 25.5 Z" fill="#f72c25"/><path d="M120 4.4 Q121.6 4.4 122.6 5.6 L131.4 15.6 Q132.4 17 131.4 18.4 L122.6 28.4 Q121.6 29.6 120 29.6 Q118.4 29.6 117.4 28.4 L108.6 18.4 Q107.6 17 108.6 15.6 L117.4 5.6 Q118.4 4.4 120 4.4 Z" fill="#091c7a"/><path d="M238 17 L234 8.5 L227 5.5 L212 5 L136 16.2 L136 17.8 L212 29 L227 28.5 L234 25.5 Z" fill="#f72c25"/></svg></div>
+        <p>Programul permanent de voluntariat al APS ASD Primo Passo are o echipă teritorială și la Torino Nord. Nu ai nevoie de experiență și nu trebuie să fii membru Vatra. Voluntariatul este organizat, documentat și asigurat, iar participarea la prezentări este gratuită și nu obligă la nimic.</p>
+        <p>Căutăm în special profesori de muzică vocală și instrumentală, pictură, limba română, teatru și recitare, meșteșugari și studenți.</p>
+        <div class="vtn-localities">
+          <span class="vtn-chip">Evenimente și spectacole</span><span class="vtn-chip">Copii și adolescenți</span>
+          <span class="vtn-chip">Doposcuola Solidale</span><span class="vtn-chip">Comunicare și media</span>
+          <span class="vtn-chip">Costume și logistică</span><span class="vtn-chip">Fundraising și 5x1000</span>
+        </div>
+        <div class="vtn-btns">
+          <a class="vtn-btn vtn-btn--primary" href="https://forms.gle/bvcJAPejRcBfqUxY8" target="_blank" rel="noopener">Completează formularul de voluntariat</a>
+          <a class="vtn-btn vtn-btn--ghost" href="https://grupulvatra.com/voluntariat-romanesc-italia-vatra-solidale/">Citește despre program</a>
+        </div>
+      </div>
+      <div><img src="https://grupulvatra.com/wp-content/uploads/2026/08/vatra-solidale-open-graph-1200x630-1.png" alt="Vatra Solidale — programul de voluntariat al Grupului Vatra în Italia" loading="lazy"></div>
+    </div>
+
+    <div style="margin-top:48px;">
+      <h3>Cine ne trebuie la Torino Nord</h3>
+      <div class="vtn-rep" style="margin-top:22px;">
+        <div class="vtn-repcard vtn-rv">
+          <h3>Profesori și meșteri</h3>
+          <p class="vtn-jocuri">Muzică vocală · instrument: vioară, acordeon, nai, fluier, chitară · pictură și arte plastice · limba română · teatru și recitare · croitorie și port popular.</p>
+        </div>
+        <div class="vtn-repcard vtn-rv">
+          <h3>Studenți</h3>
+          <p class="vtn-jocuri">Voluntariat de competență, coordonat de un profesionist, cu portofoliu și rețea de contacte în lumea culturală din Torino. Căutăm în special la Conservator, Accademia Albertina, Università di Torino, DAMS și Politecnico.</p>
+        </div>
+        <div class="vtn-repcard vtn-rv">
+          <h3>Ce primești</h3>
+          <p class="vtn-jocuri">Formare inițială · un referent numit și o echipă · pact de voluntariat și asigurare · atestat al orelor efectuate · scrisoare de recomandare, acolo unde se justifică · un proiect real, cu rezultat public.</p>
+        </div>
+      </div>
+      <p class="vtn-note" style="margin-top:20px;">Grupa instrumentală nu există încă la Torino Nord. Poți fi printre primii care o construiesc.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 16 · ÎNTREBĂRI FRECVENTE ========== -->
+<section class="vtn-sec vtn-sec--white" id="vtn-intrebari">
+  <div class="vtn-wrap">
+    <span class="vtn-eyebrow">Întrebări frecvente</span>
+    <h2 class="vtn-rv">Ce ne întreabă cel mai des părinții și cursanții</h2>
+    <div class="vtn-orn"><svg xmlns="http://www.w3.org/2000/svg" width="240" height="34" viewBox="0 0 240 34" fill="none" aria-hidden="true"><path d="M2 17 L6 8.5 L13 5.5 L28 5 L104 16.2 L104 17.8 L28 29 L13 28.5 L6 25.5 Z" fill="#f72c25"/><path d="M120 4.4 Q121.6 4.4 122.6 5.6 L131.4 15.6 Q132.4 17 131.4 18.4 L122.6 28.4 Q121.6 29.6 120 29.6 Q118.4 29.6 117.4 28.4 L108.6 18.4 Q107.6 17 108.6 15.6 L117.4 5.6 Q118.4 4.4 120 4.4 Z" fill="#091c7a"/><path d="M238 17 L234 8.5 L227 5.5 L212 5 L136 16.2 L136 17.8 L212 29 L227 28.5 L234 25.5 Z" fill="#f72c25"/></svg></div>
+    <div class="vtn-faq">
+      <div>
+        <h3>Trebuie să am experiență?</h3>
+        <p>Nu. Grupele de începători pornesc de la zero, iar la adulți se schimbă partenerii ca la horele din sat, deci vii și singur. Pentru ansamblurile de performanță există preselecție și o perioadă de probă.</p>
+      </div>
+      <div>
+        <h3>Prima lecție este gratuită?</h3>
+        <p>Da, prima lecție de probă este gratuită, la orice grupă. Scrie-ne pe WhatsApp și îți spunem când poți veni.</p>
+      </div>
+      <div>
+        <h3>Cât costă cursurile?</h3>
+        <p>Tarifele se comunică în privat, pe WhatsApp, pentru grupa care te interesează. Nu le publicăm online, pentru că diferă de la o grupă la alta și de la un tip de abonament la altul.</p>
+      </div>
+      <div>
+        <h3>Ce aduc la prima lecție?</h3>
+        <p>Haine comode și elastice, un tricou, pantofi de sport sau de dans și apă. La baby dance, șosete antiderapante. Nu se intră în sală în haine de stradă și în încălțăminte de exterior.</p>
+      </div>
+      <div>
+        <h3>Este nevoie de certificat medical?</h3>
+        <p>Da. Pentru toate grupele de dans este obligatoriu certificatul medical sportiv, iar pentru minori și acordul scris al părintelui sau al tutorelui.</p>
+      </div>
+      <div>
+        <h3>Cine cumpără costumul?</h3>
+        <p>Pentru majoritatea grupelor, costumele sunt puse la dispoziție de școală, în limita stocului. La grupele de copii, părinții achiziționează costumul după modelele stabilite de școală. La Ceata de Călușari, costumul, opincile și pintenii sunt responsabilitatea fiecărui dansator, cu furnizori recomandați de coregraf.</p>
+      </div>
+      <div>
+        <h3>Copilul meu poate veni însoțit?</h3>
+        <p>Minorii trebuie însoțiți la sală de un părinte sau de un adult autorizat, iar zona de așteptare pentru părinți există chiar lângă săli. Telefonul nu se folosește în timpul repetițiilor.</p>
+      </div>
+      <div>
+        <h3>Se pot face fotografii și filmări?</h3>
+        <p>Materialul foto și video se realizează de Departamentul Media al școlii. Nicio imagine cu un minor recognoscibil nu se publică fără acordul de imagine semnat de părinte sau de tutore.</p>
+      </div>
+      <div>
+        <h3>Pot dansa dacă nu sunt român sau moldovean?</h3>
+        <p>Da. La cursuri vin și italieni, și oameni din alte comunități. Repertoriul include dansuri din Italia, Irlanda, Spania, Armenia, Ucraina și din alte culturi, alături de cel românesc.</p>
+      </div>
+      <div>
+        <h3>Pot să vin doar ca să văd?</h3>
+        <p>Da. Scrie-ne pe WhatsApp și îți spunem când are loc următoarea lecție deschisă sau spectacol la sediu. Lecțiile deschise pentru părinți au loc în fiecare lună la grupele de copii.</p>
+      </div>
+    </div>
+    <div class="vtn-callout" style="margin-top:32px;">
+      <p>Nu ai găsit răspunsul? Scrie-ne pe WhatsApp la <b>+39 392 189 7050</b> — îți răspunde Andreea de la secretariat, în română sau în italiană.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 17 · CTA FINAL ========== -->
+<hr class="vtn-ribbon" aria-hidden="true">
+<section class="vtn-sec vtn-sec--deep vtn-final" id="vtn-inscrieri">
+  <div class="vtn-wrap">
+    <span class="vtn-eyebrow">Înscrieri</span>
+    <h2 class="vtn-rv">Prima lecție de probă este gratuită. Vino să vezi cum&nbsp;e.</h2>
+    <p>Scrie-ne pe WhatsApp și îți spunem tot ce trebuie să știi: vârsta potrivită, ziua, ora și ce aduci la prima lecție.</p>
+    <div class="vtn-btns">
+      <a class="vtn-btn vtn-btn--primary" href="https://wa.me/393921897050?text=Bun%C4%83%20ziua%21%20Am%20v%C4%83zut%20pagina%20Torino%20Nord%20%C8%99i%20a%C8%99%20vrea%20informa%C8%9Bii%20despre%20cursuri." target="_blank" rel="noopener">Scrie-ne pe WhatsApp</a>
+      <a class="vtn-btn vtn-btn--outline-light" href="tel:+393921897050">Sună la +39 392 189 7050</a>
+    </div>
+    <p class="vtn-slogan">Uniți de tradiții, aducem cultura românească mai aproape de voi!</p>
+    <p class="vtn-legal">
+      Școala de Dansuri Populare Românești „Grupul Vatra” este un proiect al APS ASD Primo Passo, înregistrată la RUNTS.
+      Sediu operațional: Via Gressoney 29/B, 10155 Torino. Sediu legal: Via Barbaresco 8, Torino.
+      Site în italiană: <a href="https://primopasso.org" target="_blank" rel="noopener">primopasso.org</a>.
+    </p>
+  </div>
+</section>
+
+
+<!-- ========== ELEMENTE DE INTERFAȚĂ ========== -->
+<div class="vtn-progress" aria-hidden="true"><i></i></div>
+<button type="button" class="vtn-top" aria-label="Înapoi sus">&#8593;</button>
+
+<figure class="vtn-lb" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Fotografie mărită">
+  <button type="button" class="vtn-lb__close" aria-label="Închide fotografia">&times;</button>
+  <button type="button" class="vtn-lb__nav vtn-lb__prev" aria-label="Fotografia anterioară">&#8249;</button>
+  <button type="button" class="vtn-lb__nav vtn-lb__next" aria-label="Fotografia următoare">&#8250;</button>
+  <div style="text-align:center;">
+    <img src="" alt="">
+    <figcaption></figcaption>
+  </div>
+</figure>
+
+</div><!-- /.vtn-page -->
+
+<script>
+/* ==========================================================================
+   GRUPUL VATRA · TORINO NORD — interacțiuni v4.0
+   Fără dependențe. Dacă JavaScript-ul nu rulează, pagina rămâne completă:
+   textele sunt vizibile, tabelul e întreg, galeria se vede normal.
+   ========================================================================== */
+(function () {
+  'use strict';
+  var root = document.querySelector('.vtn-page');
+  if (!root || root.dataset.vtnReady === '1') return;
+  root.dataset.vtnReady = '1';
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) root.classList.add('vtn-anim');
+
+  /* --- 1. apariție la derulare ------------------------------------------ */
+  var revealables = root.querySelectorAll('.vtn-rv');
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('vtn-in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    Array.prototype.forEach.call(revealables, function (el) { io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(revealables, function (el) { el.classList.add('vtn-in'); });
+  }
+
+  /* --- 2. cifrele din hero, numărate ------------------------------------ */
+  var counters = root.querySelectorAll('[data-vtn-count]');
+  function runCounter(el) {
+    var target = parseFloat(el.getAttribute('data-vtn-count'));
+    var suffix = el.getAttribute('data-vtn-suffix') || '';
+    var t0 = null, dur = 1100;
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString('ro-RO') + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if (!reduce && counters.length && 'IntersectionObserver' in window) {
+    var ioc = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { runCounter(e.target); ioc.unobserve(e.target); }
+      });
+    }, { threshold: 0.5 });
+    Array.prototype.forEach.call(counters, function (el) { ioc.observe(el); });
+  }
+
+  /* --- 3. bara de progres ------------------------------------------------ */
+  var bar = root.querySelector('.vtn-progress i');
+  var topBtn = root.querySelector('.vtn-top');
+  var nav = root.querySelector('.vtn-nav');
+  var navLinks = Array.prototype.slice.call(root.querySelectorAll('.vtn-nav a'));
+  var sections = navLinks.map(function (a) { return root.querySelector(a.getAttribute('href')); });
+  var ticking = false;
+
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var y = window.pageYOffset || h.scrollTop;
+    if (bar) bar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+    if (topBtn) topBtn.classList.toggle('vtn-show', y > 700);
+
+    var offset = (nav ? nav.offsetHeight : 0) + 12;
+    var active = -1;
+    for (var i = 0; i < sections.length; i++) {
+      var s = sections[i];
+      if (s && s.getBoundingClientRect().top - offset <= 1) active = i;
+    }
+    navLinks.forEach(function (a, i) { a.classList.toggle('vtn-on', i === active); });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  onScroll();
+
+  if (topBtn) topBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+
+  /* --- 4. filtrarea cursurilor ------------------------------------------ */
+  var courseBar = root.querySelector('[data-vtn-coursefilters]');
+  if (courseBar) {
+    var courseBtns = Array.prototype.slice.call(courseBar.querySelectorAll('.vtn-filter'));
+    var courses = Array.prototype.slice.call(root.querySelectorAll('[data-vtn-audience]'));
+    var courseCount = root.querySelector('[data-vtn-coursecount]');
+    courseBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var want = btn.getAttribute('data-vtn-for');
+        courseBtns.forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle('vtn-on', on);
+          b.setAttribute('aria-pressed', String(on));
+        });
+        var n = 0;
+        courses.forEach(function (c) {
+          var vis = want === 'toate' ||
+            c.getAttribute('data-vtn-audience').split(' ').indexOf(want) > -1;
+          c.hidden = !vis;
+          if (vis) n++;
+        });
+        if (courseCount) {
+          courseCount.textContent = n === 1 ? 'Un curs afișat.' : n + ' cursuri afișate.';
+        }
+      });
+    });
+  }
+
+  /* --- 5. filtrarea orarului pe zile ------------------------------------ */
+  var dayBar = root.querySelector('[data-vtn-dayfilters]');
+  if (dayBar) {
+    var dayBtns = Array.prototype.slice.call(dayBar.querySelectorAll('.vtn-filter'));
+    var rows = Array.prototype.slice.call(root.querySelectorAll('[data-vtn-day]'));
+    var heads = Array.prototype.slice.call(root.querySelectorAll('.vtn-row-head'));
+    var dayCount = root.querySelector('[data-vtn-daycount]');
+    dayBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var want = btn.getAttribute('data-vtn-for');
+        dayBtns.forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle('vtn-on', on);
+          b.setAttribute('aria-pressed', String(on));
+        });
+        var n = 0;
+        rows.forEach(function (r) {
+          var vis = want === 'all' ||
+            r.getAttribute('data-vtn-day').split(' ').indexOf(want) > -1;
+          r.hidden = !vis;
+          if (vis) n++;
+        });
+        heads.forEach(function (h) {
+          h.hidden = want !== 'all' && h.getAttribute('data-vtn-head') !== want;
+        });
+        if (dayCount) {
+          dayCount.textContent = n === 1 ? 'O grupă afișată.' : n + ' grupe afișate.';
+        }
+      });
+    });
+  }
+
+  /* --- 6. galeria cu lupă ------------------------------------------------ */
+  var lb = root.querySelector('.vtn-lb');
+  if (lb) {
+    var lbImg = lb.querySelector('img');
+    var lbCap = lb.querySelector('figcaption');
+    var triggers = Array.prototype.slice.call(root.querySelectorAll('.vtn-lbbtn'));
+    var current = 0, lastFocus = null;
+
+    function show(i) {
+      current = (i + triggers.length) % triggers.length;
+      var t = triggers[current];
+      lbImg.src = t.getAttribute('data-vtn-src');
+      lbImg.alt = t.getAttribute('data-vtn-alt') || '';
+      lbCap.textContent = t.getAttribute('data-vtn-cap') || '';
+    }
+    function open(i) {
+      lastFocus = document.activeElement;
+      show(i);
+      lb.classList.add('vtn-open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lb.querySelector('.vtn-lb__close').focus();
+    }
+    function close() {
+      lb.classList.remove('vtn-open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    }
+    triggers.forEach(function (t, i) {
+      t.addEventListener('click', function () { open(i); });
+    });
+    lb.querySelector('.vtn-lb__close').addEventListener('click', close);
+    lb.querySelector('.vtn-lb__prev').addEventListener('click', function () { show(current - 1); });
+    lb.querySelector('.vtn-lb__next').addEventListener('click', function () { show(current + 1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('vtn-open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+  }
+
+  /* --- 7. derulare lină către ancore, cu compensarea navigației ---------- */
+  root.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#vtn-"]') : null;
+    if (!a) return;
+    var target = root.querySelector(a.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    var offset = (nav ? nav.offsetHeight : 0) + 8;
+    var y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
+  });
+})();
+
+</script>
+
+<!-- Date structurate: școala, sălile, serviciile și întrebările frecvente.
+     Nu conțin tarife: prețurile se comunică în privat. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "DanceSchool",
+        "LocalBusiness"
+      ],
+      "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord",
+      "name": "Grupul Vatra – Filiala Torino Nord",
+      "alternateName": "Școala de Dansuri Populare Românești Grupul Vatra",
+      "description": "Sediul principal al Școlii de Dansuri Populare Românești „Grupul Vatra”, în Via Gressoney 29/B, Torino: dans popular, balet, dans modern și dans de caracter pentru copii, adolescenți și adulți. Prima lecție de probă este gratuită.",
+      "url": "https://grupulvatra.com/grupulvatratorinonord/",
+      "foundingDate": "2011-09-25",
+      "inLanguage": "ro",
+      "telephone": "+393921897050",
+      "email": "info@grupulvatra.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Gressoney 29/B",
+        "postalCode": "10155",
+        "addressLocality": "Torino",
+        "addressRegion": "TO",
+        "addressCountry": "IT"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Iurie Răileanu",
+        "jobTitle": "Fondator, director și coregraf general",
+        "url": "https://grupulvatra.com/iurie-raileanu-coreograf-grupul-vatra/"
+      },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "APS ASD Primo Passo",
+        "taxID": "97814410011",
+        "url": "https://www.primopasso.org/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Barbaresco 8",
+          "postalCode": "10127",
+          "addressLocality": "Torino",
+          "addressCountry": "IT"
+        }
+      },
+      "sameAs": [
+        "https://www.youtube.com/@grupulvatra",
+        "https://www.youtube.com/@scuoladidanzaprimopasso",
+        "https://www.primopasso.org/"
+      ],
+      "subjectOf": [
+        {
+          "@type": "WebPage",
+          "name": "Grupul Vatra pe YouTube",
+          "url": "https://www.youtube.com/@grupulvatra"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Scuola di Danza e Arte Primo Passo pe YouTube",
+          "url": "https://www.youtube.com/@scuoladidanzaprimopasso"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Torino"
+        },
+        {
+          "@type": "City",
+          "name": "Chivasso"
+        },
+        {
+          "@type": "City",
+          "name": "Venaria Reale"
+        },
+        {
+          "@type": "City",
+          "name": "Settimo Torinese"
+        },
+        {
+          "@type": "City",
+          "name": "Borgaro Torinese"
+        },
+        {
+          "@type": "City",
+          "name": "Druento"
+        },
+        {
+          "@type": "City",
+          "name": "San Mauro Torinese"
+        },
+        {
+          "@type": "Place",
+          "name": "Valli di Lanzo"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "14:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "18:00"
+        }
+      ],
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Două săli de dans, 250 mp în total",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Parchet de dans",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Bare de balet",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Oglinzi pe toată lungimea",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Sistem audio și lumini de scenă",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Videoproiector cu ecran de 4×3 metri",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Studio multimedia",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Garderobă de costume populare",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Vestiar",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Zonă de așteptare pentru părinți",
+          "value": true
+        }
+      ],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Închirierea sălilor de dans",
+            "description": "Săli de dans cu parchet, oglinzi, bare de balet, sistem audio, lumini și videoproiector, pentru antrenamente, lecții private sau de grup, repetiții și ateliere. Disponibile luni–sâmbătă, 9:00–17:00, în afara orelor de curs.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Torino"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Producție foto, video și audio — Departamentul Media",
+            "description": "Filmarea și montajul spectacolelor, transmisiuni live, fotografie de scenă și de studio, interviuri, podcast, lumini și efecte speciale, pachete de piese scurte pentru rețelele sociale.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Torino"
+            }
+          }
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cursurile Filialei Torino Nord, stagiunea 2026–2027",
+        "itemListElement": [
+          {
+            "@type": "Course",
+            "name": "Dans popular pentru copii",
+            "description": "Joc, ritm, cântec și primele coregrafii, pe grupe de vârstă, pentru copii de 4–12 ani.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Dans popular pentru adolescenți",
+            "description": "Coregrafii complexe și tehnică scenică pentru adolescenți și tineri.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Dans popular pentru adulți începători",
+            "description": "Hore, sârbe, brâie și bătute pentru adulți, fără experiență și fără pereche.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Balet, dans modern și dans de caracter",
+            "description": "Danza classica pe grupe de vârstă, inclusiv pentru adulți, dans modern și dans de caracter, cu Sofia Zaynetdinova.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Baby dance și teatru-dans",
+            "description": "Mișcare, joc și poveste pentru cei mai mici dansatori ai școlii.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Dansuri populare internaționale",
+            "description": "Dansuri din Italia, Grecia, Spania, Armenia și din alte culturi, pentru tineri și adulți.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Grupul Feminin Elle",
+            "description": "Dans de caracter și dansuri internaționale pentru fete și femei, pe două niveluri.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Ceata de Călușari",
+            "description": "Dans călușăresc pentru băieți și bărbați: joc, forță, ritm, precizie și rezistență.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://grupulvatra.com/grupulvatratorinonord/#intrebari",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Trebuie să am experiență?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Grupele de începători pornesc de la zero, iar la adulți se schimbă partenerii ca la horele din sat, deci vii și singur. Pentru ansamblurile de performanță există preselecție și o perioadă de probă."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Prima lecție este gratuită?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da, prima lecție de probă este gratuită, la orice grupă. Scrie-ne pe WhatsApp și îți spunem când poți veni."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Cât costă cursurile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tarifele se comunică în privat, pe WhatsApp, pentru grupa care te interesează. Nu le publicăm online, pentru că diferă de la o grupă la alta și de la un tip de abonament la altul."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce aduc la prima lecție?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Haine comode și elastice, un tricou, pantofi de sport sau de dans și apă. La baby dance, șosete antiderapante. Nu se intră în sală în haine de stradă și în încălțăminte de exterior."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Este nevoie de certificat medical?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da. Pentru toate grupele de dans este obligatoriu certificatul medical sportiv, iar pentru minori și acordul scris al părintelui sau al tutorelui."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Cine cumpără costumul?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pentru majoritatea grupelor, costumele sunt puse la dispoziție de școală, în limita stocului. La grupele de copii, părinții achiziționează costumul după modelele stabilite de școală. La Ceata de Călușari, costumul, opincile și pintenii sunt responsabilitatea fiecărui dansator, cu furnizori recomandați de coregraf."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Copilul meu poate veni însoțit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Minorii trebuie însoțiți la sală de un părinte sau de un adult autorizat, iar zona de așteptare pentru părinți există chiar lângă săli. Telefonul nu se folosește în timpul repetițiilor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Se pot face fotografii și filmări?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Materialul foto și video se realizează de Departamentul Media al școlii. Nicio imagine cu un minor recognoscibil nu se publică fără acordul de imagine semnat de părinte sau de tutore."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pot dansa dacă nu sunt român sau moldovean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da. La cursuri vin și italieni, și oameni din alte comunități. Repertoriul include dansuri din Italia, Irlanda, Spania, Armenia, Ucraina și din alte culturi, alături de cel românesc."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pot să vin doar ca să văd?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da. Scrie-ne pe WhatsApp și îți spunem când are loc următoarea lecție deschisă sau spectacol la sediu. Lecțiile deschise pentru părinți au loc în fiecare lună la grupele de copii."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>

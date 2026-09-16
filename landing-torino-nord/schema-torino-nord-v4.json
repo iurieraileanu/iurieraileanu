@@ -1,0 +1,374 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "DanceSchool",
+        "LocalBusiness"
+      ],
+      "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord",
+      "name": "Grupul Vatra – Filiala Torino Nord",
+      "alternateName": "Școala de Dansuri Populare Românești Grupul Vatra",
+      "description": "Sediul principal al Școlii de Dansuri Populare Românești „Grupul Vatra”, în Via Gressoney 29/B, Torino: dans popular, balet, dans modern și dans de caracter pentru copii, adolescenți și adulți. Prima lecție de probă este gratuită.",
+      "url": "https://grupulvatra.com/grupulvatratorinonord/",
+      "foundingDate": "2011-09-25",
+      "inLanguage": "ro",
+      "telephone": "+393921897050",
+      "email": "info@grupulvatra.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Gressoney 29/B",
+        "postalCode": "10155",
+        "addressLocality": "Torino",
+        "addressRegion": "TO",
+        "addressCountry": "IT"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Iurie Răileanu",
+        "jobTitle": "Fondator, director și coregraf general",
+        "url": "https://grupulvatra.com/iurie-raileanu-coreograf-grupul-vatra/"
+      },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "APS ASD Primo Passo",
+        "taxID": "97814410011",
+        "url": "https://www.primopasso.org/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Barbaresco 8",
+          "postalCode": "10127",
+          "addressLocality": "Torino",
+          "addressCountry": "IT"
+        }
+      },
+      "sameAs": [
+        "https://www.youtube.com/@grupulvatra",
+        "https://www.youtube.com/@scuoladidanzaprimopasso",
+        "https://www.primopasso.org/"
+      ],
+      "subjectOf": [
+        {
+          "@type": "WebPage",
+          "name": "Grupul Vatra pe YouTube",
+          "url": "https://www.youtube.com/@grupulvatra"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Scuola di Danza e Arte Primo Passo pe YouTube",
+          "url": "https://www.youtube.com/@scuoladidanzaprimopasso"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Torino"
+        },
+        {
+          "@type": "City",
+          "name": "Chivasso"
+        },
+        {
+          "@type": "City",
+          "name": "Venaria Reale"
+        },
+        {
+          "@type": "City",
+          "name": "Settimo Torinese"
+        },
+        {
+          "@type": "City",
+          "name": "Borgaro Torinese"
+        },
+        {
+          "@type": "City",
+          "name": "Druento"
+        },
+        {
+          "@type": "City",
+          "name": "San Mauro Torinese"
+        },
+        {
+          "@type": "Place",
+          "name": "Valli di Lanzo"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "14:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "18:00"
+        }
+      ],
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Două săli de dans, 250 mp în total",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Parchet de dans",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Bare de balet",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Oglinzi pe toată lungimea",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Sistem audio și lumini de scenă",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Videoproiector cu ecran de 4×3 metri",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Studio multimedia",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Garderobă de costume populare",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Vestiar",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Zonă de așteptare pentru părinți",
+          "value": true
+        }
+      ],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Închirierea sălilor de dans",
+            "description": "Săli de dans cu parchet, oglinzi, bare de balet, sistem audio, lumini și videoproiector, pentru antrenamente, lecții private sau de grup, repetiții și ateliere. Disponibile luni–sâmbătă, 9:00–17:00, în afara orelor de curs.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Torino"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Producție foto, video și audio — Departamentul Media",
+            "description": "Filmarea și montajul spectacolelor, transmisiuni live, fotografie de scenă și de studio, interviuri, podcast, lumini și efecte speciale, pachete de piese scurte pentru rețelele sociale.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Torino"
+            }
+          }
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cursurile Filialei Torino Nord, stagiunea 2026–2027",
+        "itemListElement": [
+          {
+            "@type": "Course",
+            "name": "Dans popular pentru copii",
+            "description": "Joc, ritm, cântec și primele coregrafii, pe grupe de vârstă, pentru copii de 4–12 ani.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Dans popular pentru adolescenți",
+            "description": "Coregrafii complexe și tehnică scenică pentru adolescenți și tineri.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Dans popular pentru adulți începători",
+            "description": "Hore, sârbe, brâie și bătute pentru adulți, fără experiență și fără pereche.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Balet, dans modern și dans de caracter",
+            "description": "Danza classica pe grupe de vârstă, inclusiv pentru adulți, dans modern și dans de caracter, cu Sofia Zaynetdinova.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Baby dance și teatru-dans",
+            "description": "Mișcare, joc și poveste pentru cei mai mici dansatori ai școlii.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Dansuri populare internaționale",
+            "description": "Dansuri din Italia, Grecia, Spania, Armenia și din alte culturi, pentru tineri și adulți.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Grupul Feminin Elle",
+            "description": "Dans de caracter și dansuri internaționale pentru fete și femei, pe două niveluri.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          },
+          {
+            "@type": "Course",
+            "name": "Ceata de Călușari",
+            "description": "Dans călușăresc pentru băieți și bărbați: joc, forță, ritm, precizie și rezistență.",
+            "provider": {
+              "@id": "https://grupulvatra.com/grupulvatratorinonord/#torino-nord"
+            },
+            "inLanguage": "ro",
+            "isAccessibleForFree": false
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://grupulvatra.com/grupulvatratorinonord/#intrebari",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Trebuie să am experiență?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Grupele de începători pornesc de la zero, iar la adulți se schimbă partenerii ca la horele din sat, deci vii și singur. Pentru ansamblurile de performanță există preselecție și o perioadă de probă."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Prima lecție este gratuită?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da, prima lecție de probă este gratuită, la orice grupă. Scrie-ne pe WhatsApp și îți spunem când poți veni."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Cât costă cursurile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tarifele se comunică în privat, pe WhatsApp, pentru grupa care te interesează. Nu le publicăm online, pentru că diferă de la o grupă la alta și de la un tip de abonament la altul."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce aduc la prima lecție?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Haine comode și elastice, un tricou, pantofi de sport sau de dans și apă. La baby dance, șosete antiderapante. Nu se intră în sală în haine de stradă și în încălțăminte de exterior."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Este nevoie de certificat medical?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da. Pentru toate grupele de dans este obligatoriu certificatul medical sportiv, iar pentru minori și acordul scris al părintelui sau al tutorelui."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Cine cumpără costumul?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pentru majoritatea grupelor, costumele sunt puse la dispoziție de școală, în limita stocului. La grupele de copii, părinții achiziționează costumul după modelele stabilite de școală. La Ceata de Călușari, costumul, opincile și pintenii sunt responsabilitatea fiecărui dansator, cu furnizori recomandați de coregraf."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Copilul meu poate veni însoțit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Minorii trebuie însoțiți la sală de un părinte sau de un adult autorizat, iar zona de așteptare pentru părinți există chiar lângă săli. Telefonul nu se folosește în timpul repetițiilor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Se pot face fotografii și filmări?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Materialul foto și video se realizează de Departamentul Media al școlii. Nicio imagine cu un minor recognoscibil nu se publică fără acordul de imagine semnat de părinte sau de tutore."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pot dansa dacă nu sunt român sau moldovean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da. La cursuri vin și italieni, și oameni din alte comunități. Repertoriul include dansuri din Italia, Irlanda, Spania, Armenia, Ucraina și din alte culturi, alături de cel românesc."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pot să vin doar ca să văd?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da. Scrie-ne pe WhatsApp și îți spunem când are loc următoarea lecție deschisă sau spectacol la sediu. Lecțiile deschise pentru părinți au loc în fiecare lună la grupele de copii."
+          }
+        }
+      ]
+    }
+  ]
+}
